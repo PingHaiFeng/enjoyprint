@@ -1,0 +1,22 @@
+<view class="feedback">
+  <view class="question">
+    <textarea placeholder="请写下您的问题和意见" bindinput="getSuggestion" value="{{suggestion}}"></textarea>
+  </view>
+  <view class="picture-wrp">
+    <text class="mid-wrp-title">请上传图片</text>
+    <view class="items-wrp">
+      <view class="pic-item" wx:for="{{tempFilePaths}}" wx:for-index="index" wx:for-item="item" wx:key='index'>
+        <image wx:if="{{isUploadPic}}" src="{{item}}" bindtap="previewImage" data-index="{{index}}" class="pic-content"> </image>
+        <view class="delete-wrp" bindtap="deleteImage" data-index="{{index}}">
+          <image class="delete-icon" src="../../../images/delete2.png"></image>
+        </view>
+      </view>
+      <view class="pic-item" bindtap="goUploadPic">
+        <image src="../../../images/add.png" class="icon-add"></image>
+
+      </view>
+
+    </view>
+  </view>
+  <view class="submit_button" bindtap="sendSuggestionData">提交</view>
+</view>

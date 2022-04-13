@@ -1,0 +1,20 @@
+<view class="container">
+  <block wx:if="{{libSelectedDocList && libSelectedDocList.length>0}}">
+    <view bindtap="viewDoc" class="task-item" wx:for="{{libSelectedDocList}}" wx:key="file_id" data-idx="{{index}}">
+      <image class="del" catchtap="onDelete" hover-stop-propagation='true' src="../../../images/close.png"></image>
+
+      <image class="icon" src="../../../images/type-{{item.file_type_id}}.png"></image>
+
+      <text class="txt-title">{{item.name}}</text>
+    </view>
+    <view class="btn-wrp">
+      <view class="btn-conf" bindtap="onConfirm">确认打印</view>
+    </view>
+  </block>
+  <block wx:else>
+<view class="none">
+  <image class="none-icon" src="../../../images/none-record.png"></image>
+  <text >列表是空的</text>
+</view>
+  </block>
+</view>

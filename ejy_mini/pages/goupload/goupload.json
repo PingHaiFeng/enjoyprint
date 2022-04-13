@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "print-params":"../../components/print-params/print-params",
+    "ProgressBar":"../../components/ProgressBar/ProgressBar"
+
+  },
+  "navigationBarTitleText": "文件上传"
+}

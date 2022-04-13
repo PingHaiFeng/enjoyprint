@@ -1,0 +1,34 @@
+Page{
+
+font-size: 30rpx;
+}
+.settled{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input{
+  width: 600rpx;
+  height:80rpx;
+margin: 20rpx 0;
+ 
+  border: 1rpx #5f98fd solid;
+  border-radius: 50rpx;
+  text-indent: 20rpx;
+}
+.submit{
+  text-align:center ;
+  line-height: 80rpx;
+  width: 600rpx;
+  border: none;
+  background-color: #fff;
+  border-radius: 40rpx;
+  height: 80rpx;
+  background-color: #5f98fd;
+ color: white;
+}
+.submit text{
+  margin-top: 10rpx;
+
+
+}

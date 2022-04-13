@@ -1,0 +1,9 @@
+
+{
+  "usingComponents": {
+    "action-sheet":"../../components/action-sheet/action-sheet"
+  },
+  "navigationBarTitleText": "云即印",
+ "navigationBarBackgroundColor": "#5f98fd",
+ "navigationBarTextStyle": "white"
+}

@@ -1,0 +1,221 @@
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.exe
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.deps.json
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.json
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.dev.json
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.License.dll
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.Pdf.xml
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.AssemblyReference.cache
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\云打印.Form_login.resources
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.Form_main.resources
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.GenerateResource.cache
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfoInputs.cache
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfo.cs
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CoreCompileInputs.cache
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CopyComplete
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.genruntimeconfig.cache
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\云打印.Form_login.resources
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.Form_main.resources
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.exe
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.deps.json
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.json
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.dev.json
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.License.dll
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.genruntimeconfig.cache
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Properties.Resources.resources
+C:\Users\jiongjiong\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Properties.Resources.resources
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.AssemblyReference.cache
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\云打印.Form_login.resources
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.Form_main.resources
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Properties.Resources.resources
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.GenerateResource.cache
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfoInputs.cache
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfo.cs
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CoreCompileInputs.cache
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.exe
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.deps.json
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.json
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.dev.json
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.License.dll
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CopyComplete
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.genruntimeconfig.cache
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Nancy.dll
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\bin\Debug\netcoreapp3.1\Nancy.dll
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Form_bottom_meau.resources
+C:\Users\jiongjiong\Desktop\WinFormsApp1\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Form_bottom_meau.resources
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.exe
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.deps.json
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.json
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.dev.json
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\Nancy.dll
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.License.dll
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Form_bottom_meau.resources
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\云打印.Form_login.resources
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.Form_main.resources
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Properties.Resources.resources
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\Administrator\Desktop\WinFormsApp12\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.genruntimeconfig.cache
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.exe
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.deps.json
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.json
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.dev.json
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Nancy.dll
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.License.dll
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.AssemblyReference.cache
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Form_bottom_meau.resources
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\云打印.Form_login.resources
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.Form_main.resources
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Properties.Resources.resources
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.GenerateResource.cache
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfoInputs.cache
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfo.cs
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CoreCompileInputs.cache
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CopyComplete
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.genruntimeconfig.cache
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.exe
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.deps.json
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.json
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.dev.json
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Nancy.dll
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.License.dll
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Form_bottom_meau.resources
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\云打印.Form_login.resources
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.Form_main.resources
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Properties.Resources.resources
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\Administrator\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.genruntimeconfig.cache
+C:\Users\jiongjiong\Desktop\云集印PC端\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AdminLock.resources
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.exe
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.deps.json
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.json
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.dev.json
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\EngineIoClientDotNet.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Nancy.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\SocketIoClientDotNet.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\SuperSocket.ClientEngine.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\WebSocket4Net.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\websocket-sharp.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.License.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.FormAdminLock.resources
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\云打印.FormLogin.resources
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.FormMain.resources
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.FormMenuStrip.resources
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Properties.Resources.resources
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\Administrator\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.genruntimeconfig.cache
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.AssemblyReference.cache
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.FormAdminLock.resources
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\云打印.FormLogin.resources
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.FormMain.resources
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.FormMenuStrip.resources
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Properties.Resources.resources
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.GenerateResource.cache
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfoInputs.cache
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfo.cs
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CoreCompileInputs.cache
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.exe
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.deps.json
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.json
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.dev.json
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\EngineIoClientDotNet.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Nancy.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\SocketIoClientDotNet.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\SuperSocket.ClientEngine.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\WebSocket4Net.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\websocket-sharp.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.License.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CopyComplete
+C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.genruntimeconfig.cache

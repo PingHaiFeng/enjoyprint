@@ -1,0 +1,23 @@
+/* components/SearchBar/SearchBar.wxss */
+
+.search-bar {
+  width: 100%;
+  height: 80rpx;
+
+ background-color: #fff;
+
+border-radius: 20rpx;
+display: flex;
+align-items: center;
+box-sizing: border-box;
+
+
+}
+
+.search-bar input {
+ background-color: #fff;
+ width: 80%;
+ height: 70rpx;
+ text-indent: 30rpx;
+
+}

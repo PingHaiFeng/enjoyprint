@@ -1,0 +1,1 @@
+<web-view src="{{web_src}}" bindmessage="handlePostMessage"></web-view>
