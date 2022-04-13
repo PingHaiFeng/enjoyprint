@@ -4,7 +4,7 @@ from threading import Thread
 import requests
 import json
 import ast
-from haifeng.YunJIYIn.plugins.redis_serve import *
+from plugins.redis_serve import *
 from werkzeug.wrappers import request
 socket_mapping = {} # 设置一个字典，用来保存每一个客户端的连接 和 身份信息
 sever = socket.socket()  # 创建 socket 对象

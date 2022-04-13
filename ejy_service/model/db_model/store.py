@@ -1,4 +1,4 @@
-from haifeng.YunJIYIn import db
+from __init__ import db
 from sqlalchemy import func
 
 

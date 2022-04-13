@@ -1,8 +1,8 @@
 import time
 import traceback
 import functools
-from haifeng.YunJIYIn.utils.state_handler import State
-from haifeng.YunJIYIn.utils.automail import Automail
+from utils.state_handler import State
+from utils.automail import Automail
 def except_logger(func):
     @functools.wraps(func)
     def wrapper(*args,**kwargs):

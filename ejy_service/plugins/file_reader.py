@@ -1,6 +1,6 @@
 from PyPDF2 import PdfFileReader
 from plugins import transform_pdf
-from haifeng.YunJIYIn.utils.utils import *
+from utils.utils import *
 import time
 import os
 from pptx import Presentation

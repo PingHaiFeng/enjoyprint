@@ -1,4 +1,4 @@
-from haifeng.YunJIYIn import db
+from __init__ import db
 import time
 # 用户订单
 class Order(db.Model):

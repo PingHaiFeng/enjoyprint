@@ -1,4 +1,4 @@
-from haifeng.YunJIYIn import db
+from __init__ import db
 from utils.utils import *
 
 
