@@ -1,0 +1,152 @@
+.settingHidden {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  font-size: 26rpx;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform: translateY(100%);
+  transition: all 3s ease;
+}
+.settingVisiable {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  font-size: 26rpx;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  transform: translateY(0);
+  transition: all 3s ease;
+}
+
+.close {
+  width: 40rpx;
+  height:40rpx;
+
+margin-left: auto;
+}
+
+.file_name,
+.paper_type,
+.size,
+.print_color,
+.duplex,
+.print_count,
+.print_range {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 105rpx;
+
+  padding: 0 30rpx;
+  border-bottom: 1px #e9e9e9 solid;
+  color: #333333;
+
+}
+
+.duplex-bar,
+.print-color-bar {
+  display: flex;
+  margin-left: auto;
+}
+
+.file_name {
+  height: 90rpx;
+}
+
+.file_name_body{
+  width: 350rpx;
+  font-size: 30rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.fileType-ico {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.opt {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 15rpx;
+  align-items: center;
+  background-color: #5f98fd;
+  color: white;
+  border-radius: 5px;
+  /* position: absolute;
+  right: 0px; */
+  width: 100rpx;
+  height: 50rpx;
+  border: 1rpx #5f98fd solid;
+
+}
+
+.opt-none-sele {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 15rpx;
+  align-items: center;
+  /* background-color: #5f98fd; */
+  color: #333333;
+  border-radius: 5px;
+  /* position: absolute;
+  right: 0px; */
+  border: 1rpx #bfbfbf solid;
+  width: 100rpx;
+  height: 50rpx;
+
+}
+
+.opt-count {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 15rpx;
+  align-items: center;
+  border: 1px #bfbfbf solid;
+  /* color: white; */
+  border-radius: 5px;
+  /* position: absolute;
+  right: 0px; */
+  width: 150rpx;
+  height: 50rpx;
+
+}
+
+.opt-count-change {
+  margin: 0 15px;
+  font-size: 45rpx;
+  color: #6d6d6d;
+}
+
+.range-bar {
+  display: flex;
+  margin-left: auto;
+}
+.btn-confirm{
+width: 90%;
+height: 80rpx ;
+margin: 15rpx auto;
+text-align: center;
+line-height: 80rpx;
+background-color: #5f98fd;
+font-size: 32rpx;
+color: white;
+border-radius: 40rpx;
+
+}

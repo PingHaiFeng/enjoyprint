@@ -1,0 +1,17 @@
+
+.list-wrp{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  margin: 45rpx auto;
+  background-color: #fff;
+  border-radius: 30rpx;
+}
+.borad-title{
+  color: #3d3d3d;
+  margin: 35rpx auto;
+  font-size: 30rpx;
+}
+

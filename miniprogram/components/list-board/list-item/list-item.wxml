@@ -1,0 +1,2 @@
+<view class="left">{{key}}</view>
+    <view class="right">{{value}}</view>

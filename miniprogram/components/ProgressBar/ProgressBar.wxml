@@ -1,0 +1,5 @@
+<view class="container">
+  <text class="uploading-text"> 加密上传中...（{{currentIndex}}/{{allCount}}）</text>
+  <progress percent='{{pro}}' border-radius="10rpx" font-size="28rpx" color="#5f98fd" show-info />
+  <view class="uploading-cancel" bindtap="cancelTask">取消</view>
+</view>

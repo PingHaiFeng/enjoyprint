@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "list-board":"../../../components/list-board/list-board",
+    "list-item":"../../../components/list-board/list-item/list-item"
+
+  },
+  "navigationBarTitleText": "云即印 价格表"
+}

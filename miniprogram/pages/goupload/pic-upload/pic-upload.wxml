@@ -1,0 +1,22 @@
+<view class="picture-wrp">
+
+  <view class="items-wrp">
+    <view class="pic-item" wx:for="{{tempFilePaths}}" wx:for-index="index" wx:for-item="item" wx:key='index'>
+      <image wx:if="{{isUploadPic}}" src="{{item}}" bindtap="previewImage" data-index="{{index}}" class="pic-content"> </image>
+      <view class="delete-wrp" bindtap="deleteImage" data-index="{{index}}">
+        <image class="delete-icon" src="../../../images/delete2.png"></image>
+      </view>
+    </view>
+    <view class="pic-item" bindtap="goUploadPic">
+      <image src="../../../images/add.png" class="icon-add"></image>
+
+    </view>
+
+  </view>
+</view>
+
+<view class="bottom-wrp">
+
+  <view class="count-tip">已上传{{tempFilePaths.length}}张图片</view>
+  <view class="btn-confirm">确认选择</view>
+</view>

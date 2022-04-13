@@ -1,0 +1,224 @@
+Page {
+  background: #f5f5f5;
+  padding: 0;
+  margin: 0;
+}
+
+.printPage {
+  position: absolute;
+  top: 420rpx;
+  width: 100%;
+  border-radius: 20rpx;
+  background-color: #f5f5f5;
+  padding-top: 30rpx;
+
+}
+
+.printType {
+  display: flex;
+  flex-direction: row;
+
+  height: 180rpx;
+  align-items: center;
+  border-radius: 30rpx;
+  background: #fff;
+  color: #333;
+  margin: 30rpx 35rpx;
+  font-size: 32rpx;
+
+}
+
+.printType image {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 20rpx 0 55rpx;
+
+}
+
+.printType-txt {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.printType-txt-tips {
+  font-size: 22rpx;
+  margin-top: 10rpx;
+  color: #9b9b9b
+}
+
+.balance {
+  margin-left: auto;
+  margin-right: 60rpx;
+  color: #5f98fd;
+}
+
+.index_swiper swiper {
+
+  width: 100%;
+  height: 700rpx;
+
+}
+
+swiper-item {
+  height: 470rpx;
+}
+
+swiper-item image {
+  width: 100%;
+  height: 470rpx;
+
+}
+
+.store {
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+}
+
+.store_ico {
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 40rpx;
+}
+
+.right_ico {
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 10rpx;
+}
+
+.store navigator {
+  margin-top: -1px;
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 公告栏 */
+.notice-wrp {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.announce-board {
+  width: 90%;
+  height: 70rpx;
+  border-radius: 35rpx;
+  margin-top: 15rpx;
+  background-color: rgb(237, 240, 250);
+  display: flex;
+  box-sizing: border-box;
+  /* padding: 0 20rpx; */
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+
+}
+
+.icon-announce {
+  /* width: 50rpx; */
+  height: 100%;
+  background-color: rgb(237, 240, 250);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+
+.icon-announce image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 15rpx;
+  opacity: .8;
+
+  /* animation: mymove 3s infinite;
+  -webkit-animation: mymove 3s infinite;
+
+  animation-direction: alternate;
+
+  animation-timing-function: ease-in-out; */
+
+}
+
+.announce-content {
+  color: #8b8b8b;
+  font-size: 24rpx;
+  width: 100%;
+  /* position: absolute; */
+  animation: 10s wordsLoop linear infinite normal;
+  /* animation-delay: 1s; */
+  z-index: 1;
+}
+
+.announce-content-none {
+  color: #8b8b8b;
+  font-size: 24rpx;
+  width: 100%;
+  z-index: 1;
+}
+
+@keyframes wordsLoop {
+  0% {
+    transform: translateX(100%);
+
+  }
+
+  100% {
+    transform: translateX(-110%);
+    /* left: 20rpx; */
+  }
+}
+
+@keyframes mymove {
+  0% {
+    transform: scale(1);
+    /*开始为原始大小*/
+  }
+
+  25% {
+    transform: scale(1.2);
+    /*放大1.1倍*/
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+}
+.waiter {
+
+  width: 100%;
+  margin-top: 40rpx;
+
+}
+
+
+
+.waiter-btn {
+  background-color: #ffffff !important;
+  color: #5f98fd;
+  font-size: 28rpx;
+  width: 200rpx !important;
+  display: flex;
+  align-items: center;
+  padding: 10rpx !important;
+  font-weight: normal !important;
+  border-radius: 35rpx !important;
+  justify-content: center !important;
+
+}
+
+.waiter-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 15rpx;
+}

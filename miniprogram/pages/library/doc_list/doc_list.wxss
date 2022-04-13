@@ -1,0 +1,141 @@
+Page {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20rpx;
+  align-items: center;
+}
+SearchBar{
+  width: 100%;
+}
+
+.doc-item {
+  width: 700rpx;
+  height: 160rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  display: flex;
+  margin: 30rpx 0;
+
+
+}
+
+.icon-doc {
+  width: 80rpx;
+  height: 80rpx;
+}
+/* 中间文字层 */
+.doc-text-wrp {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin-left: 25rpx;
+}
+
+.doc-top-bar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.icon-hot {
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 20rpx;
+}
+
+
+.doc-mid-bar {
+  display: flex;
+  align-items: center;
+}
+
+.create-date {
+  margin: 6rpx 0;
+}
+
+.doc-bottom-bar {
+
+  display: flex;
+  align-items: center;
+}
+.right-tool-wrp{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+.down_share{
+  display: flex;
+}
+
+.down_share image {
+  width: 35rpx;
+  height: 35rpx;
+  margin: 0 10rpx;
+}
+
+.btn-print {
+ 
+  width: 110rpx;
+  height: 50rpx;
+  z-index: 999;
+  background-color: #5f98fd;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+}
+
+.print-num {
+  margin-left: 30rpx;
+}
+/* 按钮悬浮可移动 */
+.movable-area{
+  pointer-events:none;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.movable-view{ 
+  pointer-events:auto;
+  height: 120rpx;
+  width: 120rpx;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 55rpx;
+  opacity: .6;
+  position: relative;
+}
+.count-dot{
+position: absolute;
+top: 0;
+left: 80rpx;
+background-color: red;
+font-size: 26rpx;
+color: white;
+width: 40rpx;
+height:40rpx ;
+border-radius: 20rpx;
+text-align: center;
+line-height: 40rpx;
+}
+.add-print{
+  width: 60rpx;
+  height: 60rpx;
+}

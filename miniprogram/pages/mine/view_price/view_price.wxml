@@ -1,0 +1,15 @@
+<view class="price-wrp" wx:if="{{havePrice}}">
+  <text class="store-name">{{store_name}}打印价格表</text>
+  <view class="price-item" wx:for="{{price_list}}" wx:for-item="item" wx:for-index="index" wx:key="id">
+    <view class="left">{{item.paper_type}}-{{item.size}}-{{item.color}}-{{item.duplex}}</view>
+    <view class="right">￥{{item.price}}</view>
+  </view>
+
+</view>
+<!-- <list-board wx:if="{{havePrice}}" title="{{store_name}}打印价格表" listData="{{price_list}}"   >
+<list-item key=""></list-item>
+</list-board> -->
+<view class="none-price" wx:if="{{!havePrice}}">
+  <image src="../../../images/none-page.png"></image>
+  <text>该打印店暂未设置价格，试试换家店铺打印吧</text>
+</view>

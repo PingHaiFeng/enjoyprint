@@ -1,0 +1,17 @@
+<view class="outpaper-type-wrp">
+  <view class="outpaper-item" wx:for="{{optList}}" wx:key="id" bindtap="changePayType" data-index="{{index}}">
+    <text>{{item.title}}</text>
+    <view class="{{outPaperType==index?'outpaper-type-select':'outpaper-type-none-select'}}">
+      <image wx:if="{{outPaperType==index}}" class="select-ico" src="../../../images/selected.png">
+      </image>
+    </view>
+  </view>
+  
+
+</view>
+<view class="tips">说明：\n{{optList[outPaperType].intro}}</view>
+
+
+<view class="btn-confirm" bindtap="onConfirm">
+  <text>确认</text>
+</view>

@@ -1,0 +1,7 @@
+<view class="list-wrp">
+  <text class="borad-title" wx:if="{{showTitle}}">{{title}}</text>
+  <view class="list-item" wx:for="{{listData}}"  wx:key="id">
+<list-item> </list-item>
+  </view>
+
+</view>

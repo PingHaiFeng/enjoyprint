@@ -1,0 +1,44 @@
+<SearchBar ></SearchBar>
+
+<view class="doc-wrp">
+
+  <view class="doc-item"   wx:for="{{docList}}" wx:key="doc_id" wx:for-item="item"
+    wx:for-index="index">
+    <image class="icon-doc" src="../../../images/type-{{item.file_type_id}}.png">
+    </image>
+    <view class="doc-text-wrp" bindtap="viewDoc" data-idx="{{index}}" >
+      <view class="doc-top-bar">
+        <text class="fs32 col_32">{{item.name}}</text>
+        <image class="icon-hot" wx:if="{{item.ishot==1}}" src="../../../images/hot.png"></image>
+
+      </view>
+      <view class="doc-mid-bar">
+        <text class="create-date fs24 col_999">{{item.create_date}}</text>
+
+      </view>
+      <view class="doc-bottom-bar">
+        <text class="read-num fs24 col_999">浏览量：{{item.read_num}}</text>
+        <text class="print-num fs24 col_999">打印量{{item.print_num}}</text>
+
+      </view>
+
+    </view>
+    <view class="right-tool-wrp">
+      <view class="down_share">
+        <image src="../../../images/download.png"></image>
+        <image src="../../../images/share.png"></image>
+      </view>
+      <view class="btn-print fs26 col_fff" bindtap="addFile" data-idx="{{index}}">打印</view>
+    </view>
+   
+  </view>
+
+  <movable-area class="movable-area">
+    <movable-view x="600rpx" y="750rpx" class="movable-view" direction="all" bindtap="viewPrintFileList">
+      <view class="count-dot" wx:if="{{print_count>0}}">{{print_count}}</view>
+      <image class="add-print" src="../../../images/printer2.png"></image>
+    </movable-view>
+  </movable-area>
+
+
+</view>

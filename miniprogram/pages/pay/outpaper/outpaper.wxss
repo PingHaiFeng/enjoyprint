@@ -1,0 +1,124 @@
+Page {
+  width: 100%;
+  height: 100%;
+display: flex;
+flex-direction: column;
+  font-size: 32rpx;
+  color: rgb(32, 32, 32);
+  background-color: #f5f5f5;
+}
+
+.outpaper {
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+
+  align-items: center;
+  height: 300rpx;
+  width: 100%;
+}
+
+.outpaper-price {
+  margin-top: 60rpx;
+  color: red;
+  font-size:65rpx;
+}
+.store{
+  font-size: 34rpx;
+  margin: 10rpx 0;
+}
+.current-printer{
+font-size: 28rpx;
+  color: #bfbfbf;
+}
+.tool-wrp{
+  width: 90%;
+  margin: 20rpx auto;
+background-color: #fff;
+border-radius: 15rpx;
+font-size: 28rpx;
+
+}
+.tool-item{
+height: 90rpx;
+display: flex;
+align-items: center;
+box-sizing: border-box;
+padding: 0 30rpx;
+box-sizing: border-box;
+justify-content: space-between;
+}
+.left-tit{
+  color: #8d8d8d;
+}
+.right-tit{
+color: #333333;
+}
+.outpaper-type-wrp {
+  width:90%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  margin: 30rpx auto;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+
+.outpaper-item {
+  display: flex;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  width: 100%;
+  flex-direction: row;
+  color: #333333;
+align-items: center;
+height: 100rpx;
+border:1rpx solid f3f3f3 ;
+
+}
+
+.outpaper-type-select{
+  height: 40rpx;
+  width: 40rpx;
+  margin-left: auto;
+
+}
+.outpaper-type-none-select{
+  height:30rpx;
+  width: 30rpx;
+  margin-left: auto;
+  border-radius: 16rpx;
+  margin-right: 3rpx;
+  border:1rpx #5f98fd solid;
+}
+.select-ico{
+  height: 40rpx;
+  width: 40rpx;
+}
+.tips{
+  padding:  20rpx 30rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  color: #9b9b9b;
+  box-sizing: border-box;
+  width:90%;
+  margin:  0 auto;
+  border-radius: 20rpx;
+}
+.btn-confirm {
+
+  position: fixed;
+  border-radius: 40rpx;
+  bottom: 10rpx;
+  width: 600rpx;
+  height:85rpx;
+  font-size: 32rpx;
+  margin: 0 auto;
+  background-color: #5f98fd;
+  color: white;
+  text-align: center;
+  line-height: 85rpx;
+left: 50%;
+transform: translate(-50%,0);
+}

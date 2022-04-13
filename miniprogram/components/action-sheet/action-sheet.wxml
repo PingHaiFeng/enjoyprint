@@ -1,0 +1,9 @@
+<!--components/action-sheet/action-sheet.wxml-->
+
+<navigator class="nav" url="{{navUrl}}">
+  <image class="navIco" src="{{navIco}}"></image>
+  <navigator class="navText">{{navText}}</navigator>
+
+  <image class="goto" src="{{gotoIco}}"></image>
+
+</navigator>

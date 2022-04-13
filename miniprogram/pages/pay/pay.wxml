@@ -1,0 +1,55 @@
+<view class="pay">
+  <text class="pay-price">￥{{totalPrice}}</text>
+  <text class="store">{{account_info.store_name}}</text>
+  <text class="current-printer">{{printers_params[currentPrinterIndex].printer_name}}</text>
+</view>
+
+
+
+<view class="pay-type-wrp">
+  <view class="pay-item" bindtap="changePayType" data-index="1">
+    <image class="pay-ico" src="../../images/pay_wx.png" mode="scaleToFill"></image>
+    <text>微信支付</text>
+    <view class="{{payType==1?'pay-type-select':'pay-type-none-select'}}">
+      <image wx:if="{{payType==1}}" class="select-ico" src="../../images/selected.png">
+      </image>
+    </view>
+  </view>
+  <view class="pay-item" bindtap="changePayType" data-index="2">
+    <image class="pay-ico" src="../../images/balance.png" mode="scaleToFill"></image>
+    <text>余额支付</text>
+    <view class="{{payType==2?'pay-type-select':'pay-type-none-select'}}">
+      <image wx:if="{{payType==2}}" class="select-ico" src="../../images/selected.png">
+      </image>
+    </view>
+  </view>
+</view>
+
+<view class="tool-wrp">
+  <view class="tool-item" bindtap="goOutPaperPage">
+    <text class="left-tit">出纸方式</text>
+    <view class="right-tit">
+    <text>{{outPaperTypeStr}}</text>
+    <image class="arrow-right" src="../../images/right.png"></image>
+    </view>
+  </view>
+  <!-- <view class="tool-item">
+    <text class="left-tit">取件方式</text>
+    <text class="right-tit">到店自取</text>
+  </view>
+  <view class="tool-item">
+    <text class="left-tit">电话</text>
+    <input type="number" placeholder="请输入电话号码"/>
+  </view>
+  <view class="tool-item">
+    <text class="left-tit">打印装订</text>
+    <text class="right-tit">不装订</text>
+  </view>
+  <view class="tool-item">
+    <text class="left-tit">备注</text>
+    <input type="number" placeholder="点击输入备注"/>
+  </view> -->
+</view>
+<view class="goPay" bindtap="goPay">
+  <text>去支付</text>
+</view>
