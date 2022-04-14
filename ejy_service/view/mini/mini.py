@@ -13,9 +13,10 @@ from utils.state_handler import *
 from log.except_logger import *
 from plugins.redis_serve import *
 from view.mini.func.take_id import take_id_maker
+from config.config import *
 mini = Blueprint('mini', __name__)  # 第一个蓝图名称，第二个参数表示蓝图所在板块
 
-IO_PATH = get_relative_path()+ "\\temp_files\\"
+
 
 #获取所选店铺资料
 @mini.route('/store-info', methods=["POST", "GET"])

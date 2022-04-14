@@ -1,11 +1,15 @@
-import socket # 导入 socket 模块
+import sys,os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # __file__获取执行文件相对路径，整行为取上一级的上一级目录
+sys.path.append(BASE_DIR)
+import ast
+import json
+import socket  # 导入 socket 模块
 import time
 from threading import Thread
 import requests
-import json
-import ast
-from plugins.redis_serve import *
-from werkzeug.wrappers import request
+
+from plugins.redis_serve import r
+
 socket_mapping = {} # 设置一个字典，用来保存每一个客户端的连接 和 身份信息
 sever = socket.socket()  # 创建 socket 对象
 host = "172.16.0.2"  # 获取本地主机名

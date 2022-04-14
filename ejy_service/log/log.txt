@@ -844,3 +844,21 @@ Traceback (most recent call last):
     "file_page_num": res.page_num,
 AttributeError: 'Document' object has no attribute 'page_num'
 
+[2022-04-13 22:34:26]
+upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 53, in upload
+    with open(IO_PATH + file_new_name, "wb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\enjoyprint\\ejy_service\\temp_files\\202204137gvUJnvKMppcaTt.jpg'
+
+[2022-04-13 22:34:30]
+upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 53, in upload
+    with open(IO_PATH + file_new_name, "wb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\enjoyprint\\ejy_service\\temp_files\\20220413h3abUXZlYDBPX9J.jpg'
+

@@ -4,8 +4,7 @@ from utils.utils import *
 import time
 import os
 from pptx import Presentation
-
-IO_PATH = get_relative_path()+ "\\temp_files\\"
+from config.config import *
 def readFiles(file_new_name,file_name, file_type):
     """获取文件类型"""
     # 文件类型为word则自动转换为pdf
@@ -27,7 +26,6 @@ def readFiles(file_new_name,file_name, file_type):
     #     print(file_new_name)
     #     page_num = getPptPageNum(file_new_name)
     #     return page_num, file_type_id
-
     elif file_type == "ppt" or file_type == "pptx":
         time1 = time.time()
         print("正在转换{}".format(file_name))
