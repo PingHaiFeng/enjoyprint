@@ -17,7 +17,6 @@ from config.config import *
 mini = Blueprint('mini', __name__)  # 第一个蓝图名称，第二个参数表示蓝图所在板块
 
 
-
 #获取所选店铺资料
 @mini.route('/store-info', methods=["POST", "GET"])
 @except_logger
@@ -63,11 +62,19 @@ def upload():
             "file_type": file_type,
             "file_type_id": file_type_id,
             "file_path": file_path,
-            "print_info": {"size": "A4", "print_color": 1, "duplex": 1, "print_count": 1,"is_print_all": 1, "print_from_page": 1,"print_to_page":file_page_num, "print_page_num": file_page_num}
+            "size": "A4",
+            "print_color": 1,
+            "duplex": 1,
+            "print_count": 1,
+            "is_print_all": 1,
+            "print_from_page": 1,
+            "print_to_page":file_page_num,
+            "print_page_num": file_page_num,
+            "source":1,
+            "print_price":0
         }
     return State.success(data=data)
     
-
 
 # 执行打印
 @mini.route("/exe_print", methods=["POST", "GET"])
@@ -107,10 +114,10 @@ def set_orders():
     for i in tempFile_list:
         file_id = i["file_id"]
         file_name = i["file_name"]
-        duplex = i["print_info"]["duplex"]
-        print_color = i["print_info"]["print_color"]
-        print_count = i["print_info"]["print_count"]
-        size = i["print_info"]["size"]
+        duplex = i["duplex"]
+        print_color = i["print_color"]
+        print_count = i["print_count"]
+        size = i["size"]
         print_price=float(i["print_price"])
         print_situation_code=-1
         print_situation="待打印"
@@ -123,8 +130,6 @@ def set_orders():
     db.session.add(orders)
     db.session.commit()
     return State.success()
-
-
 
 
 # 获取订单
@@ -165,7 +170,7 @@ def get_store_selected():
 # 下载文件
 @mini.route("/send_file/<file_new_name>", methods=["POST", "GET"])
 def send_file(file_new_name):
-    Path = get_relative_path()+ "\\temp_files"
+    Path = IO_PATH
     return send_from_directory(Path, file_new_name, as_attachment=True)
 
 
@@ -178,7 +183,6 @@ def user_advice():
     return State.success()
 
 
-
 # 用户入驻
 @mini.route('/partner_settle', methods=["POST", "GET"])
 @except_logger
@@ -188,14 +192,12 @@ def partner_settle():
     return State.success()
 
 
-
 # 获取文库文件夹列表
 @mini.route('/list-folder', methods=["POST", "GET"])
 @except_logger
 def list_folder():
     list =  model_to_dict(Folder.query.all())
     return State.success(data={"list": list})
-
 
 
 # 获取文件列表
@@ -212,19 +214,22 @@ def list_doc():
 @mini.route('/lib-print', methods=["POST", "GET"])
 @except_logger
 def lib_print():
-    id = request.args.get("id")
-    res = Document.query.filter_by(id=id).first()
-    
-    data = {
+    ids = request.args.get("ids").split(",")
+    list_data = []
+    for id in ids:
+        res = Document.query.filter_by(id=id).first()
+        list_data.append({
             "file_id": res.file_id,
             "file_name": res.name,
             "file_page_num": res.file_page_num,
             "file_type": res.file_type,
             "file_type_id": res.file_type_id,
+            "source":2,
             "file_path": res.url,
-            "print_info": {"size": "A4", "print_color": 1, "duplex": 1, "print_count": 1,"is_print_all": 1, "print_from_page": 1,"print_to_page":res.file_page_num, "print_page_num": res.file_page_num}
-        }
-    return State.success(data=data)
+            "size": "A4", "print_color": 1, "duplex": 1, "print_count": 1,"is_print_all": 1, "print_from_page": 1,"print_to_page":res.file_page_num, "print_page_num": res.file_page_num
+        })
+
+    return State.success(data=list_data)
 
 
 

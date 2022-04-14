@@ -4,7 +4,7 @@ from utils.utils import *
 import time
 import os
 from pptx import Presentation
-from config.config import *
+from config.config import IO_PATH
 def readFiles(file_new_name,file_name, file_type):
     """获取文件类型"""
     # 文件类型为word则自动转换为pdf
@@ -14,7 +14,6 @@ def readFiles(file_new_name,file_name, file_type):
         file_type_id=2
         doc_path = IO_PATH+file_new_name
         pdf_path = IO_PATH+file_new_name+".pdf"
-        print(doc_path)
         transform_pdf.doc2pdf(doc_path, pdf_path)
         page_num = getPdfPageNum(file_new_name + ".pdf")
         time2 = time.time()
@@ -51,20 +50,20 @@ def readFiles(file_new_name,file_name, file_type):
 
 
 # 获取ppt页数
-def getPptPageNum(file_id):
+# def getPptPageNum(file_id):
 
-    try:
-        ppt_path = "./temp_files/{}".format(file_id)
-        p = Presentation(ppt_path)
-        page = len(p.slides)
-    except KeyError:
-        page = 0
-    return page
+#     try:
+#         ppt_path =  IO_PATH + file_new_name
+#         p = Presentation(ppt_path)
+#         page = len(p.slides)
+#     except KeyError:
+#         page = 0
+#     return page
 
 # 获取pdf页数
-def getPdfPageNum(file_id):
+def getPdfPageNum(name):
     """获取pdf文件页数"""
-    pdf_path = r"./temp_files/{}".format(file_id)
+    pdf_path = IO_PATH + name
     reader = PdfFileReader(pdf_path, strict=False)
     if reader.isEncrypted:
         reader.decrypt('')

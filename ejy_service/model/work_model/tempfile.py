@@ -1,0 +1,2 @@
+class TempFile:
+    pass

@@ -862,3 +862,99 @@ Traceback (most recent call last):
     with open(IO_PATH + file_new_name, "wb") as f:
 FileNotFoundError: [Errno 2] No such file or directory: 'D:\\enjoyprint\\ejy_service\\temp_files\\20220413h3abUXZlYDBPX9J.jpg'
 
+[2022-04-14 15:22:51]
+set_orders
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 117, in set_orders
+    file_name = i["file_name"]
+KeyError: 'print_info'
+
+[2022-04-14 15:23:15]
+set_orders
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 117, in set_orders
+    file_name = i["file_name"]
+KeyError: 'print_info'
+
+[2022-04-14 15:29:22]
+set_orders
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 117, in set_orders
+    file_name = i["file_name"]
+KeyError: 'print_info'
+
+[2022-04-14 16:03:11]
+upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 57, in upload
+    file_page_num, file_type_id = readFiles(file_new_name, file_name, file_type)  # 返回文件页数和文件图标路径
+  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 49, in readFiles
+    page_num = getPdfPageNum(file_new_name)
+  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 68, in getPdfPageNum
+    reader = PdfFileReader(pdf_path, strict=False)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\PyPDF2\pdf.py", line 1081, in __init__
+    fileobj = open(stream, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: './temp_files/20220414Dtf8EkXFuVPZn49.pdf'
+
+[2022-04-14 16:03:32]
+upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 57, in upload
+    file_page_num, file_type_id = readFiles(file_new_name, file_name, file_type)  # 返回文件页数和文件图标路径
+  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 49, in readFiles
+    page_num = getPdfPageNum(file_new_name)
+  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 68, in getPdfPageNum
+    reader = PdfFileReader(pdf_path, strict=False)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\PyPDF2\pdf.py", line 1081, in __init__
+    fileobj = open(stream, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: './temp_files/20220414IqLHde8Rx2LAybB.pdf'
+
+[2022-04-14 16:04:43]
+upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 57, in upload
+    file_page_num, file_type_id = readFiles(file_new_name, file_name, file_type)  # 返回文件页数和文件图标路径
+  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 49, in readFiles
+    page_num = getPdfPageNum(file_new_name)
+  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 68, in getPdfPageNum
+    reader = PdfFileReader(pdf_path, strict=False)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\PyPDF2\pdf.py", line 1081, in __init__
+    fileobj = open(stream, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: './temp_files/20220414H92xq1w24uwDwBA.pdf'
+
+[2022-04-14 16:16:45]
+upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 57, in upload
+    file_page_num, file_type_id = readFiles(file_new_name, file_name, file_type)  # 返回文件页数和文件图标路径
+  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 48, in readFiles
+    page_num = getPdfPageNum(file_new_name+ ".pdf")
+  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 67, in getPdfPageNum
+    reader = PdfFileReader(pdf_path, strict=False)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\PyPDF2\pdf.py", line 1081, in __init__
+    fileobj = open(stream, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\temp_files\\20220414NrCs3LvjH9sl1OH.pdf.pdf'
+
+[2022-04-14 16:24:37]
+upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 57, in upload
+    file_page_num, file_type_id = readFiles(file_new_name, file_name, file_type)  # 返回文件页数和文件图标路径
+TypeError: cannot unpack non-iterable NoneType object
+
