@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using 云打印;
 using CloudPrint.Entity;
 using CloudPrint.utils;
+using CloudPrint.entity;
 
 namespace CloudPrint
 {
@@ -117,20 +118,24 @@ namespace CloudPrint
                 String OrderId = jsonData["instruct_dict"]["order_id"].ToString();
                 int FileCount = (int)jsonData["instruct_dict"]["file_count"];
                 List<TempFile> file_list = JsonConvert.DeserializeObject<List<TempFile>>(Common.LineToHump(jsonData["instruct_dict"]["tempFile_list"].ToString()));
-           
+
+                Order order = new Order();
+                order.OrderId = OrderId;
+                order.FileCount = FileCount;
+
                 foreach (TempFile file in file_list)
                 {
-                    file.OrderId = OrderId;
-                    file.FileCount = FileCount;
-                    file.Duplex = file.PrintInfo["Duplex"]=="2";
-                    file.PrintColor = file.PrintInfo["PrintColor"]=="2";
-                    file.PrintFromRange = (short)Convert.ToDouble(file.PrintInfo["PrintFromPage"]);
-                    file.PrintToRange = (short)Convert.ToDouble(file.PrintInfo["PrintToPage"]);
-                    file.PrintPageNum = (short)Convert.ToDouble(file.PrintInfo["PrintPageNum"]);
-                    file.PrintCount = (short)Convert.ToDouble(file.PrintInfo["PrintCount"]);
+                    //file.OrderId = OrderId;
+                    //file.FileCount = FileCount;
+                    //file.Duplex = file.PrintInfo["Duplex"]=="2";
+                    //file.PrintColor = file.PrintInfo["PrintColor"]=="2";
+                    //file.PrintFromRange = (short)Convert.ToDouble(file.PrintInfo["PrintFromPage"]);
+                    //file.PrintToRange = (short)Convert.ToDouble(file.PrintInfo["PrintToPage"]);
+                    //file.PrintPageNum = (short)Convert.ToDouble(file.PrintInfo["PrintPageNum"]);
+                    //file.PrintCount = (short)Convert.ToDouble(file.PrintInfo["PrintCount"]);
                     
-                    file.FileNewName = file.FileId + "." + file.FileType;
-                    file.FileNewNamePdf = file.FileNewName + ".pdf";
+                    //file.FileNewName = file.FileId + "." + file.FileType;
+                    //file.FileNewNamePdf = file.FileNewName + ".pdf";
                
                     PrintJob printJob = new PrintJob();
                     Thread printThread = new Thread(() => printJob.StartPrintWork(file));

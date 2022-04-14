@@ -5826,11 +5826,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\l\\Desktop\\云集印PC端 - 副本\\WinFormsApp1\\CloudPrint.csproj",
+      "projectUniqueName": "C:\\Users\\l\\Source\\Repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj",
       "projectName": "CloudPrint",
-      "projectPath": "C:\\Users\\l\\Desktop\\云集印PC端 - 副本\\WinFormsApp1\\CloudPrint.csproj",
+      "projectPath": "C:\\Users\\l\\Source\\Repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj",
       "packagesPath": "C:\\Users\\l\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\l\\Desktop\\云集印PC端 - 副本\\WinFormsApp1\\obj\\",
+      "outputPath": "C:\\Users\\l\\Source\\Repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "E:\\chengxu\\VS\\Shared\\NuGetPackages"

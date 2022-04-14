@@ -14,9 +14,15 @@ namespace CloudPrint.print
         [Obsolete]
         public static int DownloadFile(TempFile file)
         {
+            string FileNewNamePdf;
+            string FileNewName= file.FileId + "." + file.FileType;
             if (file.FileType == "pdf" || file.FileType == "Pdf")
             {
-                file.FileNewNamePdf = file.FileNewName;
+                FileNewNamePdf = FileNewName;
+            }
+            else
+            {
+                FileNewNamePdf = FileNewName + ".pdf";
             }
             FormMain.formMain.InsertListView(file);
             FtpWebRequest reqFTP;
@@ -28,9 +34,9 @@ namespace CloudPrint.print
                 {
                     Directory.CreateDirectory(Config.OUTFILE_PATH);
                 }
-                Console.WriteLine(Config.OUTFILE_PATH + "\\" + file.FileNewNamePdf);
-               FileStream outputStream = new FileStream(Config.OUTFILE_PATH + "\\" + file.FileNewNamePdf, FileMode.Create);
-                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(Uri + file.FileNewNamePdf));
+                Console.WriteLine(Config.OUTFILE_PATH + "\\" +FileNewNamePdf);
+               FileStream outputStream = new FileStream(Config.OUTFILE_PATH + "\\" +FileNewNamePdf, FileMode.Create);
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(Uri + FileNewNamePdf));
                 reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;//指定当前请求是什么命令（upload，download，filelist等）
                 reqFTP.UseBinary = true;//指定文件传输的类型
                 reqFTP.Credentials = new NetworkCredential(Config.FTP_USERNAME, Config.FTP_PASSWORD); //指定登录ftp服务器的用户名和密码。
