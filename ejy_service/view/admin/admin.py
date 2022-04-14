@@ -5,7 +5,6 @@ from model.db_model.admin import AdminAccount,db
 from model.db_model.store import Store,StoreAccount
 from utils.auth import create_token,login_required,verify_token
 from utils.state_handler import *
-import ast
 from log.except_logger import *
 
 

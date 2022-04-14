@@ -7,7 +7,7 @@ from model.db_model.user import FileOrder, Order,db
 from utils.auth import create_token,login_required,verify_token
 from utils.state_handler import State
 from log.except_logger import *
-from haifeng.YunJIYIn.plugins.redis_serve import *
+from plugins.redis_serve import *
 import qrcode
 
 web = Blueprint('web', __name__) 

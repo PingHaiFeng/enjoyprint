@@ -7,7 +7,7 @@ from utils.auth import create_token,login_required,verify_token
 from utils.state_handler import *
 import ast
 from log.except_logger import *
-from haifeng.YunJIYIn.plugins.redis_serve import *
+from plugins.redis_serve import *
 
 pc = Blueprint('pc', __name__)  # 第一个蓝图名称，第二个参数表示蓝图所在板块
 

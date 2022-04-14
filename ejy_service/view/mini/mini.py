@@ -2,7 +2,7 @@
 from flask import Blueprint, request, jsonify, redirect, url_for,send_from_directory
 import time
 from plugins.file_reader import readFiles
-from haifeng.YunJIYIn.socket_sever.handle_socket import send_to_server
+from socket_sever.handle_socket import send_to_server
 import ast
 from model.db_model.store import StoreAccount, db,Store,Printer,Price
 from model.db_model.user import Order,FileOrder,db
@@ -11,11 +11,12 @@ from model.db_model.admin import FeedBack,Partner
 from model.db_model.library import Folder,Document
 from utils.state_handler import *
 from log.except_logger import *
-from haifeng.YunJIYIn.plugins.redis_serve import *
-from haifeng.YunJIYIn.view.mini.func.take_id import take_id_maker
+from plugins.redis_serve import *
+from view.mini.func.take_id import take_id_maker
+from config.config import *
 mini = Blueprint('mini', __name__)  # 第一个蓝图名称，第二个参数表示蓝图所在板块
 
-IO_PATH = get_relative_path()+ "\\temp_files\\"
+
 
 #获取所选店铺资料
 @mini.route('/store-info', methods=["POST", "GET"])
