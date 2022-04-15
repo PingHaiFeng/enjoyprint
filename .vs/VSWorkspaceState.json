@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ejy_pc",
+    "\\ejy_pc\\WinFormsApp1"
   ],
-  "SelectedNode": "\\C:\\Users\\l\\Source\\Repos\\enjoyprint",
+  "SelectedNode": "\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj",
   "PreviewInSolutionExplorer": false
 }
