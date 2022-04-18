@@ -236,6 +236,21 @@ export const constantRoutes = [{
     ]
 },
 {
+    path: '/library',
+    component: Layout,
+    meta: { title: '文库管理', icon: 'dashboard' },
+    children: [
+        {
+            path: 'book-upload',
+            name: 'book-upload',
+            component: () =>
+                import('@/views/libarary/book-upload/book-upload'),
+            meta: { title: '资料上传', icon: '' }
+        }
+
+    ]
+},
+{
     path: '/marketing',
     component: Layout,
     meta: { title: '广告营销', icon: 'dashboard' },

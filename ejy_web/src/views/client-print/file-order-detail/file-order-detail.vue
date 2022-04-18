@@ -8,8 +8,12 @@
       border
       :header-cell-style="{ background: '#F7F7FA', color: '#555' }"
     >
-      <el-table-column prop="file_name" label="文件名" align="center" />
-      <el-table-column prop="file_type" label="文件类型" align="center" />
+      <el-table-column prop="file_name" label="文件名" align="center" >
+      <template scope="scope">
+          <span> {{scope.row.file_name+"."+scope.row.file_type}}</span>
+        </template>
+         </el-table-column>
+     
       <el-table-column prop="print_count" label="打印份数" align="center" />
 
       <el-table-column prop="duplex" label="单双" align="center">

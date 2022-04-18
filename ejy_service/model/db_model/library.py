@@ -41,8 +41,8 @@ class Document(db.Model):
     read_num=db.Column(db.Integer)
     print_num=db.Column(db.Integer)
     file_page_num=db.Column(db.Integer)
-    url=db.Column(db.String(255))
-    def __init__(self, folder_id,file_id,file_type,file_type_id,ishot,name,create_date,read_num,print_num,file_page_num,url):
+    download_url=db.Column(db.String(255))
+    def __init__(self, folder_id,file_id,file_type,file_type_id,ishot,name,create_date,read_num,print_num,file_page_num,download_url):
         self.folder_id=folder_id
         self.file_id=file_id
         self.file_type=file_type
@@ -53,4 +53,4 @@ class Document(db.Model):
         self.read_num=read_num
         self.print_num=print_num
         self.file_page_num=file_page_num
-        self.url=url
+        self.download_url=download_url

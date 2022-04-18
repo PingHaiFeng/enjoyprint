@@ -7,19 +7,22 @@ class Store(db.Model):
     __tablename__ = "store"
     __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    store_id = db.Column(db.String(255))
+    store_id = db.Column(db.Integer)
     store_name = db.Column(db.String(255))
     area = db.Column(db.String(255))
     area_id = db.Column(db.String(255))
     store_announce = db.Column(db.String(255))
     detail_addr =  db.Column(db.String(255))
-    def __init__(self, store_id, store_name, area, area_id, store_announce,detail_addr):
+    use_take_id = db.Column(db.Integer)
+    o_id = db.Column(db.Integer,db.ForeignKey("order.id"))
+    def __init__(self, store_id, store_name, area, area_id, store_announce,detail_addr,use_take_id):
         self.store_id = store_id
         self.store_name = store_name
         self.area = area
         self.detail_addr = detail_addr
         self.area_id = area_id
         self.store_announce = store_announce
+        self.use_take_id=use_take_id
 
 
 # 店铺账号信息
@@ -27,15 +30,17 @@ class StoreAccount(db.Model):
     __tablename__ = "store_account"
     __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    store_id = db.Column(db.String(255))
+    store_id = db.Column(db.Integer)
     username = db.Column(db.String(255))
     password = db.Column(db.String(255))
     host_ip = db.Column(db.String(255))
+  
     def __init__(self,  store_id, username, password, host_ip):
         self.store_id = store_id
         self.username = username
         self.password = password
         self.host_ip = host_ip
+    
 
 #价格信息
 class Price(db.Model):

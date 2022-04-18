@@ -13,7 +13,7 @@ from utils.state_handler import *
 from log.except_logger import *
 from plugins.redis_serve import *
 from view.mini.func.take_id import take_id_maker
-from config.config import *
+from config import *
 mini = Blueprint('mini', __name__)  # 第一个蓝图名称，第二个参数表示蓝图所在板块
 
 
@@ -44,20 +44,18 @@ def upload():
     file_id = request.form.get("file_id")  # 文件id，特有标识
     file_name = request.form.get("file_name")  # 文件名带扩展名
     file_type = file_name.split(".")[-1]  # 文件扩展名
-    file_new_name = file_id + '.' + file_type  # 新文件
     upload_platform = request.form.get("upload_platform")  # 平台类型
-    if upload_platform == "MiniProgram":
-        file_path = request.form.get("file_path")
-    if upload_platform == "H5":
-        file_path = 'https://enjoyprint.pinghaifeng.cn/mini/send_file/' + file_new_name
-    with open(IO_PATH + file_new_name, "wb") as f:
+    file_path = request.form.get("file_path") if upload_platform == "MiniProgram" else ""
+    n_suffix_name = file_name[::-1].split(".", 1)[-1][::-1]  # 取消后缀名
+
+    download_url = BASE_URL +USER_FILE_ROUTE + file_id+".pdf"
+    with open(IO_PATH +file_id + '.' + file_type , "wb") as f:
         data = file.read()
         f.write(data)
-    file_page_num, file_type_id = readFiles(file_new_name, file_name, file_type)  # 返回文件页数和文件图标路径
-    none_suffix_fileName = file_name[::-1].split(".", 1)[-1][::-1]  # 取消后缀名
+    file_page_num, file_type_id = readFiles(file_id,  file_type)  # 返回文件页数和文件图标路径
     data =  {
             "file_id": file_id,
-            "file_name": none_suffix_fileName,
+            "file_name": n_suffix_name,
             "file_page_num": file_page_num,
             "file_type": file_type,
             "file_type_id": file_type_id,
@@ -71,6 +69,7 @@ def upload():
             "print_to_page":file_page_num,
             "print_page_num": file_page_num,
             "source":1,
+            "download_url":download_url,
             "print_price":0
         }
     return State.success(data=data)
@@ -105,6 +104,7 @@ def set_orders():
     tempFile_list=ast.literal_eval(request.form.get("tempFile_list"))
     openid = request.form.get("openid")
     store_id = request.form.get("store_id")
+    store_name = request.form.get("store_name")
     order_id = request.form.get("order_id")
     take_id = request.form.get("take_id")
     order_type = request.form.get("order_type")
@@ -126,7 +126,7 @@ def set_orders():
         print_file = FileOrder(order_id=order_id,file_id=file_id,print_count=print_count,size=size, file_name=file_name,print_price=print_price,file_type=file_type,file_type_id=file_type_id,duplex=duplex,print_color=print_color)
         db.session.add(print_file)
         db.session.commit()
-    orders = Order(order_id=order_id,order_type=order_type,store_id=store_id,file_count=file_count, printer_name=printer_name,price=price,print_situation_code=print_situation_code, print_situation=print_situation,take_id=take_id, openid=openid)
+    orders = Order(order_id=order_id,store_name=store_name,order_type=order_type,store_id=store_id,file_count=file_count, printer_name=printer_name,price=price,print_situation_code=print_situation_code, print_situation=print_situation,take_id=take_id, openid=openid)
     db.session.add(orders)
     db.session.commit()
     return State.success()
@@ -225,8 +225,16 @@ def lib_print():
             "file_type": res.file_type,
             "file_type_id": res.file_type_id,
             "source":2,
-            "file_path": res.url,
-            "size": "A4", "print_color": 1, "duplex": 1, "print_count": 1,"is_print_all": 1, "print_from_page": 1,"print_to_page":res.file_page_num, "print_page_num": res.file_page_num
+            "file_path": res.download_url,
+            "size": "A4",
+            "print_color": 1,
+            "duplex": 1,
+            "print_count": 1,
+            "is_print_all": 1,
+            "print_from_page": 1,
+            "print_to_page":res.file_page_num, 
+            "print_page_num": res.file_page_num,
+            "download_url":res.download_url
         })
 
     return State.success(data=list_data)
