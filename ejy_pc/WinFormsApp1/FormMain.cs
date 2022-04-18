@@ -159,10 +159,10 @@ namespace WinFormsApp1
             ListViewItem li = new ListViewItem(ListIndex);
           
             li.SubItems.Add(tempFile.FileId);
-            li.SubItems.Add(tempFile.PrintPrice);
+            li.SubItems.Add(tempFile.PrintPrice.ToString());
             li.SubItems.Add(tempFile.PrintPageNum.ToString());
-            li.SubItems.Add(tempFile.PrintColor?"彩色":"黑白");
-            li.SubItems.Add(tempFile.Duplex ? "单面" : "双面");
+            li.SubItems.Add(tempFile.PrintColor==1?"黑白":"彩色");
+            li.SubItems.Add(tempFile.Duplex==1 ? "单面" : "双面");
             li.SubItems.Add(tempFile.PrintCount.ToString());
             li.SubItems.Add("");//存放状态
             //将行对象绑定在listview对象中

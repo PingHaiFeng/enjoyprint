@@ -16,7 +16,7 @@ namespace 云打印
             {
                 Download.DownloadFile(file);
                 HandlePrint.HandlePrint2(file);
-                PrinterApi.FeedBackPrintState(1, "打印成功", file.OrderId);
+                PrinterApi.FeedBackPrintState(1, "打印成功", file.FileId);
                 return 1;
             }
             catch

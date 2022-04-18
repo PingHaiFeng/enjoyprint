@@ -219,3 +219,36 @@ C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\
 C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
 C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CopyComplete
 C:\Users\l\Desktop\云集印PC端 - 副本\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.genruntimeconfig.cache
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.exe
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.deps.json
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.json
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.runtimeconfig.dev.json
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\EngineIoClientDotNet.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\Nancy.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\SocketIoClientDotNet.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\SuperSocket.ClientEngine.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\WebSocket4Net.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\websocket-sharp.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.License.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.AssemblyReference.cache
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.FormAdminLock.resources
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\云打印.FormLogin.resources
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\WinFormsApp1.FormMain.resources
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.FormMenuStrip.resources
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.Properties.Resources.resources
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.GenerateResource.cache
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfoInputs.cache
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfo.cs
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CoreCompileInputs.cache
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CopyComplete
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.dll
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.pdb
+C:\Users\l\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.genruntimeconfig.cache

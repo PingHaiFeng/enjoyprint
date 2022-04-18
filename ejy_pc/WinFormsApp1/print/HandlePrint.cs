@@ -19,11 +19,22 @@ namespace CloudPrint.print
         [Obsolete]
         public static int HandlePrint2(TempFile file)
         {
+            string FileNewNamePdf;
+            string FileNewName = file.FileId + "." + file.FileType;
+
+            if (file.FileType == "pdf" || file.FileType == "Pdf")
+            {
+                FileNewNamePdf = FileNewName;
+            }
+            else
+            {
+                FileNewNamePdf = FileNewName + ".pdf";
+            }
 
             FormMain.formMain.UpdatePrintState(file.FileId, "打印准备...");
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             PdfDocument doc = new PdfDocument();
-            doc.LoadFromFile(Config.OUTFILE_PATH + @"/" + file.FileNewNamePdf);//指定打印文件
+            doc.LoadFromFile(Config.OUTFILE_PATH + @"/" +FileNewNamePdf);//指定打印文件
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             PrintDocument printDoc = doc.PrintDocument;
 
@@ -39,11 +50,11 @@ namespace CloudPrint.print
             Console.WriteLine(file.PrintFromRange);
 
             printDoc.PrinterSettings.ToPage = file.PrintToRange;
-            printDoc.DefaultPageSettings.Color = file.PrintColor;//是否彩印
+            printDoc.DefaultPageSettings.Color = file.PrintColor == 2;//是否彩印
             printDoc.PrinterSettings.Copies = file.PrintCount;//要打印的份数
             if (printDoc.PrinterSettings.CanDuplex == true)//是否双面
             {
-                if (file.Duplex)//收到双面打印指令
+                if (file.Duplex==2)//收到双面打印指令
                 {
                     printDoc.PrinterSettings.Duplex = Duplex.Vertical;
                 }

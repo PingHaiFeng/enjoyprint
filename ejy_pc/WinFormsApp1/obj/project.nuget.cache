@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Q7ABUTYxPfXhD2ZxK6Ca74ApPHUGVAsIaVmDVTQaHVIrIb84Yfi2h/ydycDVPlDJ3gC8sTHKUnd6EIY4v+VJbQ==",
+  "dgSpecHash": "6Ek+ANbFOfra2hSEgTV65hucqgAxLk9P6gvXldrNdV0M/PzQmuhlYdS8YhyI+xG7rywAdaYFzXRqJJ5hg5ml6w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\l\\Desktop\\云集印PC端 - 副本\\WinFormsApp1\\CloudPrint.csproj",
+  "projectFilePath": "C:\\Users\\l\\Source\\Repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\l\\.nuget\\packages\\engineioclientdotnet.standard\\0.0.6\\engineioclientdotnet.standard.0.0.6.nupkg.sha512",
     "C:\\Users\\l\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\2.0.4\\microsoft.dotnet.platformabstractions.2.0.4.nupkg.sha512",
