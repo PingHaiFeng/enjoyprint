@@ -17,12 +17,15 @@ def get_relative_path():
     relative_path=os.path.abspath('.')
     return relative_path
 
-
 def create_unique_code():
     import random
     unique_code = ''.join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 30)).replace(" ", "")
     return unique_code
 
+def make_file_id():
+    import random
+    file_id = date_now().join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 15)).replace(" ", "")
+    return file_id
 
 def model_to_dict(result):
     try:

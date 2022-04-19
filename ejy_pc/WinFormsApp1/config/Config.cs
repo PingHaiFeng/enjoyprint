@@ -6,6 +6,7 @@ namespace CloudPrint
 {
     class Config
     {
+        public static String VERSION = "1.0";
         public static String BASEURL = "https://enjoyprint.pinghaifeng.cn/pc";
         public static String FTPIP = "ftp://59.111.148.52/";
         public static String ADMINURL = "https://cloudprint.pinghaifeng.cn";

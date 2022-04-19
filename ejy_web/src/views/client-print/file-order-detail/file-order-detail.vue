@@ -82,7 +82,7 @@ export default {
       // 弹出层标题
       title: "",
       // 是否显示弹出层
-      open: false,
+      // open: false,
       // 日期范围
       // date_range: ["", ""],
       // 查询参数

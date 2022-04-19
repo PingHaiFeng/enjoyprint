@@ -8,7 +8,7 @@ from model.db_model.store import StoreAccount, db,Store,Printer,Price
 from model.db_model.user import Order,FileOrder,db
 from utils.utils import *
 from model.db_model.admin import FeedBack,Partner
-from model.db_model.library import Folder,Document
+from model.db_model.library import DocFolder,Doc
 from utils.state_handler import *
 from log.except_logger import *
 from plugins.redis_serve import *
@@ -26,7 +26,7 @@ def get_store_info():
     printers_params = model_to_dict(Printer.query.filter_by(store_id=store_id,host_ip=host_ip,can_self_print=1).all())
     price_list = model_to_dict(Price.query.filter_by(store_id=store_id).all())
     account_info = model_to_dict(Store.query.filter_by(store_id=store_id).first())
-    pc_online=r.exists("ONLINE_STATE_"+store_id)
+    pc_online=r.exists("ONLINE_STATE_"+str(store_id))
     store_info={
         "pc_online":pc_online,
         "printers_params":printers_params,
@@ -162,7 +162,7 @@ def list_store():
 @except_logger
 def get_store_selected():
     store_id = request.form.get("store_id")
-    if r.exists("ONLINE_STATE_"+store_id)==1:
+    if r.exists("ONLINE_STATE_"+str(store_id))==1:
         return State.success()
     else:
         return State.fail()
@@ -196,7 +196,7 @@ def partner_settle():
 @mini.route('/list-folder', methods=["POST", "GET"])
 @except_logger
 def list_folder():
-    list =  model_to_dict(Folder.query.all())
+    list =  model_to_dict(DocFolder.query.all())
     return State.success(data={"list": list})
 
 
@@ -205,8 +205,7 @@ def list_folder():
 @except_logger
 def list_doc():
     folder_id=request.form.get("folder_id")
-    print(folder_id)
-    list =  model_to_dict(Document.query.filter_by(folder_id=folder_id).order_by(Document.ishot.desc()).all())
+    list =  model_to_dict(Doc.query.filter_by(folder_id=folder_id).order_by(Doc.ishot.desc()).all())
     return State.success(data={"list": list})
 
     
@@ -217,7 +216,7 @@ def lib_print():
     ids = request.args.get("ids").split(",")
     list_data = []
     for id in ids:
-        res = Document.query.filter_by(id=id).first()
+        res = Doc.query.filter_by(id=id).first()
         list_data.append({
             "file_id": res.file_id,
             "file_name": res.name,

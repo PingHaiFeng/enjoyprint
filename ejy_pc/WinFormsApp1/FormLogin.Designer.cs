@@ -40,7 +40,7 @@ namespace 云打印
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTopBg = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@ namespace 云打印
             this.labTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTopBg)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -60,7 +60,7 @@ namespace 云打印
             this.btnLogin.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(401, 619);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(5);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(425, 61);
             this.btnLogin.TabIndex = 200;
@@ -76,7 +76,7 @@ namespace 云打印
             this.tbPassword.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbPassword.ForeColor = System.Drawing.Color.DarkGray;
             this.tbPassword.Location = new System.Drawing.Point(467, 491);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(5);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '•';
             this.tbPassword.Size = new System.Drawing.Size(342, 41);
@@ -91,7 +91,7 @@ namespace 云打印
             this.tbUsername.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbUsername.ForeColor = System.Drawing.Color.DarkGray;
             this.tbUsername.Location = new System.Drawing.Point(467, 402);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(5);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(342, 41);
             this.tbUsername.TabIndex = 1;
@@ -102,10 +102,10 @@ namespace 云打印
             // 
             this.labLoginTip.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labLoginTip.ForeColor = System.Drawing.Color.Gray;
-            this.labLoginTip.Location = new System.Drawing.Point(467, 685);
+            this.labLoginTip.Location = new System.Drawing.Point(431, 701);
             this.labLoginTip.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labLoginTip.Name = "labLoginTip";
-            this.labLoginTip.Size = new System.Drawing.Size(279, 29);
+            this.labLoginTip.Size = new System.Drawing.Size(369, 29);
             this.labLoginTip.TabIndex = 5;
             this.labLoginTip.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labLoginTip.Click += new System.EventHandler(this.label1_Click);
@@ -121,7 +121,7 @@ namespace 云打印
             this.btn_close.Font = new System.Drawing.Font("Microsoft YaHei UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_close.ForeColor = System.Drawing.Color.White;
             this.btn_close.Location = new System.Drawing.Point(1140, -13);
-            this.btn_close.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_close.Margin = new System.Windows.Forms.Padding(5);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(70, 61);
             this.btn_close.TabIndex = 600;
@@ -180,7 +180,7 @@ namespace 云打印
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label5.Location = new System.Drawing.Point(491, 730);
+            this.label5.Location = new System.Drawing.Point(491, 743);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(243, 28);
@@ -188,17 +188,20 @@ namespace 云打印
             this.label5.Text = "厦门云即印科技有限公司";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // pictureBox3
+            // pictureBoxTopBg
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(-5, -2);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1216, 289);
-            this.pictureBox3.TabIndex = 601;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBoxTopBg.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureBoxTopBg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxTopBg.BackgroundImage")));
+            this.pictureBoxTopBg.Location = new System.Drawing.Point(-5, -2);
+            this.pictureBoxTopBg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxTopBg.Name = "pictureBoxTopBg";
+            this.pictureBoxTopBg.Size = new System.Drawing.Size(1216, 289);
+            this.pictureBoxTopBg.TabIndex = 601;
+            this.pictureBoxTopBg.TabStop = false;
+            this.pictureBoxTopBg.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBoxTopBg.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxTopBg_MouseDown);
+            this.pictureBoxTopBg.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxTopBg_MouseMove);
+            this.pictureBoxTopBg.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxTopBg_MouseUp);
             // 
             // label3
             // 
@@ -232,7 +235,7 @@ namespace 云打印
             this.checkBoxAutoLogin.AutoSize = true;
             this.checkBoxAutoLogin.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.checkBoxAutoLogin.Location = new System.Drawing.Point(401, 566);
-            this.checkBoxAutoLogin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.checkBoxAutoLogin.Margin = new System.Windows.Forms.Padding(5);
             this.checkBoxAutoLogin.Name = "checkBoxAutoLogin";
             this.checkBoxAutoLogin.Size = new System.Drawing.Size(108, 28);
             this.checkBoxAutoLogin.TabIndex = 606;
@@ -244,7 +247,7 @@ namespace 云打印
             this.checkBoxRememberPwd.AutoSize = true;
             this.checkBoxRememberPwd.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.checkBoxRememberPwd.Location = new System.Drawing.Point(709, 566);
-            this.checkBoxRememberPwd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.checkBoxRememberPwd.Margin = new System.Windows.Forms.Padding(5);
             this.checkBoxRememberPwd.Name = "checkBoxRememberPwd";
             this.checkBoxRememberPwd.Size = new System.Drawing.Size(108, 28);
             this.checkBoxRememberPwd.TabIndex = 607;
@@ -289,9 +292,9 @@ namespace 云打印
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBoxTopBg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -300,7 +303,7 @@ namespace 云打印
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPassword_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTopBg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,7 +320,7 @@ namespace 云打印
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBoxTopBg;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

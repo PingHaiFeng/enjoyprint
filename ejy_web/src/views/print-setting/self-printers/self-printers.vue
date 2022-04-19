@@ -174,7 +174,7 @@ export default {
     handleUpdate(row) {
       updatePrinter(row).then((response) => {
         this.$modal.msgSuccess("配置成功");
-        this.open = false;
+      
         this.getList();
       });
     },

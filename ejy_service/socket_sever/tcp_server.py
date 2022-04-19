@@ -75,7 +75,7 @@ def parse(sc,socket_mapping,host_ip,instruct_data):
             store_id=instruct_data["instruct_dict"]["store_id"]
             save_host_ip(token,host_ip)
             print("pc端（{}）联机成功".format(host_ip))
-            r.set("ONLINE_STATE_"+store_id,"Y",60)
+            r.set("ONLINE_STATE_"+str(store_id),"Y",60)
 
         if instruct_id==2002:  #2002 pc端响应打印反馈
             pass
@@ -88,7 +88,7 @@ def parse(sc,socket_mapping,host_ip,instruct_data):
         if instruct_id==2004: #2004 pc端心跳包
             print("收到心跳包")
             store_id=instruct_data['instruct_dict']["store_id"]
-            r.set("ONLINE_STATE_"+store_id,"Y",60)
+            r.set("ONLINE_STATE_"+str(store_id),"Y",60)
 
         if instruct_id==3002:  #3002 中转站打印请求
             print("发送指令")

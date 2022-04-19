@@ -5,6 +5,7 @@ using CloudPrint;
 using System.Diagnostics;
 using CloudPrint.Entity;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace WinFormsApp1
 {
@@ -17,7 +18,8 @@ namespace WinFormsApp1
 
         public FormMain()
         {
-           
+            //Thread thread = Thread.CurrentThread;
+            //Console.WriteLine("线程名字", thread.Name);
             InitializeComponent();
 
           
@@ -158,12 +160,12 @@ namespace WinFormsApp1
             //创建行对象
             ListViewItem li = new ListViewItem(ListIndex);
           
-            li.SubItems.Add(tempFile.FileId);
-            li.SubItems.Add(tempFile.PrintPrice.ToString());
-            li.SubItems.Add(tempFile.PrintPageNum.ToString());
-            li.SubItems.Add(tempFile.PrintColor==1?"黑白":"彩色");
-            li.SubItems.Add(tempFile.Duplex==1 ? "单面" : "双面");
-            li.SubItems.Add(tempFile.PrintCount.ToString());
+            li.SubItems.Add(tempFile.file_id);
+            li.SubItems.Add(tempFile.print_price.ToString());
+            li.SubItems.Add(tempFile.print_page_num.ToString());
+            li.SubItems.Add(tempFile.print_color==1?"黑白":"彩色");
+            li.SubItems.Add(tempFile.duplex==1 ? "单面" : "双面");
+            li.SubItems.Add(tempFile.print_count.ToString());
             li.SubItems.Add("");//存放状态
             //将行对象绑定在listview对象中
             listViewPrinting.Items.Add(li);

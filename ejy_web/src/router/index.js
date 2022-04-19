@@ -241,10 +241,17 @@ export const constantRoutes = [{
     meta: { title: '文库管理', icon: 'dashboard' },
     children: [
         {
-            path: 'book-upload',
-            name: 'book-upload',
+            path: 'folder',
+            name: 'folder',
             component: () =>
-                import('@/views/libarary/book-upload/book-upload'),
+                import('@/views/library/folder/folder'),
+            meta: { title: '文件夹管理', icon: '' }
+        },
+        {
+            path: 'doc-upload',
+            name: 'doc-upload',
+            component: () =>
+                import('@/views/library/doc-upload/doc-upload'),
             meta: { title: '资料上传', icon: '' }
         }
 
