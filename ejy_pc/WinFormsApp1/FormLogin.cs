@@ -18,26 +18,26 @@ using System.Runtime.Serialization.Formatters.Binary;
 using CloudPrint.Entity;
 using System.Runtime.InteropServices;
 using System.Drawing.Text;
+using CloudPrint.api;
 
 namespace 云打印
 {
     public partial class FormLogin : Form
     {
-        
 
-     
+
+
         TcpClient tcpClient = null;
-        TcpClient tcpClient2 = null;
         private static Thread heartThread;
-        private Boolean IsLogin = false;
-       
+
         public FormLogin()
         {
             InitializeComponent();
+            InitPro();
             //从外部文件加载字体文件  
             PrivateFontCollection font = new PrivateFontCollection();
 
-            font.AddFontFile( @"..\..\..\asset\腾讯体-Medium.TTF");
+            font.AddFontFile(@"..\..\..\asset\腾讯体-Medium.TTF");
             //检测字体类型是否可用
             var r = font.Families[0].IsStyleAvailable(FontStyle.Regular);
             var b = font.Families[0].IsStyleAvailable(FontStyle.Bold);
@@ -46,16 +46,26 @@ namespace 云打印
             Font myFont = new Font(myFontFamily, 27, FontStyle.Bold);
             //将字体显示到控件  
             labTitle.Font = myFont;
-           
-            labTitle.Parent = this.pictureBox3;
 
+            labTitle.Parent = this.pictureBoxTopBg;
+
+        }
+        public static void InitPro()
+        {
+            JObject resData = SysApi.GetVersionInfo();
+            String stateCode = resData["state"].ToString();
+            if (stateCode == "1")
+            {
+                bool hasNewVersion = resData["data"]["last_version"].ToString() != Config.VERSION;//检测新版本
+                if (hasNewVersion) MessageBox.Show("有版本更新，请更新");
+            }
         }
 
         private void Form_login_Load(object sender, EventArgs e)
         {
-            Console.WriteLine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase);
-            this.Show();
-            labTitle.Parent = this.pictureBox3;
+
+            Show();
+            labTitle.Parent = this.pictureBoxTopBg;
             ReadUserLoginConfig();
         }
 
@@ -85,23 +95,25 @@ namespace 云打印
             }
 
             btnLogin.Text = "登录中...";
-            
+
             btnLogin.ForeColor = Color.White;
             JObject resData = UserApi.Login(tbUsername.Text, tbPassword.Text);
             Console.WriteLine(resData);
             String stateCode = resData["state"].ToString();
 
-           if(stateCode=="1")
+            if (stateCode == "1")
             {
                 string token = resData["data"]["token"].ToString();//连接Token
                 GlobalData.token = token;//保存token到全局变量
                 GlobalData.UserName = tbUsername.Text;//保存token到全局变量
                 GetStoreInfo(token);
 
+
+
             }
             else
             {
-                labLoginTip.Text = "账号或密码错误";
+                labLoginTip.Text = resData["msg"].ToString();
                 labLoginTip.ForeColor = Color.Red;
                 btnLogin.Text = "登录";
             }
@@ -179,7 +191,7 @@ namespace 云打印
                 }
                 fs.Close();
             }
-            catch 
+            catch
             {
                 Console.WriteLine("出错");
                 return;
@@ -201,6 +213,8 @@ namespace 云打印
             heartThread = new Thread(tcpClient.SendAliveHeart);//心跳线程
             heartThread.IsBackground = true;
             heartThread.Start();
+            if (heartThread.ThreadState == ThreadState.Stopped)
+                heartThread.Start();
             OpenMainWindow();
         }
 
@@ -249,7 +263,24 @@ namespace 云打印
         {
 
         }
+        Point p;
+        private void pictureBoxTopBg_MouseDown(object sender, MouseEventArgs e)
+        {
 
+            p = e.Location;
+        }
+
+        private void pictureBoxTopBg_MouseUp(object sender, MouseEventArgs e)
+        {
+            p = e.Location;
+        }
+
+        private void pictureBoxTopBg_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                this.Location = new Point(this.Left + (e.X - p.X), this.Top + (e.Y - p.Y));
+
+        }
         private void tbPassword_TextChanged(object sender, EventArgs e)
         {
 

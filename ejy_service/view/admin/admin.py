@@ -6,8 +6,8 @@ from model.db_model.store import Store,StoreAccount
 from utils.auth import create_token,login_required,verify_token
 from utils.state_handler import *
 from log.except_logger import *
-
-
+from config import *
+from plugins.file_reader import readFiles
 admin = Blueprint('admin', __name__)  # 第一个蓝图名称，第二个参数表示蓝图所在板块
 
 # 管理员账号登录
@@ -78,6 +78,34 @@ def list_store():
         list = Store.query.limit(_args.get("page_size")).offset((int(_args.get("page_num"))-1)*int(_args.get("page_size")))
     list=model_to_dict(list)
     return State.success(data={"list": list,"total":total})
+
+# 接收上传的文件
+@admin.route('/upload', methods=["POST", "GET"])
+@except_logger
+def upload():
+    file = request.files.get("file")  # 待接收文件
+    file_id = request.form.get("file_id")  # 文件id，特有标识
+    file_name = request.form.get("file_name")  # 文件名带扩展名
+    file_type = file_name.split(".")[-1]  # 文件扩展名
+    upload_platform = request.form.get("upload_platform")  # 平台类型
+    file_path = request.form.get("file_path") if upload_platform == "MiniProgram" else ""
+    n_suffix_name = file_name[::-1].split(".", 1)[-1][::-1]  # 取消后缀名
+    download_url = BASE_URL +USER_FILE_ROUTE + file_id+".pdf"
+    with open(LIB_UPLOAD_PATH +file_id + '.' + file_type , "wb") as f:
+        data = file.read()
+        f.write(data)
+    file_page_num, file_type_id = readFiles(file_id,  file_type)  # 返回文件页数和文件图标路径
+    data =  {
+            "file_id": file_id,
+            "file_name": n_suffix_name,
+            "file_page_num": file_page_num,
+            "file_type": file_type,
+            "file_type_id": file_type_id,
+            "source":2,
+            "download_url":download_url
+        }
+    return State.success(data=data)
+    
 
 @admin.after_request
 def releaseDB(response):

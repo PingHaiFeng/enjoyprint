@@ -10,6 +10,7 @@ using 云打印;
 using CloudPrint.Entity;
 using CloudPrint.utils;
 using CloudPrint.entity;
+using CloudPrint.Api;
 
 namespace CloudPrint
 {
@@ -117,7 +118,7 @@ namespace CloudPrint
                 GlobalData.printer_name = jsonData["instruct_dict"]["printer_name"].ToString();
                 String OrderId = jsonData["instruct_dict"]["order_id"].ToString();
                 int FileCount = (int)jsonData["instruct_dict"]["file_count"];
-                List<TempFile> file_list = JsonConvert.DeserializeObject<List<TempFile>>(Common.LineToHump(jsonData["instruct_dict"]["tempFile_list"].ToString()));
+                List<TempFile> file_list = JsonConvert.DeserializeObject<List<TempFile>>(jsonData["instruct_dict"]["tempFile_list"].ToString());
 
                 Order order = new Order();
                 order.OrderId = OrderId;
@@ -125,6 +126,7 @@ namespace CloudPrint
 
                 foreach (TempFile file in file_list)
                 {
+
                     //file.OrderId = OrderId;
                     //file.FileCount = FileCount;
                     //file.Duplex = file.PrintInfo["Duplex"]=="2";
@@ -142,7 +144,8 @@ namespace CloudPrint
                     printThread.IsBackground = true;
                     printThread.Start();
                 }
-                
+                PrinterApi.FeedBackPrintState(1, "打印成功", OrderId);
+
             }
             if (instruct_data.instruct_id == 1003)//3代表获取店铺打印机信息
             {

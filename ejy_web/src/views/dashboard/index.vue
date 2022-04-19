@@ -49,10 +49,10 @@
           <div class="notice">
             <div
               class="notice-item"
-              v-for="(item, index) in notice"
+              v-for="item in notice"
               :key="item.id"
               v-show="item.show === 1"
-              @click="handleNoticeDialog(index)"
+              @click="handleNoticeDialog(item)"
             >
               <div class="time">{{ item.create_time }}</div>
               <div class="content">{{ item.title }}</div>
@@ -93,14 +93,10 @@
       </el-col>
     </el-row>
     <!-- 点击打开查看详情 -->
-    <el-dialog
-      :title="notice[noticeCurIndex]['title']"
-      :visible.sync="noticeDialogVisible"
-      width="30%"
-    >
-      <span>{{ notice[noticeCurIndex]["content"] }}</span>
+    <el-dialog :title="noticeCurrent.title" :visible.sync="noticeDialogVisible">
+      <span>{{ noticeCurrent.content }}</span>
       <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="handleNoticeDialog(-1)"
+        <el-button type="primary" @click="noticeDialogVisible = false"
           >确 定</el-button
         >
       </span>
@@ -130,8 +126,13 @@ export default {
       todayOrdersNum: null,
       todayOrdersMoney: null,
       orders_waited: 0, //待处理订单
-      noticeDialogVisible: false, //公告对话框是否显示u
+      noticeDialogVisible: false, //公告对话框是否显示
       noticeCurIndex: 0, //当前点击的公告索引
+      noticeCurrent: {
+        title: "",
+        content: "",
+        create_time: "",
+      },
     };
   },
   computed: {
@@ -147,30 +148,27 @@ export default {
     },
   },
   created() {
-    this._getNotice();
+ 
     this._getRecentSales(); //获取最近销售
+    this._getNotice();
   },
   methods: {
     //获取公告信息
     _getNotice() {
-      let self = this;
       getNotice().then((response) => {
         this.notice = response.data.notice;
-        var a = this.notice.filter(function (x) {
-          if (x.show_screen_center === 1) {
-            return x;
+        this.notice.filter(item=> {
+          if (item.auto_show === 1) {
+            this.handleNoticeDialog(item);
           }
         });
-        console.log(a);
       });
     },
 
     //打开公告对话框
-    handleNoticeDialog(index) {
-      if (index >= 0) {
-        this.noticeCurIndex = index;
-      }
-      this.noticeDialogVisible = !this.noticeDialogVisible;
+    handleNoticeDialog(item) {
+      this.noticeCurrent = item;
+      this.noticeDialogVisible = true;
     },
     //获取最近销量数据
     _getRecentSales() {

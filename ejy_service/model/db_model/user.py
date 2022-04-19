@@ -8,7 +8,8 @@ class Order(db.Model):
     order_id=db.Column(db.String(50))
     order_type = db.Column(db.Integer)
     take_id = db.Column(db.String(50))
-    store_id = db.Column(db.String(50))
+    store_id = db.Column(db.Integer)
+    store_name = db.Column(db.String(50))
     printer_name = db.Column(db.String(50))
     price = db.Column(db.DECIMAL(20,2))
     file_count = db.Column(db.Integer)
@@ -17,7 +18,7 @@ class Order(db.Model):
     openid = db.Column(db.String(60))
     create_time = db.Column(db.String(60),default=db.func.now())
     timestamp = db.Column(db.Integer, default = int(time.time()))
-    def __init__(self,order_id,order_type,take_id,file_count, store_id,printer_name, price,print_situation_code, print_situation,openid):
+    def __init__(self,order_id,order_type,take_id,store_name,file_count, store_id,printer_name, price,print_situation_code, print_situation,openid):
         self.order_id=order_id
         self.order_type = order_type
         self.file_count=file_count
@@ -28,7 +29,7 @@ class Order(db.Model):
         self.print_situation_code = print_situation_code
         self.print_situation = print_situation
         self.openid = openid
-
+        self.store_name=store_name
 
 # 用户文件订单
 class FileOrder(db.Model):

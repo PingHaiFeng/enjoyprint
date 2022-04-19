@@ -1,15 +1,18 @@
 from flask import Blueprint, request,jsonify,send_from_directory
 from utils.utils import *
 from sqlalchemy import func
-from model.db_model.admin import NoticeBoard
-from model.db_model.store import StoreAccount,Store,Printer,Price,db
-from model.db_model.user import FileOrder, Order,db
+from model.db_model.admin import NoticeBoard,db
+from model.db_model.store import StoreAccount,Store,Printer,Price
+from model.db_model.user import FileOrder, Order
+from model.db_model.library import DocFolder,Doc
 from utils.auth import create_token,login_required,verify_token
 from utils.state_handler import State
+from utils.utils import make_file_id
 from log.except_logger import *
 from plugins.redis_serve import *
 import qrcode
-
+from plugins.file_reader import readFiles
+from config import *
 web = Blueprint('web', __name__) 
 
 # 店铺账号登录
@@ -44,7 +47,7 @@ def get_info():
 def get_store_detail():
     storeAccount = verify_token(request.headers["X-Token"])
     store= Store.query.filter_by(store_id=storeAccount.store_id).first()
-    pc_online =  r.exists("ONLINE_STATE_"+storeAccount.store_id)
+    pc_online =  r.exists("ONLINE_STATE_"+str(storeAccount.store_id))
     return State.success(data={"store_name":store.store_name,"username":storeAccount.username,"store_announce":store.store_announce,"detail_addr":store.detail_addr,"pc_online":pc_online })
 
 #保存店铺信息
@@ -71,7 +74,7 @@ def handlePrinter():
     '''改'''
     if request.method == "PUT": 
             data = request.form.to_dict()
-            Printer.query.filter_by(store_id=store_id,id=data.get("id")).update(data)
+            Printer.query.filter_by(store_id=store_id,printer_id=data.get("printer_id")).update(data)
             db.session.commit()
             return State.success()
     '''查'''         
@@ -211,7 +214,53 @@ def create_printer_ewm():
         img.save(f)
     return send_from_directory(Path, img_name, as_attachment=True)
 
+# 获取文库文件夹列表
+@web.route('/list-doc-folder', methods=["POST", "GET"])
+@login_required
+@except_logger
+def list_folder():
+    list =  model_to_dict(DocFolder.query.all())
+    return State.success(data={"list": list})
 
+# 获取文件列表
+@web.route('/list-doc', methods=["POST", "GET"])
+@except_logger
+@login_required
+def list_doc():
+    store_id = verify_token(request.headers["X-Token"]).store_id
+    list =  model_to_dict(Doc.query.filter_by(store_id=store_id).order_by(Doc.ishot.desc()).all())
+    return State.success(data={"list": list})
+
+
+# 接收上传的文件
+@web.route('/doc-upload', methods=["POST", "GET"])
+@except_logger
+def doc_upload():
+    store_id = request.form.get("store_id")
+    file = request.files.get("file")  # 待接收文件
+    file_name = request.form.get("file_name")  # 文件名带扩展名
+    folder_id = request.form.get("folder_id")
+    file_type = file_name.split(".")[-1]  # 文件扩展名
+    file_id = make_file_id()
+    download_url = LIB_UPLOAD_PATH + file_id+".pdf"
+    with open(LIB_UPLOAD_PATH +file_id + '.' + file_type , "wb") as f:
+        data = file.read()
+        f.write(data)
+    file_page_num, file_type_id = readFiles(LIB_UPLOAD_PATH,file_id,  file_type)  # 返回文件页数和文件图标路径
+    download_url = "https://cloudprint.pinghaifeng.cn/pdf_view/web/library/"+file_id+".pdf"
+    db.session.add(Doc(
+        file_id=file_id,
+        file_type="pdf",
+        folder_id=folder_id,
+        file_type_id = 1,
+        store_id=store_id,
+        file_name=file_name[::-1].split(".", 1)[-1][::-1],  # 取消后缀名,
+        file_page_num=file_page_num,
+        download_url=download_url
+    ))
+    db.session.commit()
+    return State.success()
+    
 
 # 退出登录
 @web.route('/logout', methods=["POST", "GET"])

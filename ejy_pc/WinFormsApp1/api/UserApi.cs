@@ -20,6 +20,7 @@ namespace CloudPrint.Api
             Dictionary<string, object> dic = new Dictionary<string, object>();
             dic.Add("username", username);
             dic.Add("password", Md5.Md5Encryption(password));
+
             return Request.Post(url: "/login",dic);
         }
 

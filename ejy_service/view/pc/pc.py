@@ -1,6 +1,5 @@
 from flask import Blueprint, request,jsonify
 from utils.utils import *
-from model.db_model.admin import NoticeBoard
 from model.db_model.store import StoreAccount,Printer,Store,db
 from model.db_model.user import Order,db
 from utils.auth import create_token,login_required,verify_token
@@ -8,20 +7,27 @@ from utils.state_handler import *
 import ast
 from log.except_logger import *
 from plugins.redis_serve import *
-
+from config import *
 pc = Blueprint('pc', __name__)  # 第一个蓝图名称，第二个参数表示蓝图所在板块
+
+# 初始化版本信息
+@pc.route('/version-info', methods=["POST", "GET"])
+def version_info():
+    return State.success(data={"last_version":PC_LAST_VERSION})
+
 
 # 店铺账号登录
 @pc.route('/login', methods=["POST", "GET"])
 def login():
     username = request.form.get("username")
     password = request.form.get("password")
-    print("password:",password)
     account = StoreAccount.query.filter_by(username=username,password=password).first()
-    if account:
-        return State.success(data={"token":create_token(account.id,"P-")})
-    else:
+    if not account:
         return State.fail("用户名或密码错误")
+    if not account.enabled:
+        return State.fail("您的账户被冻结，请联系客服解决")
+    return State.success(data={"token":create_token(account.id,"P-")})
+        
 
 
 
@@ -49,11 +55,9 @@ def set_printers_info():
         supports_color=printers_params[i]["supports_color"]
         can_duplex=printers_params[i]["can_duplex"]
         is_defalut=printers_params[i]["is_defalut"]
-        printer_id=str(store_id)+str(i)
         res = Printer.query.filter_by(store_id=store_id,printer_name=printer_name).first()
         if res:
             res.computer_id=computer_id
-            res.printer_id=printer_id
             res.printer_name=printer_name
             res.supports_color=supports_color 
             res.can_duplex=can_duplex 
@@ -61,7 +65,7 @@ def set_printers_info():
             res.host_ip = host_ip
             db.session.commit()
         else:
-            printer=Printer(store_id=store_id,computer_id=computer_id,host_ip=host_ip,printer_id=printer_id,printer_name=printer_name,supports_color=supports_color,can_duplex=can_duplex,is_defalut=is_defalut,can_self_print=0,is_user_set_defalut=is_defalut)
+            printer=Printer(store_id=store_id,computer_id=computer_id,host_ip=host_ip,printer_name=printer_name,supports_color=supports_color,can_duplex=can_duplex,is_defalut=is_defalut,can_self_print=0,is_user_set_defalut=is_defalut)
             db.session.add(printer)
             db.session.commit()
         
@@ -113,7 +117,7 @@ def admin_exit():
     password = request.form.get("password")
     account = StoreAccount.query.filter_by(username=username,password=password).first()
     if account:
-        r.delete("ONLINE_STATE_"+account.store_id)
+        r.delete("ONLINE_STATE_"+str(account.store_id))
         return State.success()
     else:
         return State.fail("用户名或密码错误")
