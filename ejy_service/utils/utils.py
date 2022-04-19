@@ -24,7 +24,7 @@ def create_unique_code():
 
 def make_file_id():
     import random
-    file_id = date_now().join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 15)).replace(" ", "")
+    file_id =time.strftime('%Y%m%d', time.localtime(time.time())) +"".join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 15)).replace(" ", "")
     return file_id
 
 def model_to_dict(result):

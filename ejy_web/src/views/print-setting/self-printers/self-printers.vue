@@ -191,7 +191,7 @@ export default {
     },
     // 保存专属二维码图片到本地
     handleCreateQrCode(row) {
-      var url =`https://cloudprint.pinghaifeng.cn/web/printer_ewm?store_id=${row.store_id}&printer_id=${row.printer_id}` 
+      var url =`https://enjoyprint.pinghaifeng.cn/web/printer_ewm?store_id=${row.store_id}&printer_id=${row.printer_id}` 
       const domObj = document.getElementById("posterHtml");
       const qrcodeImgEl = document.getElementById("qrcodeImg");
       let qrcode = new QRCode(qrcodeImgEl, {

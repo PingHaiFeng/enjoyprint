@@ -9,8 +9,8 @@ CURRENT_TIME = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
 class DocFolder(db.Model):
     __tablename__ = "doc_folder"
     __table_args__ = {'extend_existing': True}
-    id = db.Column(db.Integer, primary_key=True) 
-    folder_id=db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True,autoincrement=True) 
+    folder_id=db.Column(db.Integer, primary_key=True,autoincrement=True)
     ishot=db.Column(db.String(255))
     name=db.Column(db.String(255))
     create_date=db.Column(db.String(255))
@@ -32,8 +32,8 @@ class DocFolder(db.Model):
 class Doc(db.Model):
     __tablename__ = "doc"
     __table_args__ = {'extend_existing': True}
-    id = db.Column(db.Integer, primary_key=True) 
-    file_id=db.Column(db.String(255), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True,autoincrement=True) 
+    file_id=db.Column(db.String(255))
     file_type=db.Column(db.String(55))
     file_type_id=db.Column(db.Integer)
     folder_id=db.Column(db.Integer)

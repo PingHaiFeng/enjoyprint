@@ -4,7 +4,7 @@
       type="primary"
       icon="el-icon-upload"
       size="mini"
-      @click="diaOpen = true"
+      @click="onDialogOpen"
       >上传文档</el-button
     >
 
@@ -38,107 +38,68 @@
 
     <!-- 上传对话框 -->
     <el-dialog title="文档上传" :visible.sync="diaOpen" append-to-body>
-      <el-upload
-        class="upload-doc"
-        ref="upload"
-        :action="uploadUrl"
-        multiple
-        :before-upload="onBeforeUpload"
-        :data="docUploadParams"
-        :auto-upload="false"
-      >
-        <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-      
-        <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
-          <div class="el-upload__tip" slot="tip">
-          只能上传jpg/png文件，且不超过500kb
-        </div>
-      </el-upload>
+      <el-form ref="form">
+        <el-form-item label="文件" prop="">
+          <el-upload
+            class="upload-doc"
+            ref="upload"
+            :action="uploadUrl"
+            multiple
+            :on-change="onChangeUpload"
+            :data="docUploadParams"
+            :auto-upload="false"
+          >
+            <el-button slot="trigger" size="small" type="primary"
+              >选取文件</el-button
+            >
 
-      <!-- <el-form :model="form" ref="form" :rules="rules">
-        <el-form-item
-          label="纸张/类型"
-          label-width="180px"
-          required
-          clearable
-          prop="paper_type"
-        >
-          <el-select v-model="form.paper_type" placeholder="纸张类型">
-            <el-option label="普通" value="普通"></el-option>
-            <el-option label="图片" value="图片"></el-option>
+            <!-- <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button> -->
+            <div class="el-upload__tip" slot="tip">
+              只能上传jpg/png文件，且不超过500kb
+            </div>
+          </el-upload>
+        </el-form-item>
+        <el-form-item label="所属类别" required clearable>
+          <el-select v-model="folderID" placeholder="请选择文件夹" filterable>
+            <el-option
+              v-for="item in docFolderList"
+              :key="item.id"
+              :label="item.name"
+              :value="item.folder_id"
+            ></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item
-          label="大小"
-          prop="size"
-          label-width="180px"
-          required
-          clearable
-        >
-          <el-select v-model="form.size">
-            <el-option label="A3" value="A3"></el-option>
-            <el-option label="A4" value="A4"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item
-          label="颜色"
-          prop="color"
-          clearable
-          label-width="180px"
-          required
-        >
-          <el-select v-model="form.color">
-            <el-option label="黑白" value="黑白"></el-option>
-            <el-option label="彩色" value="彩色"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item
-          label="页面"
-          clearable
-          prop="duplex"
-          label-width="180px"
-          required
-        >
-          <el-select v-model="form.duplex">
-            <el-option label="单面" value="单面"></el-option>
-            <el-option label="双面" value="双面"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item
-          label="价格"
-          prop="price"
-          clearable
-          label-width="180px"
-          required
-        >
-          <el-input
-            type="number"
-            v-model="form.price"
-            autocomplete="off"
-            style="width: 200px"
-          ></el-input>
-        </el-form-item>
-      </el-form> -->
+      </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" >确 定</el-button>
+        <el-button type="primary" @click="submitUpload">确 定</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import { listDoc, getUploadUrl } from "@/api/library";
+import { listDoc, getUploadUrl, listDocFolder } from "@/api/library";
 
 export default {
   name: "book-upload",
   data() {
     return {
+      // 上传框显示
       diaOpen: false,
+      // 文档列表
       docList: [],
+      // 加载
       loading: false,
+      // 上传地址
       uploadUrl: null,
+      // 上传附带参数
       docUploadParams: null,
-      uploadDocList:[]
+      // 待上传列表
+      uploadDocList: [],
+      //文件夹列表
+      docFolderList: [],
+      //当前选择文件夹ID
+      folderID:""
     };
   },
   mounted() {
@@ -157,8 +118,20 @@ export default {
         this.docList = response.data.list;
       });
     },
-    onBeforeUpload(file) {
-     
+    //打开对话框
+    onDialogOpen() {
+      listDocFolder().then((response) => {
+        this.docFolderList = response.data.list;
+        this.diaOpen = true;
+      });
+    },
+    onChangeUpload(file) {
+      console.log(file);
+      this.docUploadParams = {
+        store_id: this.$store.getters.store_id,
+        file_name: file.name,
+        folder_id: this.folderID,
+      };
     },
     onPreview(row) {
       window.open(
@@ -166,14 +139,11 @@ export default {
         "_blank"
       );
     },
-    submitUpload(file) {
-      console.log(file)
-       this.docUploadParams = {
-        store_id:this.$store.getters.store_id,
-        file_name: this.uploadDocList[0].name,
-        folder_id:"1001"
-      };
-       this.$refs.upload.submit();
+
+    submitUpload() {
+      this.$refs.upload.submit();
+      this.diaOpen = false;
+      this.getDoc();
     },
   },
 };

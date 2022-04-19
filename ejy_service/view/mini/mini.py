@@ -52,7 +52,7 @@ def upload():
     with open(IO_PATH +file_id + '.' + file_type , "wb") as f:
         data = file.read()
         f.write(data)
-    file_page_num, file_type_id = readFiles(file_id,  file_type)  # 返回文件页数和文件图标路径
+    file_page_num, file_type_id = readFiles(IO_PATH,file_id,  file_type)  # 返回文件页数和文件图标路径
     data =  {
             "file_id": file_id,
             "file_name": n_suffix_name,
@@ -219,7 +219,7 @@ def lib_print():
         res = Doc.query.filter_by(id=id).first()
         list_data.append({
             "file_id": res.file_id,
-            "file_name": res.name,
+            "file_name": res.file_name,
             "file_page_num": res.file_page_num,
             "file_type": res.file_type,
             "file_type_id": res.file_type_id,

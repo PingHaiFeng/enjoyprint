@@ -74,7 +74,7 @@ def handlePrinter():
     '''改'''
     if request.method == "PUT": 
             data = request.form.to_dict()
-            Printer.query.filter_by(store_id=store_id,id=data.get("id")).update(data)
+            Printer.query.filter_by(store_id=store_id,printer_id=data.get("printer_id")).update(data)
             db.session.commit()
             return State.success()
     '''查'''         
@@ -243,18 +243,18 @@ def doc_upload():
     file_type = file_name.split(".")[-1]  # 文件扩展名
     file_id = make_file_id()
     download_url = LIB_UPLOAD_PATH + file_id+".pdf"
-    with open(IO_PATH +file_id + '.' + file_type , "wb") as f:
+    with open(LIB_UPLOAD_PATH +file_id + '.' + file_type , "wb") as f:
         data = file.read()
         f.write(data)
-    file_page_num, file_type_id = readFiles(file_id,  file_type)  # 返回文件页数和文件图标路径
-    download_url = "https://cloudprint.pinghaifeng.cn/pdf_view/web/library/"+file_id+"."+file_type
+    file_page_num, file_type_id = readFiles(LIB_UPLOAD_PATH,file_id,  file_type)  # 返回文件页数和文件图标路径
+    download_url = "https://cloudprint.pinghaifeng.cn/pdf_view/web/library/"+file_id+".pdf"
     db.session.add(Doc(
         file_id=file_id,
-        file_type=file_type,
+        file_type="pdf",
         folder_id=folder_id,
-        file_type_id = file_type_id,
+        file_type_id = 1,
         store_id=store_id,
-        file_name=file_name,
+        file_name=file_name[::-1].split(".", 1)[-1][::-1],  # 取消后缀名,
         file_page_num=file_page_num,
         download_url=download_url
     ))

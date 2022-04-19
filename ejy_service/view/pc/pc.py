@@ -55,11 +55,9 @@ def set_printers_info():
         supports_color=printers_params[i]["supports_color"]
         can_duplex=printers_params[i]["can_duplex"]
         is_defalut=printers_params[i]["is_defalut"]
-        printer_id=str(store_id)+str(i)
         res = Printer.query.filter_by(store_id=store_id,printer_name=printer_name).first()
         if res:
             res.computer_id=computer_id
-            res.printer_id=printer_id
             res.printer_name=printer_name
             res.supports_color=supports_color 
             res.can_duplex=can_duplex 
@@ -67,7 +65,7 @@ def set_printers_info():
             res.host_ip = host_ip
             db.session.commit()
         else:
-            printer=Printer(store_id=store_id,computer_id=computer_id,host_ip=host_ip,printer_id=printer_id,printer_name=printer_name,supports_color=supports_color,can_duplex=can_duplex,is_defalut=is_defalut,can_self_print=0,is_user_set_defalut=is_defalut)
+            printer=Printer(store_id=store_id,computer_id=computer_id,host_ip=host_ip,printer_name=printer_name,supports_color=supports_color,can_duplex=can_duplex,is_defalut=is_defalut,can_self_print=0,is_user_set_defalut=is_defalut)
             db.session.add(printer)
             db.session.commit()
         

@@ -115,7 +115,7 @@ export const constantRoutes = [{
     path: '/price',
     component: Layout,
     redirect: 'price-list',
-    meta: { title: '价格设置', icon: 'el-icon-printer' },
+    meta: { title: '价格设置', icon: 'el-icon-price-tag' },
     children: [
         {
             path: 'price-list',
@@ -187,7 +187,7 @@ export const constantRoutes = [{
     path: '/help',
     component: Layout,
     redirect: 'use-help',
-    meta: { title: '云即印助手', icon: 'dashboard' },
+    meta: { title: '云即印助手', icon: 'el-icon-help' },
     children: [
         {
             path: 'use-help',
@@ -216,7 +216,7 @@ export const constantRoutes = [{
 {
     path: '/credit',
     component: Layout,
-    meta: { title: '挂账管理', icon: 'dashboard' },
+    meta: { title: '挂账管理', icon: 'credit' },
     children: [
         {
             path: 'credit-record',
@@ -238,7 +238,7 @@ export const constantRoutes = [{
 {
     path: '/library',
     component: Layout,
-    meta: { title: '文库管理', icon: 'dashboard' },
+    meta: { title: '文库管理', icon: 'el-icon-folder' },
     children: [
         {
             path: 'folder',
@@ -298,7 +298,7 @@ export const constantRoutes = [{
         name: 'matter-download',
         component: () =>
             import('@/views/matter-download/matter-download'),
-        meta: { title: '物料下载', icon: 'el-icon-user' }
+        meta: { title: '物料下载', icon: 'el-icon-download' }
     }]
 },
 
