@@ -830,3 +830,181 @@ Traceback (most recent call last):
     file_type = file_name.split(".")[-1]  # 文件扩展名
 AttributeError: 'NoneType' object has no attribute 'split'
 
+[2022-04-19 10:32:16]
+get_store_detail
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 614, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\retry.py", line 45, in call_with_retry
+    return do()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 615, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 680, in _connect
+    raise err
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 668, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\web\web.py", line 50, in get_store_detail
+    pc_online =  r.exists("ONLINE_STATE_"+str(storeAccount.store_id))
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\commands\core.py", line 1500, in exists
+    return self.execute_command("EXISTS", *names)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\client.py", line 1192, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 1386, in get_connection
+    connection.connect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 620, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. 由于目标计算机积极拒绝，无法连接。.
+
+[2022-04-19 10:33:03]
+get_store_detail
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 614, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\retry.py", line 45, in call_with_retry
+    return do()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 615, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 680, in _connect
+    raise err
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 668, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\web\web.py", line 50, in get_store_detail
+    pc_online =  r.exists("ONLINE_STATE_"+str(storeAccount.store_id))
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\commands\core.py", line 1500, in exists
+    return self.execute_command("EXISTS", *names)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\client.py", line 1192, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 1386, in get_connection
+    connection.connect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 620, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. 由于目标计算机积极拒绝，无法连接。.
+
+[2022-04-19 11:26:08]
+get_notice
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'notice_board.auto_show' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\utils\auth.py", line 47, in verify_token
+    return view_func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\web\web.py", line 134, in get_notice
+    notice = model_to_dict(NoticeBoard.query.all())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in all
+    return self._iter().all()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
+    result = self.session.execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'notice_board.auto_show' in 'field list'")
+[SQL: SELECT notice_board.id AS notice_board_id, notice_board.title AS notice_board_title, notice_board.content AS notice_board_content, notice_board.create_time AS notice_board_create_time, notice_board.auto_show AS notice_board_auto_show, notice_board.`show` AS notice_board_show 
+FROM notice_board]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+
+[2022-04-19 13:44:33]
+doc_upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\web\web.py", line 249, in doc_upload
+    file_page_num, file_type_id = readFiles(file_id,  file_type)  # 返回文件页数和文件图标路径
+  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 36, in readFiles
+    transform_pdf.img2pdf(img_path, pdf_path)
+  File "d:\enjoyprint\ejy_service\plugins\transform_pdf.py", line 67, in img2pdf
+    imgdoc = fitz.open(img)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\fitz\fitz.py", line 3815, in __init__
+    _fitz.new_Document(
+RuntimeError: cannot open D:\temp_files\20220419170WQNB42DYSKEA.png: No such file or directory
+
+[2022-04-19 13:57:51]
+doc_upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\web\web.py", line 249, in doc_upload
+    file_page_num, file_type_id = readFiles(LIB_UPLOAD_PATH,file_id,  file_type)  # 返回文件页数和文件图标路径
+  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 16, in readFiles
+    page_num = getPdfPageNum(file_id + ".pdf")
+  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 41, in getPdfPageNum
+    pdf_path = work_path + name
+NameError: name 'work_path' is not defined
+
+[2022-04-19 14:47:33]
+lib_print
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 222, in lib_print
+    "file_name": res.name,
+AttributeError: 'Doc' object has no attribute 'name'
+
