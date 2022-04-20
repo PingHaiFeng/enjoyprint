@@ -1,20 +1,6 @@
  <template>
   <div class="app-container" v-loading="loading">
-    <!-- <div class="dot" v-if="store_detail.pc_online === 1" >在线</div>
-<div class="dot" v-else>离线</div> -->
-    <el-form inline>
-      <el-form-item label="PC客户端状态" >
-        <svg-icon
-          class="dot"
-          :style="
-            store_detail.pc_online === 1 ? 'fill:#67c23a' : 'fill:#cdcdcd'
-          "
-          icon-class="dot"
-        />{{ store_detail.pc_online === 1 ? "在线" : "离线" }}
-      </el-form-item>
-    </el-form>
-
-    <el-descriptions class="margin-top" title="" :column="3" border>
+    <el-descriptions class="margin-top" title="店铺详情" :column="3" border>
       <el-descriptions-item>
         <template slot="label">
           <i class="el-icon-user"></i>
@@ -22,7 +8,16 @@
         </template>
         <el-input v-model="store_detail.store_name"></el-input>
       </el-descriptions-item>
-
+      <el-descriptions-item>
+        <template slot="label">
+          <i class="el-icon-monitor"></i>
+          在线状态
+        </template>
+        <el-tag v-if="store_detail.pc_online === 1" type="success" 
+          >在线</el-tag
+        >
+        <el-tag v-else type="info">离线</el-tag>
+      </el-descriptions-item>
       <!-- <el-descriptions-item>
         <template slot="label">
           <i class="el-icon-user"></i>
@@ -62,7 +57,7 @@
           <i class="el-icon-tickets"></i>
           套餐版本
         </template>
-        <el-tag type="success">高校版</el-tag>
+        <el-tag  type="success">高校版</el-tag>
       </el-descriptions-item>
       <el-descriptions-item>
         <template slot="label">
@@ -201,10 +196,10 @@ export default {
 };
 </script>
 <style >
-el-row {
-}
-.dot {
-  width: 10px;
-  height: 10px;
-}
+/* label.el-form-item__label {
+  font-weight: 500 !important;
+} */
+/* el-form-item{
+    width: 300px !important;
+} */
 </style>

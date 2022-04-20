@@ -36,13 +36,13 @@ class NoticeBoard(db.Model):
     title = db.Column(db.String(255))
     content = db.Column(db.String(255))
     create_time =db.Column(db.String(50),default = str(time_now()))
-    auto_show= db.Column(db.Integer)
+    show_screen_center= db.Column(db.Integer)
     show=db.Column(db.Integer)
-    def __init__(self, title, content, create_time,auto_show,show):
+    def __init__(self, title, content, create_time,show_screen_center,show):
         self.title = title
         self.content = content
         self.create_time = create_time
-        self.auto_show=auto_show
+        self.show_screen_center=show_screen_center
         self.show=show
 # 反馈信息
 class FeedBack(db.Model):

@@ -195,7 +195,7 @@ namespace 云打印
             this.pictureBoxTopBg.Location = new System.Drawing.Point(-5, -2);
             this.pictureBoxTopBg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBoxTopBg.Name = "pictureBoxTopBg";
-            this.pictureBoxTopBg.Size = new System.Drawing.Size(1216, 289);
+            this.pictureBoxTopBg.Size = new System.Drawing.Size(1216, 322);
             this.pictureBoxTopBg.TabIndex = 601;
             this.pictureBoxTopBg.TabStop = false;
             this.pictureBoxTopBg.Click += new System.EventHandler(this.pictureBox3_Click);

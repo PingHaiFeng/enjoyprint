@@ -8,5 +8,5 @@ class State:
 
     def fail(*args):
         if not args:
-            args = ["error"]
-        return {"state": 0, "msg": args[0]}
+            args = "错误"
+        return {"state": 0, "msg": args}

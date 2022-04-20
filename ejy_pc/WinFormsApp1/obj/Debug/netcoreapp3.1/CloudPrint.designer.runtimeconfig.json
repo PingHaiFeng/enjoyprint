@@ -6,9 +6,9 @@
       "version": "3.1.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\l\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\l\\.nuget\\packages",
-      "E:\\chengxu\\VS\\Shared\\NuGetPackages"
+      "C:\\Users\\Administrator\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Administrator\\.nuget\\packages",
+      "D:\\Program Files\\VS\\shared\\NuGetPackages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

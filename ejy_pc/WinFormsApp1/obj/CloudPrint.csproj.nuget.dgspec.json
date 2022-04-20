@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Source\\Repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj": {}
+    "C:\\Users\\Administrator\\source\\repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Source\\Repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj": {
+    "C:\\Users\\Administrator\\source\\repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj",
         "projectName": "CloudPrint",
-        "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj",
+        "projectPath": "C:\\Users\\Administrator\\source\\repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\CloudPrint.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\source\\repos\\enjoyprint\\ejy_pc\\WinFormsApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files\\VS\\shared\\NuGetPackages"

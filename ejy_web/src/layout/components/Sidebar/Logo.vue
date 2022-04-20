@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       title: '云即印',
-      logo: 'https://cloudprint.pinghaifeng.cn/image/logo.png'
+      logo: 'http://shopapi.pinghaifeng.cn/image/logo.png'
     }
   }
 }

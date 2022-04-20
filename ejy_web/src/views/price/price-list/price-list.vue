@@ -62,7 +62,7 @@
       <!-- 新建单价对话框 -->
       <el-dialog
         title="文档定价"
-        :visible.sync="diaOpen"
+        :visible.sync="open"
         width="500px"
         append-to-body
       >
@@ -146,7 +146,7 @@ export default {
       priceList: [],
       loading: true,
       activeMeauIndex: 1, //当前菜单索引
-      diaOpen: false,
+      open: false,
       form: {
         id: null,
         store_id: null,
@@ -206,12 +206,12 @@ export default {
     /** 新增按钮操作 */
     handleAdd() {
       this.reset();
-      this.diaOpen = true;
+      this.open = true;
       this.title = "添加岗位管理";
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
-      this.diaOpen = true;
+      this.open = true;
       this.form = row;
     },
 
@@ -253,7 +253,7 @@ export default {
           if (this.form.id != null) {
             updatePrice(this.form).then((response) => {
               this.$modal.msgSuccess("修改成功");
-              this.diaOpen = false;
+              this.open = false;
               this.getList();
             });
           } else {
@@ -262,7 +262,7 @@ export default {
             }
             addPrice(this.form).then((response) => {
               this.$modal.msgSuccess("新增成功");
-              this.diaOpen = false;
+              this.open = false;
               this.getList();
             });
           }

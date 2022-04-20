@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ejy_pc",
+    "\\ejy_pc\\WinFormsApp1",
+    "\\ejy_pc\\WinFormsApp1\\print"
   ],
+  "SelectedNode": "\\ejy_pc\\WinFormsApp1\\FormLogin.cs",
   "PreviewInSolutionExplorer": false
 }
