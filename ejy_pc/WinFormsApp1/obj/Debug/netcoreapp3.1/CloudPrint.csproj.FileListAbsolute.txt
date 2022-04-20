@@ -281,7 +281,6 @@ C:\Users\Administrator\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\net
 C:\Users\Administrator\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfoInputs.cache
 C:\Users\Administrator\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.AssemblyInfo.cs
 C:\Users\Administrator\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CoreCompileInputs.cache
-C:\Users\Administrator\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.csproj.CopyComplete
 C:\Users\Administrator\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.dll
 C:\Users\Administrator\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.pdb
 C:\Users\Administrator\Source\Repos\enjoyprint\ejy_pc\WinFormsApp1\obj\Debug\netcoreapp3.1\CloudPrint.genruntimeconfig.cache
