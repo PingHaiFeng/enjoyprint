@@ -11,9 +11,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using WinFormsApp1;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.InteropServices;
 using System.Drawing.Text;
 using EnjoyPrint;
 using EnjoyPrint.config;
@@ -149,7 +147,7 @@ namespace 云打印
             try
             {
                 User user = new User();
-                FileStream fs = new FileStream("data.bin", FileMode.OpenOrCreate);
+                FileStream fs = new FileStream(Config.ACCOUNT_CONFIG_PATH + "account.bin", FileMode.OpenOrCreate);
                 BinaryFormatter bf = new BinaryFormatter();
                 user.UserName = tbUsername.Text.Trim();
                 user.RememberPwd = checkBoxRememberPwd.Checked;
@@ -169,7 +167,20 @@ namespace 云打印
         {
             try
             {
-                FileStream fs = new FileStream(@"data.bin", FileMode.OpenOrCreate);
+                string configPath = Config.ACCOUNT_CONFIG_PATH;
+                //判断文件夹是否存在
+                if (!Directory.Exists(configPath))
+                {
+                    //创建文件夹
+                    try
+                    {
+                        Directory.CreateDirectory(configPath);
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                }
+                FileStream fs = new FileStream(Config.ACCOUNT_CONFIG_PATH + "account.bin", FileMode.OpenOrCreate);
 
                 if (fs.Length > 0)
                 {

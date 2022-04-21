@@ -15,5 +15,6 @@ namespace EnjoyPrint.config
 
         public static string FTP_PASSWORD = "fang1234";
         public static string OUTFILE_PATH = @"C:\ftpDownload";
+        public static string ACCOUNT_CONFIG_PATH = @"C:\Users\Public\Documents\EnjoyPrint\";
     }
 }
