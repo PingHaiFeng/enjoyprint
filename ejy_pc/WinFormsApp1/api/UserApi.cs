@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CloudPrint;
+using EnjoyPrint.utils;
 using Newtonsoft.Json.Linq;
 
-namespace CloudPrint.Api
+namespace EnjoyPrint.api
 {
-   public static class UserApi
+    public static class UserApi
     {
-/// <summary>
-/// 登录
-/// </summary>
-/// <param name="username"></param>
-/// <param name="password"></param>
-/// <returns></returns>
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static JObject Login(string username, string password)
         {
 
@@ -21,7 +21,7 @@ namespace CloudPrint.Api
             dic.Add("username", username);
             dic.Add("password", Md5.Md5Encryption(password));
 
-            return Request.Post(url: "/login",dic);
+            return Request.Post(url: "/login", dic);
         }
 
         public static JObject AdminExit(string username, string password)
@@ -40,6 +40,6 @@ namespace CloudPrint.Api
             return Request.Post(url: "/get_info", dic);
         }
 
-      
+
     }
 }

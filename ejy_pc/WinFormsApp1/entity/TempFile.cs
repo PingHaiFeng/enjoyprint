@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CloudPrint.Entity
+namespace EnjoyPrint.entity
 {
     public class TempFile
     {

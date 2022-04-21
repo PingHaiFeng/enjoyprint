@@ -76,11 +76,11 @@ namespace WinFormsApp1
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBoxLogo.Image = global::CloudPrint.Properties.Resources.logo1;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(33, 14);
+            this.pictureBoxLogo.Image = global::EnjoyPrint.Properties.Resources.logo1;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(33, 29);
             this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(62, 73);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(62, 58);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 8;
             this.pictureBoxLogo.TabStop = false;
@@ -148,12 +148,12 @@ namespace WinFormsApp1
             // 
             // pictureBoxBg
             // 
-            this.pictureBoxBg.BackgroundImage = global::CloudPrint.Properties.Resources.bg_bggenerator_com1;
-            this.pictureBoxBg.InitialImage = global::CloudPrint.Properties.Resources.bg_bggenerator_com1;
+            this.pictureBoxBg.BackgroundImage = global::EnjoyPrint.Properties.Resources.bg_bggenerator_com1;
+            this.pictureBoxBg.InitialImage = global::EnjoyPrint.Properties.Resources.bg_bggenerator_com1;
             this.pictureBoxBg.Location = new System.Drawing.Point(0, -5);
             this.pictureBoxBg.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxBg.Name = "pictureBoxBg";
-            this.pictureBoxBg.Size = new System.Drawing.Size(1379, 141);
+            this.pictureBoxBg.Size = new System.Drawing.Size(1379, 132);
             this.pictureBoxBg.TabIndex = 10;
             this.pictureBoxBg.TabStop = false;
             this.pictureBoxBg.Click += new System.EventHandler(this.pictureBoxBg_Click);

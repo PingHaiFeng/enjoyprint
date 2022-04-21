@@ -3,9 +3,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using CloudPrint;
 using System.Diagnostics;
-using CloudPrint.Entity;
 using System.Runtime.InteropServices;
 using System.Threading;
+using EnjoyPrint.entity;
+using EnjoyPrint.config;
+using EnjoyPrint;
 
 namespace WinFormsApp1
 {

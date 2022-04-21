@@ -1,9 +1,8 @@
-﻿using CloudPrint.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CloudPrint.entity
+namespace EnjoyPrint.entity
 {
     internal class Order
     {

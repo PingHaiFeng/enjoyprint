@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace CloudPrint.utils
+namespace EnjoyPrint.utils
 {
     class Common
     {
@@ -22,7 +22,7 @@ namespace CloudPrint.utils
             //    Console.WriteLine(builder);
             //    builder.Append(Thread.CurrentThread.CurrentCulture.TextInfo.ToUpper(s));
             //}
-   
+
             //return builder.ToString();
         }
 
