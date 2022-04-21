@@ -1,29 +1,29 @@
 ﻿using System;
-using CloudPrint.Api;
-using CloudPrint.Entity;
-using CloudPrint.print;
+using EnjoyPrint.api;
+using EnjoyPrint.entity;
+using EnjoyPrint.print;
 
-namespace 云打印
+namespace EnjoyPrint
 {
 
 
     public class PrintJob
     {
         [Obsolete]
-        public   int StartPrintWork(TempFile file)
+        public int StartPrintWork(TempFile file)
         {
             try
             {
                 Download.DownloadFile(file);
                 HandlePrint.HandlePrint2(file);
-            
+
                 return 1;
             }
             catch
             {
                 return 0;
             }
-        
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CloudPrint.Entity;
+﻿using EnjoyPrint.config;
+using EnjoyPrint.entity;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,15 +7,15 @@ using System.Net;
 using System.Text;
 using WinFormsApp1;
 
-namespace CloudPrint.print
+namespace EnjoyPrint.print
 {
     class Download
     {
-    
+
         [Obsolete]
         public static int DownloadFile(TempFile file)
         {
-          
+
 
             FormMain.formMain.InsertListView(file);
             try
@@ -27,14 +28,14 @@ namespace CloudPrint.print
                 Stream responseStream = response.GetResponseStream();
 
                 //创建本地文件写入流
-                Stream stream = new FileStream(Config.OUTFILE_PATH + "\\" + file.file_id+".pdf", FileMode.Create);
+                Stream stream = new FileStream(Config.OUTFILE_PATH + "\\" + file.file_id + ".pdf", FileMode.Create);
 
                 byte[] bArr = new byte[1024];
-                int size = responseStream.Read(bArr, 0, (int)bArr.Length);
+                int size = responseStream.Read(bArr, 0, bArr.Length);
                 while (size > 0)
                 {
                     stream.Write(bArr, 0, size);
-                    size = responseStream.Read(bArr, 0, (int)bArr.Length);
+                    size = responseStream.Read(bArr, 0, bArr.Length);
                 }
                 stream.Close();
                 responseStream.Close();

@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CloudPrint.utils
+namespace EnjoyPrint.utils
 {
     class State
     {
-        public Boolean Success;
-       
+        public bool Success;
+
         public JObject Data { get; set; }
-        public String Msg { get; set; }
+        public string Msg { get; set; }
     }
 }

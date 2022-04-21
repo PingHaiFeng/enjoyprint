@@ -44,25 +44,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "EngineIoClientDotNet.Standard": {
-              "target": "Package",
-              "version": "[0.0.6, )"
-            },
-            "Nancy": {
-              "target": "Package",
-              "version": "[2.0.0, )"
-            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
-            },
-            "SocketIoClientDotNet": {
-              "target": "Package",
-              "version": "[0.9.13, )"
-            },
-            "WebSocketSharp": {
-              "target": "Package",
-              "version": "[1.0.3-rc11, )"
             }
           },
           "imports": [

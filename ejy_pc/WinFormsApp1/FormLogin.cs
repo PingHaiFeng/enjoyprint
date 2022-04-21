@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 using WinFormsApp1;
 using System.Threading;
 using System.Threading.Tasks;
-using CloudPrint;
-using CloudPrint.Api;
 using System.Runtime.Serialization.Formatters.Binary;
-using CloudPrint.Entity;
 using System.Runtime.InteropServices;
 using System.Drawing.Text;
-using CloudPrint.api;
+using EnjoyPrint;
+using EnjoyPrint.config;
+using EnjoyPrint.api;
+using EnjoyPrint.entity;
 
 namespace 云打印
 {
@@ -37,7 +37,7 @@ namespace 云打印
             //从外部文件加载字体文件  
             PrivateFontCollection font = new PrivateFontCollection();
 
-            font.AddFontFile(@"..\..\..\asset\腾讯体-Medium.TTF");
+            font.AddFontFile(@"腾讯体-Medium.TTF");
             //检测字体类型是否可用
             var r = font.Families[0].IsStyleAvailable(FontStyle.Regular);
             var b = font.Families[0].IsStyleAvailable(FontStyle.Bold);
@@ -169,7 +169,7 @@ namespace 云打印
         {
             try
             {
-                FileStream fs = new FileStream("data.bin", FileMode.OpenOrCreate);
+                FileStream fs = new FileStream(@"data.bin", FileMode.OpenOrCreate);
 
                 if (fs.Length > 0)
                 {
@@ -191,9 +191,9 @@ namespace 云打印
                 }
                 fs.Close();
             }
-            catch
+            catch (Exception ex)
             {
-                Console.WriteLine("出错");
+                Console.WriteLine(ex);
                 return;
             }
 

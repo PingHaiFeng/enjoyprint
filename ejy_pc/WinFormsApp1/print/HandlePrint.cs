@@ -1,4 +1,5 @@
-﻿using CloudPrint.Entity;
+﻿using EnjoyPrint.config;
+using EnjoyPrint.entity;
 using Spire.Pdf;
 using Spire.Pdf.Graphics;
 using System;
@@ -8,7 +9,7 @@ using System.Drawing.Printing;
 using System.Text;
 using WinFormsApp1;
 
-namespace CloudPrint.print
+namespace EnjoyPrint.print
 {
     class HandlePrint
     {
@@ -19,12 +20,12 @@ namespace CloudPrint.print
         [Obsolete]
         public static int HandlePrint2(TempFile file)
         {
-           
+
 
             FormMain.formMain.UpdatePrintState(file.file_id, "打印准备...");
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             PdfDocument doc = new PdfDocument();
-            doc.LoadFromFile(Config.OUTFILE_PATH + @"/" +file.file_id+".pdf");//指定打印文件
+            doc.LoadFromFile(Config.OUTFILE_PATH + @"/" + file.file_id + ".pdf");//指定打印文件
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             PrintDocument printDoc = doc.PrintDocument;
 
@@ -44,7 +45,7 @@ namespace CloudPrint.print
             printDoc.PrinterSettings.Copies = file.print_count;//要打印的份数
             if (printDoc.PrinterSettings.CanDuplex == true)//是否双面
             {
-                if (file.duplex==2)//收到双面打印指令
+                if (file.duplex == 2)//收到双面打印指令
                 {
                     printDoc.PrinterSettings.Duplex = Duplex.Vertical;
                 }
