@@ -16,7 +16,7 @@ namespace CloudPrint
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string fileFullPath = "data.bin";
+            string fileFullPath = Config.ACCOUNT_CONFIG_PATH + "account.bin";
             if (File.Exists(fileFullPath))
             {
 

@@ -39,6 +39,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E6BCF7F035F14EA284F8345DE04294C9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_EA37DA8A75934C40816ED87D9BF1B74C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -100,6 +106,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -156,6 +170,26 @@
             {
             "SourcePath" = "8:..\\..\\..\\..\\..\\Desktop\\enjoyprint.ico"
             "TargetName" = "8:enjoyprint.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_8E31A06BDC114F8C83573106C030D542"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E6BCF7F035F14EA284F8345DE04294C9"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\Desktop\\account.bin"
+            "TargetName" = "8:account.bin"
             "Tag" = "8:"
             "Folder" = "8:_8E31A06BDC114F8C83573106C030D542"
             "Condition" = "8:"
@@ -260,7 +294,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:云即印"
         "ProductCode" = "8:{CD88F791-BA3C-40B8-BF99-14CFBB888FE0}"
-        "PackageCode" = "8:{B53223F0-6C68-4C80-814B-0200A9E1407F}"
+        "PackageCode" = "8:{F9B867F0-16AF-4759-9117-C1B7025FA5E9}"
         "UpgradeCode" = "8:{F42C9413-F74C-43EB-BAF7-2839813931CC}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -275,7 +309,7 @@
         "Subject" = "8:"
         "ARPCONTACT" = "8:EnjoyPrint"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:自助打印系统"
+        "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
