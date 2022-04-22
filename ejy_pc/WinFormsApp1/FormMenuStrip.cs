@@ -21,13 +21,13 @@ namespace CloudPrint
             {
 
                 File.Delete(fileFullPath);
-                
-                    Application.ExitThread();
-                    Thread thtmp = new Thread(new ParameterizedThreadStart(run));
-                    object appName = Application.ExecutablePath;
-                    Thread.Sleep(1);
-                    thtmp.Start(appName);
-                
+
+                Application.ExitThread();
+                Thread thtmp = new Thread(new ParameterizedThreadStart(run));
+                object appName = Application.ExecutablePath;
+                Thread.Sleep(1);
+                thtmp.Start(appName);
+
 
             }
         }
@@ -44,7 +44,7 @@ namespace CloudPrint
             ps.StartInfo.FileName = obj.ToString();
             ps.Start();
         }
-    
+
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -57,7 +57,7 @@ namespace CloudPrint
                     UseShellExecute = true
                 };
                 Process.Start(psi);
-               Hide();
+                Hide();
             }
             catch (Exception ex)
             {
@@ -79,6 +79,12 @@ namespace CloudPrint
         {
             FormAdminLock formAdminLock = new FormAdminLock();
             formAdminLock.Show();
+            Hide();
+        }
+
+        private void FormMenuStrip_Deactivate(object sender, EventArgs e)
+        {
+          
             Hide();
         }
     }

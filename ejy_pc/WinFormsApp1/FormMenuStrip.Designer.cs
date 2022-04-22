@@ -212,6 +212,8 @@ namespace CloudPrint
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form_bottom_meau";
             this.TopMost = true;
+            this.Deactivate += new System.EventHandler(this.FormMenuStrip_Deactivate);
+            this.Leave += new System.EventHandler(this.FormMenuStrip_Deactivate);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
