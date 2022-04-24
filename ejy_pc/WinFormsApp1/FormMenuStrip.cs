@@ -72,7 +72,7 @@ namespace CloudPrint
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("已经是最新版本");
         }
 
         private void button5_Click(object sender, EventArgs e)

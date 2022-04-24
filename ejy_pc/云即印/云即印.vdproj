@@ -27,12 +27,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4F2ECCEDF1834991BCAAE628AF9F12E6"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_9FB27C012A9641D6889ED67C940B4943"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -71,7 +65,7 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:2"
+            "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
@@ -155,26 +149,6 @@
             {
             "SourcePath" = "8:..\\WinFormsApp1\\bin\\Debug\\netcoreapp3.1\\腾讯体-Medium.ttf"
             "TargetName" = "8:腾讯体-Medium.ttf"
-            "Tag" = "8:"
-            "Folder" = "8:_8E31A06BDC114F8C83573106C030D542"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4F2ECCEDF1834991BCAAE628AF9F12E6"
-            {
-            "SourcePath" = "8:..\\WinFormsApp1\\bin\\Debug\\netcoreapp3.1\\windowsdesktop-runtime-3.1.24-win-x64.exe"
-            "TargetName" = "8:windowsdesktop-runtime-3.1.24-win-x64.exe"
             "Tag" = "8:"
             "Folder" = "8:_8E31A06BDC114F8C83573106C030D542"
             "Condition" = "8:"
@@ -299,7 +273,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:云即印"
         "ProductCode" = "8:{CD88F791-BA3C-40B8-BF99-14CFBB888FE0}"
-        "PackageCode" = "8:{421D2A67-B769-4BD3-91E4-8493F44D2208}"
+        "PackageCode" = "8:{935C37B6-374E-4514-A4FB-8B8EE19D74F8}"
         "UpgradeCode" = "8:{F42C9413-F74C-43EB-BAF7-2839813931CC}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
