@@ -38,9 +38,10 @@ export function updateDoc(data) {
         data
     })
 }
-export function delDoc(id) {
+
+export function delDoc(ids) {
     return request({
-        url: `/web/doc?id=${id}`,
+        url: `/web/doc?ids=${ids}`,
         method: 'delete',
        
     })

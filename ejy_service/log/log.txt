@@ -1008,3 +1008,189 @@ Traceback (most recent call last):
     "file_name": res.name,
 AttributeError: 'Doc' object has no attribute 'name'
 
+[2022-04-19 23:42:55]
+handleDoc
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\web\web.py", line 243, in handleDoc
+    for id in ids.split(","):
+AttributeError: 'NoneType' object has no attribute 'split'
+
+[2022-04-20 00:11:44]
+doc_upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\web\web.py", line 263, in doc_upload
+    file_page_num, file_type_id = readFiles(LIB_UPLOAD_PATH,file_id,  file_type)  # 返回文件页数和文件图标路径
+TypeError: cannot unpack non-iterable NoneType object
+
+[2022-04-20 00:16:10]
+doc_upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\web\web.py", line 263, in doc_upload
+    file_page_num, file_type_id = readFiles(LIB_UPLOAD_PATH,file_id,  file_type)  # 返回文件页数和文件图标路径
+TypeError: cannot unpack non-iterable NoneType object
+
+[2022-04-20 10:47:24]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 7, in reverseGeocoder
+    "location": latitude+","+longitude}
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+
+[2022-04-20 10:50:47]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 9, in reverseGeocoder
+    adcode = res.data.result.ad_info.adcode
+AttributeError: 'Response' object has no attribute 'data'
+
+[2022-04-20 10:51:23]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 10, in reverseGeocoder
+    adcode = res.data.result.ad_info.adcode
+AttributeError: 'Response' object has no attribute 'data'
+
+[2022-04-20 10:52:03]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 10, in reverseGeocoder
+    adcode = res.data.result.ad_info.adcode
+AttributeError: 'str' object has no attribute 'data'
+
+[2022-04-20 10:52:47]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 11, in reverseGeocoder
+    adcode = res.data.result.ad_info.adcode
+AttributeError: 'str' object has no attribute 'data'
+
+[2022-04-20 10:53:45]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 11, in reverseGeocoder
+    adcode = res.data.result.ad_info.adcode
+AttributeError: 'str' object has no attribute 'data'
+
+[2022-04-20 10:59:02]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 11, in reverseGeocoder
+    adcode = res.data.result.ad_info.adcode
+AttributeError: 'str' object has no attribute 'data'
+
+[2022-04-20 11:00:06]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 10, in reverseGeocoder
+    adcode = res.data.result.ad_info.adcode
+AttributeError: 'dict' object has no attribute 'data'
+
+[2022-04-20 11:00:34]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 11, in reverseGeocoder
+    adcode = res.data.result.ad_info.adcode
+AttributeError: 'dict' object has no attribute 'data'
+
+[2022-04-20 11:01:55]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 11, in reverseGeocoder
+    adcode = res["data"]["result"]["ad_info"]["adcode"]
+KeyError: 'data'
+
+[2022-04-20 11:02:17]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 11, in reverseGeocoder
+    adcode = res["data"]["result"]["ad_info"]["adcode"]
+KeyError: 'data'
+
+[2022-04-20 11:04:00]
+list_store
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 160, in list_store
+    adcode,adname  =reverseGeocoder(lat,lgt)
+  File "d:\enjoyprint\ejy_service\utils\qq_map.py", line 12, in reverseGeocoder
+    adname = res["result"]["ad_info"]["adname"]
+KeyError: 'adname'
+
+[2022-04-22 16:49:15]
+upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 57, in upload
+    file_page_num, file_type_id = readFiles(IO_PATH,file_id,  file_type)  # 返回文件页数和文件图标路径
+TypeError: cannot unpack non-iterable NoneType object
+
+[2022-04-24 17:14:34]
+login
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\web\web.py", line 29, in login
+    login_log=StoreLoginLog(store_id=account.store_id,login_type=2,state="Web后台登陆成功")
+AttributeError: 'function' object has no attribute 'store_id'
+
+[2022-04-25 14:57:00]
+upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 57, in upload
+    file_page_num, file_type_id = readFiles(IO_PATH,file_id,  file_type)  # 返回文件页数和文件图标路径
+TypeError: cannot unpack non-iterable NoneType object
+

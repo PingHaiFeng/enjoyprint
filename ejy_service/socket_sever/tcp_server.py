@@ -61,7 +61,7 @@ def save_host_ip(token,host_ip):
 2004 —— 客户端心跳包
 '''
 def parse(sc,socket_mapping,host_ip,instruct_data):
-# 1代表服务端 2代表客户端 3代表TCP中转站 4代表小程序
+# 1代表服务端 2代表客户端 3代表TCP中转 
 
 
     try:
@@ -82,7 +82,6 @@ def parse(sc,socket_mapping,host_ip,instruct_data):
 
         if instruct_id==2003:  #2003 pc端传输打印机等信息
            instruct_dict=instruct_data['instruct_dict']
-        #    default_printer =instruct_dict["default_printer"]
            print("pc端传输打印机等信息")
 
         if instruct_id==2004: #2004 pc端心跳包
@@ -107,24 +106,21 @@ def parse(sc,socket_mapping,host_ip,instruct_data):
                 res={"state":0,"msg":"该店铺账号强行下线关闭"}
                 print("发送失败,该店铺账号强行下线关闭")
             local_client_socket.send(json.dumps(res).encode('utf-8'))
+            
+        if instruct_id==3005:  #3005 中转站重启客户端请求
+            try:
+                instruct_data['instruct_id']=1005
+                goal_ip=instruct_data["instruct_dict"]["goal_ip"] #目标ip地址
+                goal_client_socket = socket_mapping[goal_ip]
+                goal_client_socket.send(json.dumps(instruct_data).encode('utf-8'))
+                res={"state":1,"msg":"重启成功"}
+                print("成功发送")
+            except KeyError:
+                res={"state":0,"msg":"重启失败，该店铺账号未登陆"}
+            except ConnectionResetError:
+                res={"state":0,"msg":"重启失败，该店铺账号已下线关闭"}
+            local_client_socket.send(json.dumps(res).encode('utf-8'))
 
-        # if instruct_id==4001:# 4001小程序询问商家端是否在线请求
-        #     try:
-        #         instruct_data['instruct_id']=1001
-        #         goal_ip=instruct_data["instruct_dict"]["goal_ip"] #目标ip地址
-        #         goal_client_socket = socket_mapping[goal_ip]
-        #         goal_client_socket.send(json.dumps(instruct_data).encode('utf-8'))
-        #         res={"state":1,"msg":"目标店铺在线"}
-        #         print("成功发送")
-        #     except KeyError:
-        #         res={"state":0,"msg":"该店铺账号未登陆"}
-        #         print("发送失败，该店铺账号未登陆")
-        #     except ConnectionResetError:
-        #         res={"state":0,"msg":"该店铺账号强行下线关闭"}
-        #         print("发送失败,该店铺账号强行下线关闭")
-        #     except ConnectionAbortedError:
-        #         res={"state":0,"msg":"主机终止了连接"}
-        #     local_client_socket.send(json.dumps(res).encode('utf-8'))
           
     except KeyError:
         raise

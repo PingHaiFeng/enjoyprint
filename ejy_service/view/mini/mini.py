@@ -1,5 +1,5 @@
 '''打印小程序端路由'''
-from flask import Blueprint, request, jsonify, redirect, url_for,send_from_directory
+from flask import Blueprint, request,send_from_directory
 import time
 from plugins.file_reader import readFiles
 from socket_sever.handle_socket import send_to_server
@@ -14,6 +14,7 @@ from log.except_logger import *
 from plugins.redis_serve import *
 from view.mini.func.take_id import take_id_maker
 from config import *
+from utils.qq_map import reverseGeocoder
 mini = Blueprint('mini', __name__)  # 第一个蓝图名称，第二个参数表示蓝图所在板块
 
 
@@ -34,6 +35,7 @@ def get_store_info():
         "account_info":account_info
     }
     return State.success(data={"store_info": store_info})
+
 
 
 # 接收小程序上传的文件
@@ -83,7 +85,7 @@ def exe_print():
     store_id = request.form.get("store_id")
     order_id = request.form.get("order_id")
     printer_name = request.form.get("printer_name")
-    file_count = request.form.get("file_count")
+    file_count = int(request.form.get("file_count"))
     take_id = take_id_maker(store_id)
     host_ip = StoreAccount.query.filter_by(store_id=store_id).first().host_ip
     if host_ip:
@@ -153,7 +155,8 @@ def get_file_orders():
 @mini.route('/store-list', methods=["POST", "GET"])
 @except_logger
 def list_store():
-    list =  model_to_dict(Store.query.all())
+    adname = request.args.get("adname")
+    list =  model_to_dict(Store.query.filter_by(adname=adname).all())
     return State.success(data={"list": list})
 
 

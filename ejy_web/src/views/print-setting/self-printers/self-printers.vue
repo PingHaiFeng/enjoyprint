@@ -106,7 +106,10 @@
           <el-button @click="handleEdit(scope.row)" type="text" size="medium"
             >编辑</el-button
           >
-          <el-button @click="handleCreateQrCode(scope.row)" type="text" size="medium"
+          <el-button
+            @click="handleCreateQrCode(scope.row)"
+            type="text"
+            size="medium"
             >专属二维码</el-button
           >
         </template>
@@ -127,7 +130,7 @@
       >
         <div>{{ posterContent }}</div>
         <!-- 二维码 -->
-        <div><div id="qrcodeImg"></div></div>
+        <div id="qrcodeImg"></div>
       </div>
     </div>
   </div>
@@ -174,7 +177,6 @@ export default {
     handleUpdate(row) {
       updatePrinter(row).then((response) => {
         this.$modal.msgSuccess("配置成功");
-      
         this.getList();
       });
     },
@@ -191,9 +193,14 @@ export default {
     },
     // 保存专属二维码图片到本地
     handleCreateQrCode(row) {
-      var url =`https://enjoyprint.pinghaifeng.cn/web/printer_ewm?store_id=${row.store_id}&printer_id=${row.printer_id}` 
-      const domObj = document.getElementById("posterHtml");
-      const qrcodeImgEl = document.getElementById("qrcodeImg");
+      var url = `https://cloudprint.pinghaifeng.cn/web/printer_ewm?store_id=${row.store_id}&printer_id=${row.printer_id}`;
+      var domObj = document.getElementById("posterHtml");
+      var qrcodeImgEl = document.getElementById("qrcodeImg");
+      // var eleCavas = document.getElementsByName("cavans")
+      // var eleImg = document.getElementsByName("img")
+      // qrcodeImgEl.removeChild(eleCavas)
+      //      qrcodeImgEl.removeChild(eleImg)
+      console.log(qrcodeImgEl);
       let qrcode = new QRCode(qrcodeImgEl, {
         width: 500,
         height: 500,
@@ -213,7 +220,7 @@ export default {
         },
       })
         .then((canvas) => {
-          var alink = document.createElement("a");
+          var alink = document.createElement("a" + Date.now());
           alink.href = canvas.toDataURL("image/png");
           alink.download = `${row.printer_name}的专属二维码`; // 图片名
           alink.click();

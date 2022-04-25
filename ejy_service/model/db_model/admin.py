@@ -72,3 +72,17 @@ class MiniInfo(db.Model):
    
     def __init__(self, swiper):
        self.swiper=swiper
+       
+class StoreLoginLog(db.Model):
+    __tablename__ = "log_store"
+    __table_args__ = {'extend_existing': True}
+    login_id = db.Column(db.Integer, primary_key=True,autoincrement=True) 
+    store_id = db.Column(db.Integer)
+    login_type = db.Column(db.Integer)
+    state =   db.Column(db.String(50))
+    login_time = db.Column(db.String(50),default=time_now())
+   
+    def __init__(self, store_id,login_type,state):
+       self.store_id=store_id
+       self.login_type=login_type
+       self.state=state

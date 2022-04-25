@@ -12,6 +12,9 @@
           icon-class="dot"
         />{{ store_detail.pc_online === 1 ? "在线" : "离线" }}
       </el-form-item>
+      <el-form-item>
+        <el-button :disabled="store_detail.pc_online !== 1" type="primary" :loading="pcRestartLoading" plain size="mini" @click="_restartPC">重启</el-button>
+      </el-form-item>
     </el-form>
 
     <el-descriptions class="margin-top" title="" :column="3" border>
@@ -91,82 +94,20 @@
         确认修改
       </el-button>
     </el-row>
-    <!-- <p style="font-weight:bold;">店铺详情</p>
-    <el-form
-      label-position="left"
-      :model="store_detail"
-      class="demo-form-inline"
-      inline
-    >
-      <el-row>
-        <el-col :span="8">
-          <el-form-item label="店铺名称：" >
-            <el-input
-              v-model="store_detail.store_name"
-              placeholder=""
-            ></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item label="登录账号：">
-            {{ store_detail.username }}
-          </el-form-item>
-        </el-col>
-         <el-col :span="8">
-          <el-form-item label="手机号：">
-            {{ store_detail.username }}
-          </el-form-item>
-        </el-col>
-        
-      </el-row>
-      <el-row>
-        
-
-        <el-col :span="8">
-          <el-form-item label="详细地址：">
-            {{ store_detail.detail_addr }}
-          </el-form-item>
-        </el-col>
-       <el-col :span="8">
-          <el-form-item label="套餐版本：">
-            <span>高校版</span>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item label="使用期限：">
-            <span>永久免费</span>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="20">
-          <el-form-item label="店铺公告：">
-            <el-input
-              type="textarea"
-              :rows="5"
-              placeholder="请输入内容"
-              v-model="store_detail.store_announce"
-           
-            >
-            </el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
-    </el-form>
-    <el-row type="flex" justify="center">
-      <el-button  type="primary" @click="setData"> 确认修改 </el-button>
-    </el-row> -->
+  
   </div>
 </template>
 
   <script>
-import { getStoreDetail, setStoreDetail } from "@/api/detail";
+  import { restartPC } from "@/api/pcclient";
+import { getStoreDetail, setStoreDetail } from "@/api/user";
 import store from "@/store"; // get token from cookie
 const store_id = store.getters.store_id;
 export default {
   data() {
     return {
       loading: true,
+      pcRestartLoading:false,
       store_detail: {
         store_name: "",
         store_announce: "",
@@ -197,12 +138,25 @@ export default {
         });
       });
     },
+    _restartPC(){
+      
+      if(this.store_detail.pc_online !== 1){
+         this.$modal.msgError("客户端已离线，请先上线");
+         return
+      }
+      this.pcRestartLoading=true
+restartPC().then(res=>{
+  this.$modal.msgSuccess("重启成功");
+   this.pcRestartLoading=false
+}).catch(err=>{
+   this.pcRestartLoading=false
+})
+    }
   },
 };
 </script>
 <style >
-el-row {
-}
+
 .dot {
   width: 10px;
   height: 10px;

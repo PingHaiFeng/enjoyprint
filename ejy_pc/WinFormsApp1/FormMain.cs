@@ -93,7 +93,6 @@ namespace WinFormsApp1
             {
 
                 formMenuStrip.Location =new Point(Cursor.Position.X-formMenuStrip.Width, Cursor.Position.Y - formMenuStrip.Height);
-            
                 formMenuStrip.Show();
             }
         }
@@ -204,6 +203,11 @@ namespace WinFormsApp1
         }
 
         private void pictureBoxBg_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MyNotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
         }

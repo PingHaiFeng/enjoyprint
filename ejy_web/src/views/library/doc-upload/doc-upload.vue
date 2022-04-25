@@ -1,19 +1,38 @@
 <template>
   <div class="container">
-    <el-button
-      type="primary"
-      icon="el-icon-upload"
-      size="mini"
-      @click="onDialogOpen"
-      >上传文档</el-button
-    >
+    <el-row :gutter="10" class="mb8">
+      <el-col :span="1.5">
+        <el-button
+          type="primary"
+           plain
+          icon="el-icon-upload"
+          size="mini"
+          @click="onDialogOpen"
+          >上传</el-button
+        >
+      </el-col>
+      <el-col :span="1.5">
+        <el-button
+          type="danger"
+          plain
+          icon="el-icon-delete"
+          size="mini"
+          :disabled="multiple"
+          @click="handleDelete"
+          >删除</el-button
+        >
+      </el-col>
+    </el-row>
 
     <el-table
       :data="docList"
       style="width: 100%"
       v-loading="loading"
+      @selection-change="handleSelectionChange"
+      border
       :header-cell-style="{ background: '#F7F7FA', color: '#555' }"
     >
+      <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="文件名">
         <template scope="scope">
           <svg-icon
@@ -48,6 +67,7 @@
             :on-change="onChangeUpload"
             :data="docUploadParams"
             :auto-upload="false"
+            :on-success="onUploadSuccess"
           >
             <el-button slot="trigger" size="small" type="primary"
               >选取文件</el-button
@@ -55,7 +75,7 @@
 
             <!-- <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button> -->
             <div class="el-upload__tip" slot="tip">
-              只能上传jpg/png文件，且不超过500kb
+              仅支持上传doc、pdf、ppt、图片文件，且不超过30M
             </div>
           </el-upload>
         </el-form-item>
@@ -78,12 +98,18 @@
 </template>
 
 <script>
-import { listDoc, getUploadUrl, listDocFolder } from "@/api/library";
+import { listDoc, getUploadUrl, listDocFolder, delDoc } from "@/api/library";
 
 export default {
   name: "book-upload",
   data() {
     return {
+      // 选中数组
+      ids: [],
+      // 非单个禁用
+      single: true,
+      // 非多个禁用
+      multiple: true,
       // 上传框显示
       diaOpen: false,
       // 文档列表
@@ -93,25 +119,29 @@ export default {
       // 上传地址
       uploadUrl: null,
       // 上传附带参数
-      docUploadParams: null,
+      docUploadParams: {
+        store_id: "",
+        file_name: "",
+        folder_id: "",
+      },
       // 待上传列表
       uploadDocList: [],
       //文件夹列表
       docFolderList: [],
       //当前选择文件夹ID
-      folderID:""
+      folderID: "",
     };
   },
   mounted() {
     this._getUploadUrl();
-    this.getDoc();
+    this.getDocList();
   },
   methods: {
     _getUploadUrl() {
       this.uploadUrl = getUploadUrl();
     },
     //获取文件信息
-    getDoc() {
+    getDocList() {
       this.loading = true;
       listDoc().then((response) => {
         this.loading = false;
@@ -126,12 +156,8 @@ export default {
       });
     },
     onChangeUpload(file) {
-      console.log(file);
-      this.docUploadParams = {
-        store_id: this.$store.getters.store_id,
-        file_name: file.name,
-        folder_id: this.folderID,
-      };
+      this.docUploadParams.store_id = this.$store.getters.store_id;
+      this.docUploadParams.file_name = file.name;
     },
     onPreview(row) {
       window.open(
@@ -141,9 +167,39 @@ export default {
     },
 
     submitUpload() {
+      this.docUploadParams.folder_id = this.folderID;
       this.$refs.upload.submit();
-      this.diaOpen = false;
-      this.getDoc();
+    },
+    onUploadSuccess(response) {
+      if (response.state === 1) {
+        this.diaOpen = false;
+        this.$refs.upload.clearFiles();
+        this.folderID = "";
+        this.getDocList();
+        this.$modal.msgSuccess("添加文件成功");
+      } else {
+        this.$modal.msgError("添加文件失败，请检查文件格式");
+      }
+    },
+    // 多选框选中数据
+    handleSelectionChange(selection) {
+      this.ids = selection.map((item) => item.id);
+      this.single = selection.length !== 1;
+      this.multiple = !selection.length;
+    },
+    /** 删除按钮操作 */
+    handleDelete(row) {
+      const ids = row.id || this.ids;
+      this.$modal
+        .confirm("是否确认删除此数据项？")
+        .then(function () {
+          return delDoc(ids);
+        })
+        .then(() => {
+          this.getDocList();
+          this.$modal.msgSuccess("删除成功");
+        })
+        .catch(() => {});
     },
   },
 };

@@ -10,17 +10,19 @@ class Store(db.Model):
     store_id = db.Column(db.Integer)
     store_name = db.Column(db.String(255))
     area = db.Column(db.String(255))
-    area_id = db.Column(db.String(255))
+    adcode = db.Column(db.Integer)
+    adname = db.Column(db.String(255))
     store_announce = db.Column(db.String(255))
     detail_addr =  db.Column(db.String(255))
     use_take_id = db.Column(db.Integer)
     o_id = db.Column(db.Integer,db.ForeignKey("order.id"))
-    def __init__(self, store_id, store_name, area, area_id, store_announce,detail_addr,use_take_id):
+    def __init__(self, store_id, store_name, area, adcode,adname, store_announce,detail_addr,use_take_id):
         self.store_id = store_id
         self.store_name = store_name
         self.area = area
         self.detail_addr = detail_addr
-        self.area_id = area_id
+        self.adcode = adcode
+        self.adname = adname
         self.store_announce = store_announce
         self.use_take_id=use_take_id
 

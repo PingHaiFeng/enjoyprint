@@ -77,10 +77,10 @@ namespace WinFormsApp1
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBoxLogo.Image = global::CloudPrint.Properties.Resources.logo1;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(33, 29);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(33, 14);
             this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(62, 58);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(62, 73);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 8;
             this.pictureBoxLogo.TabStop = false;
@@ -88,9 +88,10 @@ namespace WinFormsApp1
             // MyNotifyIcon
             // 
             this.MyNotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("MyNotifyIcon.Icon")));
-            this.MyNotifyIcon.Text = "云集印";
+            this.MyNotifyIcon.Text = "云即印";
             this.MyNotifyIcon.Visible = true;
             this.MyNotifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MyNotifyIcon_MouseClick);
+            this.MyNotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.MyNotifyIcon_MouseDoubleClick);
             // 
             // contextMenuStrip1
             // 
@@ -152,7 +153,7 @@ namespace WinFormsApp1
             this.pictureBoxBg.Location = new System.Drawing.Point(0, -5);
             this.pictureBoxBg.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxBg.Name = "pictureBoxBg";
-            this.pictureBoxBg.Size = new System.Drawing.Size(1379, 134);
+            this.pictureBoxBg.Size = new System.Drawing.Size(1379, 141);
             this.pictureBoxBg.TabIndex = 10;
             this.pictureBoxBg.TabStop = false;
             this.pictureBoxBg.Click += new System.EventHandler(this.pictureBoxBg_Click);

@@ -1,10 +1,11 @@
 from flask import Blueprint, request,jsonify,send_from_directory
 from utils.utils import *
 from sqlalchemy import func
-from model.db_model.admin import NoticeBoard,db
+from model.db_model.admin import NoticeBoard,StoreLoginLog,db
 from model.db_model.store import StoreAccount,Store,Printer,Price
 from model.db_model.user import FileOrder, Order
 from model.db_model.library import DocFolder,Doc
+from socket_sever.handle_socket import send_to_server
 from utils.auth import create_token,login_required,verify_token
 from utils.state_handler import State
 from utils.utils import make_file_id
@@ -26,7 +27,9 @@ def login():
     user = StoreAccount.query.filter_by(username=username,password=password).first()
     if user is None:
         return State.fail("账号或密码错误")
-
+    login_log=StoreLoginLog(store_id=user.store_id,login_type=2,state="Web后台登陆成功")
+    db.session.add(login_log)
+    db.session.commit()
     return State.success(data={"token":create_token(user.id,"W-")})
 
 
@@ -41,29 +44,25 @@ def get_info():
 
 
 # 店铺详情
-@web.route('/store-detail', methods=["POST", "GET"])
+@web.route('/store-detail', methods=["PUT", "GET"])
 @login_required
 @except_logger
 def get_store_detail():
     storeAccount = verify_token(request.headers["X-Token"])
-    store= Store.query.filter_by(store_id=storeAccount.store_id).first()
-    pc_online =  r.exists("ONLINE_STATE_"+str(storeAccount.store_id))
-    return State.success(data={"store_name":store.store_name,"username":storeAccount.username,"store_announce":store.store_announce,"detail_addr":store.detail_addr,"pc_online":pc_online })
+    if request.method=="GET":
+        store= Store.query.filter_by(store_id=storeAccount.store_id).first()
+        pc_online =  r.exists("ONLINE_STATE_"+str(storeAccount.store_id))
+        return State.success(data={"store_name":store.store_name,"username":storeAccount.username,"store_announce":store.store_announce,"detail_addr":store.detail_addr,"pc_online":pc_online })
+    if request.method=="PUT":
+        store_name=request.form.get("store_name")
+        store_announce=request.form.get("store_announce")
+        store = Store.query.filter_by(store_id=storeAccount.store_id).first()
+        storeAccount.store_name=store_name
+        store.store_name=store_name
+        store.store_announce=store_announce
+        db.session.commit()   
+        return State.success("修改店铺信息成功")
 
-#保存店铺信息
-@web.route('/set_store_detail', methods=["POST", "GET"])
-@login_required
-@except_logger
-def set_store_detail():
-    account = verify_token(request.headers["X-Token"])
-    store_name=request.form.get("store_name")
-    store_announce=request.form.get("store_announce")
-    store = Store.query.filter_by(store_id=account.store_id).first()
-    account.store_name=store_name
-    store.store_name=store_name
-    store.store_announce=store_announce
-    db.session.commit()   
-    return State.success("修改店铺信息成功")
 
 #打印机设置
 @web.route("/printer", methods=["POST", "GET", "PUT", "DELETE"])
@@ -231,6 +230,20 @@ def list_doc():
     list =  model_to_dict(Doc.query.filter_by(store_id=store_id).order_by(Doc.ishot.desc()).all())
     return State.success(data={"list": list})
 
+#价格设置
+@web.route('/doc', methods=["POST", "GET", "PUT", "DELETE"])
+@login_required
+@except_logger
+def handleDoc():
+    store_id = verify_token(request.headers["X-Token"]).store_id
+    '''删'''
+    if request.method == "DELETE":
+        ids = request.args.get('ids')
+        for id in ids.split(","):
+            Doc.query.filter_by(id=id,store_id=store_id).delete()
+            db.session.commit()
+        return State.success()
+
 
 # 接收上传的文件
 @web.route('/doc-upload', methods=["POST", "GET"])
@@ -260,7 +273,19 @@ def doc_upload():
     ))
     db.session.commit()
     return State.success()
-    
+
+@web.route('/pc-restart', methods=["POST", "GET"])
+@except_logger
+def pc_restart():
+    store_id = verify_token(request.headers["X-Token"]).store_id
+    host_ip = StoreAccount.query.filter_by(store_id=store_id).first().host_ip
+    if host_ip:
+        instruct_data = {
+            "instruct_id":3005,
+            "instruct_content":"pc-restart",
+            "instruct_dict":{"goal_ip":host_ip}
+        }
+        return send_to_server(instruct_data)
 
 # 退出登录
 @web.route('/logout', methods=["POST", "GET"])

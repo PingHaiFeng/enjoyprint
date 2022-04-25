@@ -22,3 +22,18 @@ export function logout() {
         method: 'post'
     })
 }
+
+export function getStoreDetail() {
+    return request({
+        url: '/web/store-detail',
+        method: 'get',
+        
+    })
+}
+export function setStoreDetail(data) {
+    return request({
+        url: '/web/store-detail',
+        method: 'put',
+        data
+    })
+}

@@ -1,7 +1,8 @@
-from flask import Blueprint, request,jsonify
+from flask import Blueprint, request,send_from_directory
 from utils.utils import *
 from model.db_model.store import StoreAccount,Printer,Store,db
-from model.db_model.user import Order,db
+from model.db_model.user import Order
+from model.db_model.admin import StoreLoginLog
 from utils.auth import create_token,login_required,verify_token
 from utils.state_handler import *
 import ast
@@ -13,11 +14,23 @@ pc = Blueprint('pc', __name__)  # 第一个蓝图名称，第二个参数表示�
 # 初始化版本信息
 @pc.route('/version-info', methods=["POST", "GET"])
 def version_info():
+    version = request.args.get("version")
+    # if PC_LAST_VERSION > float(version):
     return State.success(data={"last_version":PC_LAST_VERSION})
+
+# 更新版本信息
+@pc.route('/version-update', methods=["POST", "GET"])
+def version_update():
+    Path = PC_UPDATE_PACKAGR_PATH
+    
+    return send_from_directory(Path, file_new_name, as_attachment=True)
+
+
 
 
 # 店铺账号登录
 @pc.route('/login', methods=["POST", "GET"])
+@except_logger
 def login():
     username = request.form.get("username")
     password = request.form.get("password")
@@ -26,6 +39,9 @@ def login():
         return State.fail("用户名或密码错误")
     if not account.enabled:
         return State.fail("您的账户被冻结，请联系客服解决")
+    login_log=StoreLoginLog(store_id=account.store_id,login_type=1,state="PC登陆成功")
+    db.session.add(login_log)
+    db.session.commit()
     return State.success(data={"token":create_token(account.id,"P-")})
         
 
