@@ -54,7 +54,7 @@ namespace 云打印
             String stateCode = resData["state"].ToString();
             if (stateCode == "1")
             {
-                bool hasNewVersion = resData["data"]["last_version"].ToString() != Config.VERSION;//检测新版本
+                bool hasNewVersion = (double)resData["data"]["last_version"] > Config.VERSION;//检测新版本
                 if (hasNewVersion) MessageBox.Show("有版本更新，请更新");
             }
         }

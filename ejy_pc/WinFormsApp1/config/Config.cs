@@ -6,7 +6,7 @@ namespace EnjoyPrint.config
 {
     class Config
     {
-        public static string VERSION = "1.0";
+        public static double VERSION = 1.0;
         public static string BASEURL = "https://enjoyprint.pinghaifeng.cn/pc";
         public static string FTPIP = "ftp://59.111.148.52/";
         public static string ADMINURL = "https://cloudprint.pinghaifeng.cn";

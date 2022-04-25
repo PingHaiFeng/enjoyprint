@@ -151,7 +151,11 @@ namespace EnjoyPrint
                 string instruct_data_str = JsonConvert.SerializeObject(instruct_data);//对象转字符串
                 Send(instruct_data_str);
             }
-
+            if(instruct_data.instruct_id == 1005)
+            {
+            
+                SysPro.Restart();
+            }
         }
 
         public void SendAliveHeart()

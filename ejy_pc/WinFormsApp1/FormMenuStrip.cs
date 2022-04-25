@@ -1,4 +1,5 @@
 ﻿using EnjoyPrint.config;
+using EnjoyPrint.utils;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -21,28 +22,8 @@ namespace CloudPrint
             {
 
                 File.Delete(fileFullPath);
-
-                Application.ExitThread();
-                Thread thtmp = new Thread(new ParameterizedThreadStart(run));
-                object appName = Application.ExecutablePath;
-                Thread.Sleep(1);
-                thtmp.Start(appName);
-
-
+                SysPro.Restart();
             }
-        }
-        private void Restart()
-        {
-            Thread thtmp = new Thread(new ParameterizedThreadStart(run));
-            object appName = Application.ExecutablePath;
-            Thread.Sleep(200);
-            thtmp.Start(appName);
-        }
-        private void run(Object obj)
-        {
-            Process ps = new Process();
-            ps.StartInfo.FileName = obj.ToString();
-            ps.Start();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -72,8 +53,11 @@ namespace CloudPrint
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("已经是最新版本");
+            //MessageBox.Show("已经是最新版本");
+            SysPro.Restart();
+
         }
+
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -84,7 +68,7 @@ namespace CloudPrint
 
         private void FormMenuStrip_Deactivate(object sender, EventArgs e)
         {
-          
+
             Hide();
         }
     }
