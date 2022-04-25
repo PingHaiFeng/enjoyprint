@@ -9,6 +9,7 @@ export function listPrinter() {
     })
 }
 export function updatePrinter(data) {
+    console.log(data)
     return request({
         url: '/web/printer',
         method: 'put',

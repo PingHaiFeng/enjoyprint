@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using WinFormsApp1;
 
-namespace CloudPrint
+namespace EnjoyPrint
 {
     class GlobalData
     {

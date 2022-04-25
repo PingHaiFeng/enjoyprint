@@ -1,5 +1,383 @@
+[2022-03-31 10:06:56]
+login
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\web\web.py", line 25, in login
+    return State.success(data={"token":create_token(user.id,"W-")})
+  File "d:\haifeng\YunJIYIn\utils\auth.py", line 16, in create_token
+    token =plat+ s.dumps({"id":id}).decode("ascii")
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
-[2022-04-18 10:24:03]
+[2022-03-31 10:09:10]
+login
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\web\web.py", line 25, in login
+    return State.success(data={"token":create_token(user.id,"W-")})
+  File "d:\haifeng\YunJIYIn\utils\auth.py", line 16, in create_token
+    token =plat+ str(s.dumps({"id":id}).decode("ascii"))
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+[2022-03-31 16:35:45]
+get_store_selected
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 1392, in get_connection
+    if connection.can_read():
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 811, in can_read
+    return self._parser.can_read(timeout)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 317, in can_read
+    return self._buffer and self._buffer.can_read(timeout)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 224, in can_read
+    return bool(self.length) or self._read_from_socket(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 194, in _read_from_socket
+    data = self._sock.recv(socket_read_size)
+ConnectionResetError: [WinError 10054] 远锟斤拷锟斤拷锟斤拷强锟饺关憋拷锟斤拷一锟斤拷锟斤拷锟叫碉拷锟斤拷锟接★拷
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 614, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\retry.py", line 45, in call_with_retry
+    return do()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 615, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 680, in _connect
+    raise err
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 668, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] 锟斤拷锟斤拷目锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟杰撅拷锟斤拷锟睫凤拷锟斤拷锟接★拷
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 162, in get_store_selected
+    if r.exists("ONLINE_STATE_"+store_id)==1:
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\commands\core.py", line 1500, in exists
+    return self.execute_command("EXISTS", *names)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\client.py", line 1192, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 1396, in get_connection
+    connection.connect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 620, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. 锟斤拷锟斤拷目锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟杰撅拷锟斤拷锟睫凤拷锟斤拷锟接★拷.
+
+[2022-03-31 21:46:26]
+upload
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\formparser.py", line 142, in wrapper
+    return f(self, stream, *args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\formparser.py", line 292, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\formparser.py", line 458, in parse
+    for data in iterator:
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 653, in _make_chunk_iter
+    item = _read(buffer_size)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 925, in read
+    return self.on_disconnect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 893, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 43, in upload
+    file = request.files.get("file")  # 锟斤拷锟斤拷锟斤拷锟侥硷拷
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\utils.py", line 97, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wrappers\request.py", line 499, in files
+    self._load_form_data()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\wrappers.py", line 113, in _load_form_data
+    RequestBase._load_form_data(self)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wrappers\request.py", line 285, in _load_form_data
+    data = parser.parse(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\formparser.py", line 265, in parse
+    return parse_func(self, stream, mimetype, content_length, options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\formparser.py", line 147, in wrapper
+    exhaust()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 907, in exhaust
+    self.read(chunk)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 925, in read
+    return self.on_disconnect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 893, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+
+[2022-03-31 22:24:40]
+upload
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 53, in upload
+    with open(IO_PATH+file_new_name, "wb") as f:
+OSError: [Errno 22] Invalid argument: 'D:\\haifeng\\YunJIYIn\\temp_files\\20220331xWofG8WwnhF.SERVERID://4166252450763093902'
+
+[2022-03-31 23:15:29]
+upload
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\formparser.py", line 142, in wrapper
+    return f(self, stream, *args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\formparser.py", line 292, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\formparser.py", line 458, in parse
+    for data in iterator:
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 653, in _make_chunk_iter
+    item = _read(buffer_size)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 925, in read
+    return self.on_disconnect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 893, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 43, in upload
+    file = request.files.get("file")  # 锟斤拷锟斤拷锟斤拷锟侥硷拷
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\utils.py", line 97, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wrappers\request.py", line 499, in files
+    self._load_form_data()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\wrappers.py", line 113, in _load_form_data
+    RequestBase._load_form_data(self)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wrappers\request.py", line 285, in _load_form_data
+    data = parser.parse(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\formparser.py", line 265, in parse
+    return parse_func(self, stream, mimetype, content_length, options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\formparser.py", line 147, in wrapper
+    exhaust()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 907, in exhaust
+    self.read(chunk)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 925, in read
+    return self.on_disconnect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\wsgi.py", line 893, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+
+[2022-04-01 15:31:41]
+exe_print
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'order.price' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 80, in exe_print
+    take_id = take_id_maker(store_id)
+  File "D:\haifeng\YunJIYIn\view\mini\func\take_id.py", line 12, in take_id_maker
+    today_order_num=Order.query.filter(*map).filter_by(store_id=store_id).count()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 3145, in count
+    return self._from_self(col).enable_eagerloads(False).scalar()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2879, in scalar
+    ret = self.one()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2856, in one
+    return self._iter().one()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
+    result = self.session.execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'order.price' in 'field list'")
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT `order`.order_id AS order_order_id, `order`.order_type AS order_order_type, `order`.take_id AS order_take_id, `order`.store_id AS order_store_id, `order`.printer_name AS order_printer_name, `order`.price AS order_price, `order`.print_situation_code AS order_print_situation_code, `order`.print_situation AS order_print_situation, `order`.openid AS order_openid, `order`.create_time AS order_create_time, `order`.timestamp AS order_timestamp 
+FROM `order` 
+WHERE `order`.create_time >= %(create_time_1)s AND `order`.create_time <= %(create_time_2)s AND `order`.store_id = %(store_id_1)s) AS anon_1]
+[parameters: {'create_time_1': '2022-04-01 00:00:00', 'create_time_2': '2022-04-01 23:59:59', 'store_id_1': '1002'}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+
+[2022-04-01 15:32:43]
+exe_print
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'order.price' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 80, in exe_print
+    take_id = take_id_maker(store_id)
+  File "D:\haifeng\YunJIYIn\view\mini\func\take_id.py", line 12, in take_id_maker
+    today_order_num=Order.query.filter(*map).filter_by(store_id=store_id).count()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 3145, in count
+    return self._from_self(col).enable_eagerloads(False).scalar()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2879, in scalar
+    ret = self.one()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2856, in one
+    return self._iter().one()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
+    result = self.session.execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'order.price' in 'field list'")
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT `order`.order_id AS order_order_id, `order`.order_type AS order_order_type, `order`.take_id AS order_take_id, `order`.store_id AS order_store_id, `order`.printer_name AS order_printer_name, `order`.price AS order_price, `order`.print_situation_code AS order_print_situation_code, `order`.print_situation AS order_print_situation, `order`.openid AS order_openid, `order`.create_time AS order_create_time, `order`.timestamp AS order_timestamp 
+FROM `order` 
+WHERE `order`.create_time >= %(create_time_1)s AND `order`.create_time <= %(create_time_2)s AND `order`.store_id = %(store_id_1)s) AS anon_1]
+[parameters: {'create_time_1': '2022-04-01 00:00:00', 'create_time_2': '2022-04-01 23:59:59', 'store_id_1': '1002'}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+
+[2022-04-01 15:33:42]
+set_orders
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 113, in set_orders
+    print_file = FileOrder(file_id=file_id, file_name=file_name,print_price=print_price,file_type=file_type,file_type_id=file_type_id)
+TypeError: __init__() missing 2 required positional arguments: 'order_id' and 'duplex'
+
+[2022-04-01 15:34:03]
+set_orders
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 113, in set_orders
+    print_file = FileOrder(file_id=file_id, file_name=file_name,print_price=print_price,file_type=file_type,file_type_id=file_type_id)
+TypeError: __init__() missing 2 required positional arguments: 'order_id' and 'duplex'
+
+[2022-04-01 15:34:27]
+set_orders
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 113, in set_orders
+    print_file = FileOrder(file_id=file_id, file_name=file_name,print_price=print_price,file_type=file_type,file_type_id=file_type_id)
+TypeError: __init__() missing 2 required positional arguments: 'order_id' and 'duplex'
+
+[2022-04-01 15:36:33]
+set_orders
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 113, in set_orders
+    print_file = FileOrder(file_id=file_id, file_name=file_name,print_price=print_price,file_type=file_type,file_type_id=file_type_id)
+TypeError: __init__() missing 2 required positional arguments: 'order_id' and 'duplex'
+
+[2022-04-01 15:37:09]
+set_orders
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 113, in set_orders
+    print_file = FileOrder(file_id=file_id, file_name=file_name,print_price=print_price,file_type=file_type,file_type_id=file_type_id)
+TypeError: __init__() missing 2 required positional arguments: 'order_id' and 'duplex'
+
+[2022-04-01 17:51:11]
 set_orders
 Traceback (most recent call last):
   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
@@ -27,9 +405,9 @@ pymysql.err.ProgrammingError: (1146, "Table 'cloudprint.fileorder' doesn't exist
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
     return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 127, in set_orders
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 119, in set_orders
     db.session.commit()
   File "<string>", line 2, in commit
   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
@@ -89,30 +467,174 @@ Traceback (most recent call last):
   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1146, "Table 'cloudprint.fileorder' doesn't exist")
-[SQL: INSERT INTO fileorder (order_id, file_id, file_name, file_type, file_type_id, duplex, print_color, print_count, print_price, size, create_time, timestamp) VALUES (%(order_id)s, %(file_id)s, %(file_name)s, %(file_type)s, %(file_type_id)s, %(duplex)s, %(print_color)s, %(print_count)s, %(print_price)s, %(size)s, now(), %(timestamp)s)]
-[parameters: {'order_id': '20220418mprSDPEXIK1sobW', 'file_id': '20220418N5Db5tzgZ6ngGyh', 'file_name': 'cts-logo', 'file_type': 'png', 'file_type_id': 4, 'duplex': 1, 'print_color': 1, 'print_count': 1, 'print_price': 0.05, 'size': 'A4', 'timestamp': 1650248560}]
+[SQL: INSERT INTO fileorder (order_id, file_id, file_name, file_type, file_type_id, duplex, create_time, timestamp) VALUES (%(order_id)s, %(file_id)s, %(file_name)s, %(file_type)s, %(file_type_id)s, %(duplex)s, now(), %(timestamp)s)]
+[parameters: {'order_id': '20220401SdM4x9TFTAQwClr', 'file_id': '20220401YtAPHte5kPBnuQt', 'file_name': 'ring1', 'file_type': 'jpg', 'file_type_id': 4, 'duplex': 1, 'timestamp': 1648801163}]
 (Background on this error at: https://sqlalche.me/e/14/f405)
 
-[2022-04-18 10:26:04]
+[2022-04-01 18:27:43]
+list_order
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\web\web.py", line 159, in list_order
+    list = Order.query.filter_by(store_id=store_id).limit(_args.get("page_size")).offset((int(_args.get("page_num"))-1)*int(_args.get("page_size")))
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+
+[2022-04-01 18:28:05]
+list_order
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\web\web.py", line 159, in list_order
+    list = Order.query.filter_by(store_id=store_id).limit(_args.get("page_size")).offset((int(_args.get("page_num"))-1)*int(_args.get("page_size")))
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+
+[2022-04-03 21:54:16]
+list_order
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\web\web.py", line 159, in list_order
+    list = Order.query.filter_by(store_id=store_id).limit(_form.get("page_size")).offset((int(_form.get("page_num"))-1)*int(_form.get("page_size")))
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+
+[2022-04-06 14:07:34]
+upload
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 54, in upload
+    file_page_num, file_type_id = readFiles(file_new_name, file_name, file_type)  # 返回文件页数和文件图标路径
+TypeError: cannot unpack non-iterable NoneType object
+
+[2022-04-06 14:28:07]
+list_order
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\web\web.py", line 159, in list_order
+    list = Order.query.filter_by(store_id=store_id).limit(_form.get("page_size")).offset((int(_form.get("page_num"))-1)*int(_form.get("page_size"))).order_by(Order.create_time.desc())
+  File "<string>", line 2, in order_by
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\base.py", line 110, in _generative
+    x = fn(self, *args, **kw)
+  File "<string>", line 2, in order_by
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\base.py", line 229, in generate
+    assertion(self, fn.__name__)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 312, in _no_limit_offset
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Query.order_by() being called on a Query which already has LIMIT or OFFSET applied.  Call order_by() before limit() or offset() are applied.
+
+[2022-04-07 22:38:37]
+list_order
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'cloudprint.order' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\web\web.py", line 158, in list_order
+    list = Order.query.filter_by(store_id=store_id).order_by(Order.create_time.desc()).limit(_form.get("page_size")).offset((int(_form.get("page_num"))-1)*int(_form.get("page_size")))
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 3145, in count
+    return self._from_self(col).enable_eagerloads(False).scalar()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2879, in scalar
+    ret = self.one()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2856, in one
+    return self._iter().one()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
+    result = self.session.execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1146, "Table 'cloudprint.order' doesn't exist")
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT `order`.id AS order_id_1, `order`.order_id AS order_order_id, `order`.order_type AS order_order_type, `order`.take_id AS order_take_id, `order`.store_id AS order_store_id, `order`.printer_name AS order_printer_name, `order`.price AS order_price, `order`.file_count AS order_file_count, `order`.print_situation_code AS order_print_situation_code, `order`.print_situation AS order_print_situation, `order`.openid AS order_openid, `order`.create_time AS order_create_time, `order`.timestamp AS order_timestamp 
+FROM `order` 
+WHERE `order`.store_id = %(store_id_1)s) AS anon_1]
+[parameters: {'store_id_1': '1002'}]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+
+[2022-04-07 23:03:22]
+get_file_order
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\web\web.py", line 167, in get_file_order
+    order_id = request.args.get(order_id)
+UnboundLocalError: local variable 'order_id' referenced before assignment
+
+[2022-04-07 23:45:38]
 set_orders
 Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
     return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 128, in set_orders
-    orders = Order(order_id=order_id,order_type=order_type,store_id=store_id,file_count=file_count, printer_name=printer_name,price=price,print_situation_code=print_situation_code, print_situation=print_situation,take_id=take_id, openid=openid)
-TypeError: __init__() missing 1 required positional argument: 'store_name'
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 112, in set_orders
+    color = i["print_info"]["color"]
+KeyError: 'color'
 
-[2022-04-18 15:34:14]
-get_store_detail
+[2022-04-07 23:46:34]
+set_orders
 Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
     return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 48, in get_store_detail
-    pc_online =  r.exists("ONLINE_STATE_"+storeAccount.store_id)
-TypeError: can only concatenate str (not "int") to str
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 112, in set_orders
+    color = i["print_info"]["color"]
+KeyError: 'color'
 
-[2022-04-18 19:46:37]
-list_doc
+[2022-04-07 23:50:34]
+set_orders
 Traceback (most recent call last):
   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
     self.dialect.do_execute(
@@ -134,21 +656,40 @@ Traceback (most recent call last):
     err.raise_mysql_exception(self._data)
   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1054, "Unknown column 'doc.name' in 'field list'")
+pymysql.err.OperationalError: (1054, "Unknown column 'print_color' in 'field list'")
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
     return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 209, in list_doc
-    list =  model_to_dict(Doc.query.filter_by(folder_id=folder_id).order_by(Doc.ishot.desc()).all())
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in all
-    return self._iter().all()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
-    result = self.session.execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 122, in set_orders
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 3345, in flush
+    self._flush(objects)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 3484, in _flush
+    with util.safe_reraise():
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 3445, in _flush
+    flush_context.execute()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\persistence.py", line 244, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\persistence.py", line 1221, in _emit_insert_statements
+    result = connection._execute_20(
   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
     return meth(self, args_10style, kwargs_10style, execution_options)
   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
@@ -181,832 +722,145 @@ Traceback (most recent call last):
     err.raise_mysql_exception(self._data)
   File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
-sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'doc.name' in 'field list'")
-[SQL: SELECT doc.id AS doc_id, doc.file_id AS doc_file_id, doc.file_type AS doc_file_type, doc.file_type_id AS doc_file_type_id, doc.folder_id AS doc_folder_id, doc.ishot AS doc_ishot, doc.name AS doc_name, doc.create_date AS doc_create_date, doc.read_num AS doc_read_num, doc.print_num AS doc_print_num, doc.file_page_num AS doc_file_page_num, doc.store_id AS doc_store_id, doc.download_url AS doc_download_url 
-FROM doc 
-WHERE doc.folder_id = %(folder_id_1)s ORDER BY doc.ishot DESC]
-[parameters: {'folder_id_1': '1001'}]
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'print_color' in 'field list'")
+[SQL: INSERT INTO fileorder (order_id, file_id, file_name, file_type, file_type_id, duplex, print_color, print_count, print_price, size, create_time, timestamp) VALUES (%(order_id)s, %(file_id)s, %(file_name)s, %(file_type)s, %(file_type_id)s, %(duplex)s, %(print_color)s, %(print_count)s, %(print_price)s, %(size)s, now(), %(timestamp)s)]
+[parameters: {'order_id': '20220407eEJnhU6qsbk7FDn', 'file_id': '202204076HLjwGhxUcSJfjw', 'file_name': 'bg1', 'file_type': 'jpg', 'file_type_id': 4, 'duplex': 1, 'print_color': '1', 'print_count': 1, 'print_price': 0.5, 'size': 'A4', 'timestamp': 1649346607}]
 (Background on this error at: https://sqlalche.me/e/14/e3q8)
 
-[2022-04-18 19:46:40]
-list_doc
+[2022-04-09 23:13:39]
+upload
 Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1054, "Unknown column 'doc.name' in 'field list'")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
     return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 209, in list_doc
-    list =  model_to_dict(Doc.query.filter_by(folder_id=folder_id).order_by(Doc.ishot.desc()).all())
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in all
-    return self._iter().all()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
-    result = self.session.execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
-    util.raise_(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'doc.name' in 'field list'")
-[SQL: SELECT doc.id AS doc_id, doc.file_id AS doc_file_id, doc.file_type AS doc_file_type, doc.file_type_id AS doc_file_type_id, doc.folder_id AS doc_folder_id, doc.ishot AS doc_ishot, doc.name AS doc_name, doc.create_date AS doc_create_date, doc.read_num AS doc_read_num, doc.print_num AS doc_print_num, doc.file_page_num AS doc_file_page_num, doc.store_id AS doc_store_id, doc.download_url AS doc_download_url 
-FROM doc 
-WHERE doc.folder_id = %(folder_id_1)s ORDER BY doc.ishot DESC]
-[parameters: {'folder_id_1': '1001'}]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 54, in upload
+    file_page_num, file_type_id = readFiles(file_new_name, file_name, file_type)  # 返回文件页数和文件图标路径
+TypeError: cannot unpack non-iterable NoneType object
 
-[2022-04-18 19:53:37]
-list_doc
+[2022-04-10 22:24:04]
+get_store_info
 Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1054, "Unknown column 'doc.name' in 'field list'")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 209, in list_doc
-    list =  model_to_dict(Doc.query.filter_by(folder_id=folder_id).order_by(Doc.ishot.desc()).all())
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in all
-    return self._iter().all()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
-    result = self.session.execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
-    util.raise_(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'doc.name' in 'field list'")
-[SQL: SELECT doc.id AS doc_id, doc.file_id AS doc_file_id, doc.file_type AS doc_file_type, doc.file_type_id AS doc_file_type_id, doc.folder_id AS doc_folder_id, doc.ishot AS doc_ishot, doc.name AS doc_name, doc.create_date AS doc_create_date, doc.read_num AS doc_read_num, doc.print_num AS doc_print_num, doc.file_page_num AS doc_file_page_num, doc.store_id AS doc_store_id, doc.download_url AS doc_download_url 
-FROM doc 
-WHERE doc.folder_id = %(folder_id_1)s ORDER BY doc.ishot DESC]
-[parameters: {'folder_id_1': '1001'}]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
-
-[2022-04-18 19:53:39]
-list_doc
-Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1054, "Unknown column 'doc.name' in 'field list'")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 209, in list_doc
-    list =  model_to_dict(Doc.query.filter_by(folder_id=folder_id).order_by(Doc.ishot.desc()).all())
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in all
-    return self._iter().all()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
-    result = self.session.execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
-    util.raise_(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'doc.name' in 'field list'")
-[SQL: SELECT doc.id AS doc_id, doc.file_id AS doc_file_id, doc.file_type AS doc_file_type, doc.file_type_id AS doc_file_type_id, doc.folder_id AS doc_folder_id, doc.ishot AS doc_ishot, doc.name AS doc_name, doc.create_date AS doc_create_date, doc.read_num AS doc_read_num, doc.print_num AS doc_print_num, doc.file_page_num AS doc_file_page_num, doc.store_id AS doc_store_id, doc.download_url AS doc_download_url 
-FROM doc 
-WHERE doc.folder_id = %(folder_id_1)s ORDER BY doc.ishot DESC]
-[parameters: {'folder_id_1': '1001'}]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
-
-[2022-04-18 19:53:42]
-list_doc
-Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1054, "Unknown column 'doc.name' in 'field list'")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 209, in list_doc
-    list =  model_to_dict(Doc.query.filter_by(folder_id=folder_id).order_by(Doc.ishot.desc()).all())
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in all
-    return self._iter().all()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
-    result = self.session.execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
-    util.raise_(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'doc.name' in 'field list'")
-[SQL: SELECT doc.id AS doc_id, doc.file_id AS doc_file_id, doc.file_type AS doc_file_type, doc.file_type_id AS doc_file_type_id, doc.folder_id AS doc_folder_id, doc.ishot AS doc_ishot, doc.name AS doc_name, doc.create_date AS doc_create_date, doc.read_num AS doc_read_num, doc.print_num AS doc_print_num, doc.file_page_num AS doc_file_page_num, doc.store_id AS doc_store_id, doc.download_url AS doc_download_url 
-FROM doc 
-WHERE doc.folder_id = %(folder_id_1)s ORDER BY doc.ishot DESC]
-[parameters: {'folder_id_1': '1001'}]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
-
-[2022-04-18 23:05:40]
-list_doc
-Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1054, "Unknown column 'doc.name' in 'field list'")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 209, in list_doc
-    list =  model_to_dict(Doc.query.filter_by(folder_id=folder_id).order_by(Doc.ishot.desc()).all())
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in all
-    return self._iter().all()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
-    result = self.session.execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
-    util.raise_(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'doc.name' in 'field list'")
-[SQL: SELECT doc.id AS doc_id, doc.file_id AS doc_file_id, doc.file_type AS doc_file_type, doc.file_type_id AS doc_file_type_id, doc.folder_id AS doc_folder_id, doc.ishot AS doc_ishot, doc.name AS doc_name, doc.create_date AS doc_create_date, doc.read_num AS doc_read_num, doc.print_num AS doc_print_num, doc.file_page_num AS doc_file_page_num, doc.store_id AS doc_store_id, doc.download_url AS doc_download_url 
-FROM doc 
-WHERE doc.folder_id = %(folder_id_1)s ORDER BY doc.ishot DESC]
-[parameters: {'folder_id_1': '1001'}]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
-
-[2022-04-18 23:05:55]
-list_doc
-Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1054, "Unknown column 'doc.name' in 'field list'")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 209, in list_doc
-    list =  model_to_dict(Doc.query.filter_by(folder_id=folder_id).order_by(Doc.ishot.desc()).all())
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in all
-    return self._iter().all()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
-    result = self.session.execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
-    util.raise_(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'doc.name' in 'field list'")
-[SQL: SELECT doc.id AS doc_id, doc.file_id AS doc_file_id, doc.file_type AS doc_file_type, doc.file_type_id AS doc_file_type_id, doc.folder_id AS doc_folder_id, doc.ishot AS doc_ishot, doc.name AS doc_name, doc.create_date AS doc_create_date, doc.read_num AS doc_read_num, doc.print_num AS doc_print_num, doc.file_page_num AS doc_file_page_num, doc.store_id AS doc_store_id, doc.download_url AS doc_download_url 
-FROM doc 
-WHERE doc.folder_id = %(folder_id_1)s ORDER BY doc.ishot DESC]
-[parameters: {'folder_id_1': '1001'}]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
-
-[2022-04-18 23:06:11]
-list_doc
-Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1054, "Unknown column 'doc.name' in 'field list'")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 209, in list_doc
-    list =  model_to_dict(Doc.query.filter_by(folder_id=folder_id).order_by(Doc.ishot.desc()).all())
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in all
-    return self._iter().all()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
-    result = self.session.execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
-    util.raise_(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'doc.name' in 'field list'")
-[SQL: SELECT doc.id AS doc_id, doc.file_id AS doc_file_id, doc.file_type AS doc_file_type, doc.file_type_id AS doc_file_type_id, doc.folder_id AS doc_folder_id, doc.ishot AS doc_ishot, doc.name AS doc_name, doc.create_date AS doc_create_date, doc.read_num AS doc_read_num, doc.print_num AS doc_print_num, doc.file_page_num AS doc_file_page_num, doc.store_id AS doc_store_id, doc.download_url AS doc_download_url 
-FROM doc 
-WHERE doc.folder_id = %(folder_id_1)s ORDER BY doc.ishot DESC]
-[parameters: {'folder_id_1': '1001'}]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
-
-[2022-04-18 23:23:08]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 240, in doc_upload
-    file_type = file_name.split(".")[-1]  # 文件扩展名
-UnboundLocalError: local variable 'file_name' referenced before assignment
-
-[2022-04-18 23:39:25]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 240, in doc_upload
-    file_type = file_name.split(".")[-1]  # 文件扩展名
-UnboundLocalError: local variable 'file_name' referenced before assignment
-
-[2022-04-18 23:46:50]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 240, in doc_upload
-    file_type = file_name.split(".")[-1]  # 文件扩展名
-UnboundLocalError: local variable 'file_name' referenced before assignment
-
-[2022-04-18 23:52:29]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 239, in doc_upload
-    def doc_upload():
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\datastructures.py", line 1397, in __getitem__
-    return _unicodify_header_value(self.environ[f"HTTP_{key}"])
-KeyError: 'HTTP_X_TOKEN'
-
-[2022-04-18 23:55:06]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 239, in doc_upload
-    def doc_upload():
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\datastructures.py", line 1397, in __getitem__
-    return _unicodify_header_value(self.environ[f"HTTP_{key}"])
-KeyError: 'HTTP_X_TOKEN'
-
-[2022-04-19 00:00:34]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 243, in doc_upload
-    file_type = file_name.split(".")[-1]  # 文件扩展名
-AttributeError: 'NoneType' object has no attribute 'split'
-
-[2022-04-19 00:01:53]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 243, in doc_upload
-    file_type = file_name.split(".")[-1]  # 文件扩展名
-AttributeError: 'NoneType' object has no attribute 'split'
-
-[2022-04-19 00:04:18]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 252, in doc_upload
-    db.session.add(Doc(
-TypeError: __init__() got an unexpected keyword argument 'create_date'
-
-[2022-04-19 00:05:42]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 243, in doc_upload
-    file_type = file_name.split(".")[-1]  # 文件扩展名
-AttributeError: 'NoneType' object has no attribute 'split'
-
-[2022-04-19 00:10:16]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 243, in doc_upload
-    file_type = file_name.split(".")[-1]  # 文件扩展名
-AttributeError: 'NoneType' object has no attribute 'split'
-
-[2022-04-19 00:16:35]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 243, in doc_upload
-    file_type = file_name.split(".")[-1]  # 文件扩展名
-AttributeError: 'NoneType' object has no attribute 'split'
-
-[2022-04-19 10:32:16]
-get_store_detail
-Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 614, in connect
-    sock = self.retry.call_with_retry(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\retry.py", line 45, in call_with_retry
-    return do()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 615, in <lambda>
-    lambda: self._connect(), lambda error: self.disconnect(error)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 680, in _connect
-    raise err
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 668, in _connect
-    sock.connect(socket_address)
-ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+  File "d:\haifeng\YunJIYIn\utils\utils.py", line 34, in model_to_dict
+    tmp = dict(zip(result.__dict__.keys(), result.__dict__.values()))
+AttributeError: 'NoneType' object has no attribute '__dict__'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
     return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 50, in get_store_detail
-    pc_online =  r.exists("ONLINE_STATE_"+str(storeAccount.store_id))
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\commands\core.py", line 1500, in exists
-    return self.execute_command("EXISTS", *names)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\client.py", line 1192, in execute_command
-    conn = self.connection or pool.get_connection(command_name, **options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 1386, in get_connection
-    connection.connect()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 620, in connect
-    raise ConnectionError(self._error_message(e))
-redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. 由于目标计算机积极拒绝，无法连接。.
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 28, in get_store_info
+    account_info = model_to_dict(Store.query.filter_by(store_id=store_id).first())
+  File "d:\haifeng\YunJIYIn\utils\utils.py", line 39, in model_to_dict
+    raise TypeError('Type error of parameter')
+TypeError: Type error of parameter
 
-[2022-04-19 10:33:03]
-get_store_detail
-Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 614, in connect
-    sock = self.retry.call_with_retry(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\retry.py", line 45, in call_with_retry
-    return do()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 615, in <lambda>
-    lambda: self._connect(), lambda error: self.disconnect(error)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 680, in _connect
-    raise err
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 668, in _connect
-    sock.connect(socket_address)
-ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 50, in get_store_detail
-    pc_online =  r.exists("ONLINE_STATE_"+str(storeAccount.store_id))
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\commands\core.py", line 1500, in exists
-    return self.execute_command("EXISTS", *names)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\client.py", line 1192, in execute_command
-    conn = self.connection or pool.get_connection(command_name, **options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 1386, in get_connection
-    connection.connect()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\redis\connection.py", line 620, in connect
-    raise ConnectionError(self._error_message(e))
-redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. 由于目标计算机积极拒绝，无法连接。.
-
-[2022-04-19 11:26:08]
-get_notice
-Traceback (most recent call last):
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1054, "Unknown column 'notice_board.auto_show' in 'field list'")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\utils\auth.py", line 47, in verify_token
-    return view_func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 134, in get_notice
-    notice = model_to_dict(NoticeBoard.query.all())
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in all
-    return self._iter().all()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\query.py", line 2894, in _iter
-    result = self.session.execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\sql\elements.py", line 325, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1481, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1845, in _execute_context
-    self._handle_dbapi_exception(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 2026, in _handle_dbapi_exception
-    util.raise_(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\base.py", line 1802, in _execute_context
-    self.dialect.do_execute(
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\sqlalchemy\engine\default.py", line 719, in do_execute
-    cursor.execute(statement, parameters)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 148, in execute
-    result = self._query(query)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\cursors.py", line 310, in _query
-    conn.query(q)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 548, in query
-    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
-    result.read()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 1156, in read
-    first_packet = self.connection._read_packet()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
-    packet.raise_for_error()
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
-    err.raise_mysql_exception(self._data)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
-    raise errorclass(errno, errval)
-sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'notice_board.auto_show' in 'field list'")
-[SQL: SELECT notice_board.id AS notice_board_id, notice_board.title AS notice_board_title, notice_board.content AS notice_board_content, notice_board.create_time AS notice_board_create_time, notice_board.auto_show AS notice_board_auto_show, notice_board.`show` AS notice_board_show 
-FROM notice_board]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
-
-[2022-04-19 13:44:33]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 249, in doc_upload
-    file_page_num, file_type_id = readFiles(file_id,  file_type)  # 返回文件页数和文件图标路径
-  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 36, in readFiles
-    transform_pdf.img2pdf(img_path, pdf_path)
-  File "d:\enjoyprint\ejy_service\plugins\transform_pdf.py", line 67, in img2pdf
-    imgdoc = fitz.open(img)
-  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python310\lib\site-packages\fitz\fitz.py", line 3815, in __init__
-    _fitz.new_Document(
-RuntimeError: cannot open D:\temp_files\20220419170WQNB42DYSKEA.png: No such file or directory
-
-[2022-04-19 13:57:51]
-doc_upload
-Traceback (most recent call last):
-  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
-    return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\web\web.py", line 249, in doc_upload
-    file_page_num, file_type_id = readFiles(LIB_UPLOAD_PATH,file_id,  file_type)  # 返回文件页数和文件图标路径
-  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 16, in readFiles
-    page_num = getPdfPageNum(file_id + ".pdf")
-  File "d:\enjoyprint\ejy_service\plugins\file_reader.py", line 41, in getPdfPageNum
-    pdf_path = work_path + name
-NameError: name 'work_path' is not defined
-
-[2022-04-19 14:47:33]
+[2022-04-12 18:21:37]
 lib_print
 Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 217, in lib_print
+    "file_id": res.file_id,
+AttributeError: 'BaseQuery' object has no attribute 'file_id'
+
+[2022-04-12 18:21:37]
+lib_print
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 217, in lib_print
+    "file_id": res.file_id,
+AttributeError: 'BaseQuery' object has no attribute 'file_id'
+
+[2022-04-12 18:23:20]
+lib_print
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 218, in lib_print
+    "file_id": res.file_id,
+AttributeError: 'NoneType' object has no attribute 'file_id'
+
+[2022-04-12 18:23:20]
+lib_print
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 218, in lib_print
+    "file_id": res.file_id,
+AttributeError: 'NoneType' object has no attribute 'file_id'
+
+[2022-04-12 18:23:34]
+lib_print
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 218, in lib_print
+    "file_id": res.file_id,
+AttributeError: 'NoneType' object has no attribute 'file_id'
+
+[2022-04-12 18:23:34]
+lib_print
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 218, in lib_print
+    "file_id": res.file_id,
+AttributeError: 'NoneType' object has no attribute 'file_id'
+
+[2022-04-12 18:25:31]
+lib_print
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 218, in lib_print
+    "file_id": res.file_id,
+AttributeError: 'NoneType' object has no attribute 'file_id'
+
+[2022-04-12 18:25:31]
+lib_print
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 218, in lib_print
+    "file_id": res.file_id,
+AttributeError: 'NoneType' object has no attribute 'file_id'
+
+[2022-04-12 18:26:15]
+lib_print
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 220, in lib_print
+    "file_page_num": res.page_num,
+AttributeError: 'Document' object has no attribute 'page_num'
+
+[2022-04-12 18:26:15]
+lib_print
+Traceback (most recent call last):
+  File "d:\haifeng\YunJIYIn\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\haifeng\YunJIYIn\view\mini\mini.py", line 220, in lib_print
+    "file_page_num": res.page_num,
+AttributeError: 'Document' object has no attribute 'page_num'
+
+[2022-04-13 22:34:26]
+upload
+Traceback (most recent call last):
   File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
     return func(*args,**kwargs)
-  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 222, in lib_print
-    "file_name": res.name,
-AttributeError: 'Doc' object has no attribute 'name'
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 53, in upload
+    with open(IO_PATH + file_new_name, "wb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\enjoyprint\\ejy_service\\temp_files\\202204137gvUJnvKMppcaTt.jpg'
+
+[2022-04-13 22:34:30]
+upload
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 53, in upload
+    with open(IO_PATH + file_new_name, "wb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\enjoyprint\\ejy_service\\temp_files\\20220413h3abUXZlYDBPX9J.jpg'
 
 [2022-04-19 23:42:55]
 handleDoc

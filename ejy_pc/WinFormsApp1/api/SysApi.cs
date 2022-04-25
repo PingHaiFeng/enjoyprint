@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using EnjoyPrint.utils;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CloudPrint.api
+namespace EnjoyPrint.api
 {
     internal class SysApi
     {

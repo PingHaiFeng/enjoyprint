@@ -59,7 +59,7 @@ namespace 云打印
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(401, 619);
+            this.btnLogin.Location = new System.Drawing.Point(384, 612);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(5);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(425, 61);
@@ -75,7 +75,7 @@ namespace 云打印
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPassword.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbPassword.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbPassword.Location = new System.Drawing.Point(467, 491);
+            this.tbPassword.Location = new System.Drawing.Point(450, 484);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(5);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '•';
@@ -90,7 +90,7 @@ namespace 云打印
             this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbUsername.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbUsername.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbUsername.Location = new System.Drawing.Point(467, 402);
+            this.tbUsername.Location = new System.Drawing.Point(450, 395);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(5);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(342, 41);
@@ -102,7 +102,7 @@ namespace 云打印
             // 
             this.labLoginTip.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labLoginTip.ForeColor = System.Drawing.Color.Gray;
-            this.labLoginTip.Location = new System.Drawing.Point(431, 701);
+            this.labLoginTip.Location = new System.Drawing.Point(414, 694);
             this.labLoginTip.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labLoginTip.Name = "labLoginTip";
             this.labLoginTip.Size = new System.Drawing.Size(369, 29);
@@ -120,7 +120,7 @@ namespace 云打印
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Font = new System.Drawing.Font("Microsoft YaHei UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_close.ForeColor = System.Drawing.Color.White;
-            this.btn_close.Location = new System.Drawing.Point(1140, -13);
+            this.btn_close.Location = new System.Drawing.Point(1110, -18);
             this.btn_close.Margin = new System.Windows.Forms.Padding(5);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(70, 61);
@@ -134,7 +134,7 @@ namespace 云打印
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(401, 402);
+            this.pictureBox1.Location = new System.Drawing.Point(384, 395);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 41);
@@ -147,7 +147,7 @@ namespace 云打印
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(401, 491);
+            this.pictureBox2.Location = new System.Drawing.Point(384, 484);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 41);
@@ -159,7 +159,7 @@ namespace 云打印
             // 
             this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(401, 389);
+            this.label1.Location = new System.Drawing.Point(384, 382);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(425, 64);
@@ -169,7 +169,7 @@ namespace 云打印
             // 
             this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Location = new System.Drawing.Point(401, 480);
+            this.label2.Location = new System.Drawing.Point(384, 473);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(425, 64);
@@ -180,7 +180,7 @@ namespace 云打印
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label5.Location = new System.Drawing.Point(491, 743);
+            this.label5.Location = new System.Drawing.Point(474, 749);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(243, 28);
@@ -195,7 +195,7 @@ namespace 云打印
             this.pictureBoxTopBg.Location = new System.Drawing.Point(-5, -2);
             this.pictureBoxTopBg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBoxTopBg.Name = "pictureBoxTopBg";
-            this.pictureBoxTopBg.Size = new System.Drawing.Size(1216, 322);
+            this.pictureBoxTopBg.Size = new System.Drawing.Size(1176, 313);
             this.pictureBoxTopBg.TabIndex = 601;
             this.pictureBoxTopBg.TabStop = false;
             this.pictureBoxTopBg.Click += new System.EventHandler(this.pictureBox3_Click);
@@ -215,7 +215,7 @@ namespace 云打印
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label6.Location = new System.Drawing.Point(1204, -2);
+            this.label6.Location = new System.Drawing.Point(1168, -2);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(12, 800);
@@ -234,7 +234,7 @@ namespace 云打印
             // 
             this.checkBoxAutoLogin.AutoSize = true;
             this.checkBoxAutoLogin.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.checkBoxAutoLogin.Location = new System.Drawing.Point(401, 566);
+            this.checkBoxAutoLogin.Location = new System.Drawing.Point(384, 559);
             this.checkBoxAutoLogin.Margin = new System.Windows.Forms.Padding(5);
             this.checkBoxAutoLogin.Name = "checkBoxAutoLogin";
             this.checkBoxAutoLogin.Size = new System.Drawing.Size(108, 28);
@@ -246,7 +246,7 @@ namespace 云打印
             // 
             this.checkBoxRememberPwd.AutoSize = true;
             this.checkBoxRememberPwd.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.checkBoxRememberPwd.Location = new System.Drawing.Point(709, 566);
+            this.checkBoxRememberPwd.Location = new System.Drawing.Point(692, 559);
             this.checkBoxRememberPwd.Margin = new System.Windows.Forms.Padding(5);
             this.checkBoxRememberPwd.Name = "checkBoxRememberPwd";
             this.checkBoxRememberPwd.Size = new System.Drawing.Size(108, 28);
@@ -262,7 +262,7 @@ namespace 云打印
             this.labTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labTitle.Font = new System.Drawing.Font("微软雅黑", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labTitle.ForeColor = System.Drawing.Color.White;
-            this.labTitle.Location = new System.Drawing.Point(406, 160);
+            this.labTitle.Location = new System.Drawing.Point(400, 180);
             this.labTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labTitle.Name = "labTitle";
             this.labTitle.Size = new System.Drawing.Size(394, 69);
@@ -275,7 +275,7 @@ namespace 云打印
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1205, 799);
+            this.ClientSize = new System.Drawing.Size(1170, 799);
             this.Controls.Add(this.labTitle);
             this.Controls.Add(this.checkBoxRememberPwd);
             this.Controls.Add(this.checkBoxAutoLogin);

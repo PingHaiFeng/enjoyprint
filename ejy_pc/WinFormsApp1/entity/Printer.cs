@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.Text;
 
-namespace CloudPrint.Entity
+namespace EnjoyPrint.entity
 {
     public class Printer
     {

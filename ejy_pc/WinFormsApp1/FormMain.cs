@@ -3,16 +3,18 @@ using System.Drawing;
 using System.Windows.Forms;
 using CloudPrint;
 using System.Diagnostics;
-using CloudPrint.Entity;
 using System.Runtime.InteropServices;
 using System.Threading;
+using EnjoyPrint.entity;
+using EnjoyPrint.config;
+using EnjoyPrint;
 
 namespace WinFormsApp1
 {
     public partial class FormMain : Form
     {
         FormMenuStrip formMenuStrip = new FormMenuStrip();
-      
+
 
         public static FormMain formMain;
 
@@ -22,7 +24,7 @@ namespace WinFormsApp1
             //Console.WriteLine("线程名字", thread.Name);
             InitializeComponent();
 
-          
+
 
             //允许跨线程调用
             CheckForIllegalCrossThreadCalls = false;
@@ -46,7 +48,7 @@ namespace WinFormsApp1
         {
             MyNotifyIcon.Dispose();
         }
-     
+
 
         /// <summary>
         /// 托盘单击事件
@@ -84,15 +86,16 @@ namespace WinFormsApp1
             if (e.Button == MouseButtons.Left)
             {
                 if (formMain.WindowState != FormWindowState.Normal)//不是正常状态
-                    Console.WriteLine("进入");
-                WindowState = FormWindowState.Normal;
-                    //formMain.Show();
+
+                    WindowState = FormWindowState.Normal;
+                formMain.TopMost = true;
+                formMenuStrip.Hide();
             }
-          
+
             if (e.Button == MouseButtons.Right)
             {
 
-                formMenuStrip.Location =new Point(Cursor.Position.X-formMenuStrip.Width, Cursor.Position.Y - formMenuStrip.Height);
+                formMenuStrip.Location = new Point(Cursor.Position.X - formMenuStrip.Width, Cursor.Position.Y - formMenuStrip.Height);
                 formMenuStrip.Show();
             }
         }
@@ -133,9 +136,9 @@ namespace WinFormsApp1
             listViewPrinting.FullRowSelect = true;  //显示全行
             listViewPrinting.MultiSelect = false;  //设置只能单选
             listViewPrinting.View = View.Details;  //设置显示模式为详细
-            //lv.HoverSelection = true;  //当鼠标停留数秒后自动选择
-            //把列名添加到listview中
-             listViewPrinting.Columns.Add("序号", 80);
+                                                   //lv.HoverSelection = true;  //当鼠标停留数秒后自动选择
+                                                   //把列名添加到listview中
+            listViewPrinting.Columns.Add("序号", 80);
             listViewPrinting.Columns.Add("订单号", 250);
             listViewPrinting.Columns.Add("金额", 120);
             listViewPrinting.Columns.Add("页数", 120);
@@ -158,12 +161,12 @@ namespace WinFormsApp1
             String ListIndex = listViewPrinting.Items.Count < 9 ? "0" + (listViewPrinting.Items.Count + 1).ToString() : (listViewPrinting.Items.Count + 1).ToString();
             //创建行对象
             ListViewItem li = new ListViewItem(ListIndex);
-          
+
             li.SubItems.Add(tempFile.file_id);
             li.SubItems.Add(tempFile.print_price.ToString());
             li.SubItems.Add(tempFile.print_page_num.ToString());
-            li.SubItems.Add(tempFile.print_color==1?"黑白":"彩色");
-            li.SubItems.Add(tempFile.duplex==1 ? "单面" : "双面");
+            li.SubItems.Add(tempFile.print_color == 1 ? "黑白" : "彩色");
+            li.SubItems.Add(tempFile.duplex == 1 ? "单面" : "双面");
             li.SubItems.Add(tempFile.print_count.ToString());
             li.SubItems.Add("");//存放状态
             //将行对象绑定在listview对象中
@@ -173,8 +176,8 @@ namespace WinFormsApp1
         }
         public void UpdatePrintState(String FileId, string StateStr)
         {
-         
-            for(int i=0;i<  listViewPrinting.Items.Count;i++)
+
+            for (int i = 0; i < listViewPrinting.Items.Count; i++)
             {
                 if (FileId == listViewPrinting.Items[i].SubItems[1].Text)
                 {

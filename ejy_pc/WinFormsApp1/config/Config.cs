@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CloudPrint
+namespace EnjoyPrint.config
 {
     class Config
     {
-        public static String VERSION = "1.0";
-        public static String BASEURL = "https://enjoyprint.pinghaifeng.cn/pc";
-        public static String FTPIP = "ftp://59.111.148.52/";
-        public static String ADMINURL = "https://cloudprint.pinghaifeng.cn";
+        public static double VERSION = 1.0;
+        public static string BASEURL = "https://enjoyprint.pinghaifeng.cn/pc";
+        public static string FTPIP = "ftp://59.111.148.52/";
+        public static string ADMINURL = "https://cloudprint.pinghaifeng.cn";
 
-        public static String FTP_USERNAME = "fangxiang";
+        public static string FTP_USERNAME = "fangxiang";
 
-        public static String FTP_PASSWORD = "fang1234";
-        public static String OUTFILE_PATH = @"C:\ftpDownload";
+        public static string FTP_PASSWORD = "fang1234";
+        public static string OUTFILE_PATH = @"C:\ftpDownload";
+        public static string ACCOUNT_CONFIG_PATH = @"C:\Users\Public\Documents\EnjoyPrint\";
     }
 }

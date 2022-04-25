@@ -1,5 +1,6 @@
  <template>
   <div class="app-container" v-loading="loading">
+<<<<<<< HEAD
     <!-- <div class="dot" v-if="store_detail.pc_online === 1" >在线</div>
 <div class="dot" v-else>离线</div> -->
     <el-form inline>
@@ -18,6 +19,9 @@
     </el-form>
 
     <el-descriptions class="margin-top" title="" :column="3" border>
+=======
+    <el-descriptions class="margin-top" title="店铺详情" :column="3" border>
+>>>>>>> 84af6262785d8c2cee53c1f0e364859c3586c3c9
       <el-descriptions-item>
         <template slot="label">
           <i class="el-icon-user"></i>
@@ -25,7 +29,16 @@
         </template>
         <el-input v-model="store_detail.store_name"></el-input>
       </el-descriptions-item>
-
+      <el-descriptions-item>
+        <template slot="label">
+          <i class="el-icon-monitor"></i>
+          在线状态
+        </template>
+        <el-tag v-if="store_detail.pc_online === 1" type="success" 
+          >在线</el-tag
+        >
+        <el-tag v-else type="info">离线</el-tag>
+      </el-descriptions-item>
       <!-- <el-descriptions-item>
         <template slot="label">
           <i class="el-icon-user"></i>
@@ -65,7 +78,7 @@
           <i class="el-icon-tickets"></i>
           套餐版本
         </template>
-        <el-tag type="success">高校版</el-tag>
+        <el-tag  type="success">高校版</el-tag>
       </el-descriptions-item>
       <el-descriptions-item>
         <template slot="label">
@@ -156,9 +169,18 @@ restartPC().then(res=>{
 };
 </script>
 <style >
+<<<<<<< HEAD
 
 .dot {
   width: 10px;
   height: 10px;
 }
+=======
+/* label.el-form-item__label {
+  font-weight: 500 !important;
+} */
+/* el-form-item{
+    width: 300px !important;
+} */
+>>>>>>> 84af6262785d8c2cee53c1f0e364859c3586c3c9
 </style>

@@ -7,16 +7,20 @@ class Store(db.Model):
     __tablename__ = "store"
     __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    store_id = db.Column(db.Integer)
+    store_id = db.Column(db.String(255))
     store_name = db.Column(db.String(255))
     area = db.Column(db.String(255))
     adcode = db.Column(db.Integer)
     adname = db.Column(db.String(255))
     store_announce = db.Column(db.String(255))
     detail_addr =  db.Column(db.String(255))
+<<<<<<< HEAD
     use_take_id = db.Column(db.Integer)
     o_id = db.Column(db.Integer,db.ForeignKey("order.id"))
     def __init__(self, store_id, store_name, area, adcode,adname, store_announce,detail_addr,use_take_id):
+=======
+    def __init__(self, store_id, store_name, area, area_id, store_announce,detail_addr):
+>>>>>>> 84af6262785d8c2cee53c1f0e364859c3586c3c9
         self.store_id = store_id
         self.store_name = store_name
         self.area = area
@@ -24,7 +28,6 @@ class Store(db.Model):
         self.adcode = adcode
         self.adname = adname
         self.store_announce = store_announce
-        self.use_take_id=use_take_id
 
 
 # 店铺账号信息
@@ -32,23 +35,21 @@ class StoreAccount(db.Model):
     __tablename__ = "store_account"
     __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    store_id = db.Column(db.Integer)
+    store_id = db.Column(db.String(255))
     username = db.Column(db.String(255))
     password = db.Column(db.String(255))
     host_ip = db.Column(db.String(255))
-    enabled = db.Column(db.Integer)
-    def __init__(self,  store_id, username, password, host_ip,enabled):
+    def __init__(self,  store_id, username, password, host_ip):
         self.store_id = store_id
         self.username = username
         self.password = password
         self.host_ip = host_ip
-        self.enabled = enabled
 
 #价格信息
 class Price(db.Model):
     __tablename__ = "price"
     __table_args__ = {'extend_existing': True}
-    id = db.Column(db.Integer, primary_key=True,nullable=False,autoincrement=True) 
+    id = db.Column(db.Integer, primary_key=True,nullable=False) 
     store_id=db.Column(db.String(255),nullable=False)
     paper_type=db.Column(db.String(30))
     size=db.Column(db.String(30))
@@ -67,10 +68,11 @@ class Price(db.Model):
 class Printer(db.Model):
     __tablename__ = "printer"
     __table_args__ = {'extend_existing': True}
-    printer_id=db.Column(db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True,autoincrement=True) 
     store_id=db.Column(db.String(255))
     computer_id=db.Column(db.String(255))
     host_ip=db.Column(db.String(255))
+    printer_id=db.Column(db.String(255))
     printer_name=db.Column(db.String(255))
     can_duplex=db.Column(db.Integer)
     is_defalut=db.Column(db.Integer)
@@ -78,10 +80,11 @@ class Printer(db.Model):
     supports_color=db.Column(db.Integer)
 
     can_self_print=db.Column(db.Integer,default=0)
-    def __init__(self, store_id,computer_id,host_ip,printer_name,can_duplex,is_defalut,is_user_set_defalut,supports_color,can_self_print):
+    def __init__(self, store_id,computer_id,printer_id,host_ip,printer_name,can_duplex,is_defalut,is_user_set_defalut,supports_color,can_self_print):
        self.store_id=store_id
        self.computer_id=computer_id
        self.host_ip=host_ip
+       self.printer_id=printer_id
        self.printer_name=printer_name
        self.can_duplex=can_duplex
        self.is_defalut=is_defalut

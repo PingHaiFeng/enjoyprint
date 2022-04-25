@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31911.196
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudPrint", "WinFormsApp1\CloudPrint.csproj", "{534AFEF6-B5F3-4790-9811-FBD0AAC09062}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnjoyPrint", "WinFormsApp1\EnjoyPrint.csproj", "{534AFEF6-B5F3-4790-9811-FBD0AAC09062}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "云即印", "云即印\云即印.vdproj", "{340EC35F-03AE-48CA-8E38-F2B25D94339B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{534AFEF6-B5F3-4790-9811-FBD0AAC09062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{534AFEF6-B5F3-4790-9811-FBD0AAC09062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{534AFEF6-B5F3-4790-9811-FBD0AAC09062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{340EC35F-03AE-48CA-8E38-F2B25D94339B}.Debug|Any CPU.ActiveCfg = Debug
+		{340EC35F-03AE-48CA-8E38-F2B25D94339B}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

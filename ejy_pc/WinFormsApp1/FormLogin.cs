@@ -11,14 +11,12 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using WinFormsApp1;
 using System.Threading;
-using System.Threading.Tasks;
-using CloudPrint;
-using CloudPrint.Api;
 using System.Runtime.Serialization.Formatters.Binary;
-using CloudPrint.Entity;
-using System.Runtime.InteropServices;
 using System.Drawing.Text;
-using CloudPrint.api;
+using EnjoyPrint;
+using EnjoyPrint.config;
+using EnjoyPrint.api;
+using EnjoyPrint.entity;
 
 namespace 云打印
 {
@@ -37,7 +35,7 @@ namespace 云打印
             //从外部文件加载字体文件  
             PrivateFontCollection font = new PrivateFontCollection();
 
-            font.AddFontFile(@"..\..\..\asset\腾讯体-Medium.TTF");
+            font.AddFontFile(@"腾讯体-Medium.TTF");
             //检测字体类型是否可用
             var r = font.Families[0].IsStyleAvailable(FontStyle.Regular);
             var b = font.Families[0].IsStyleAvailable(FontStyle.Bold);
@@ -56,7 +54,7 @@ namespace 云打印
             String stateCode = resData["state"].ToString();
             if (stateCode == "1")
             {
-                bool hasNewVersion = resData["data"]["last_version"].ToString() != Config.VERSION;//检测新版本
+                bool hasNewVersion = (double)resData["data"]["last_version"] > Config.VERSION;//检测新版本
                 if (hasNewVersion) MessageBox.Show("有版本更新，请更新");
             }
         }
@@ -149,7 +147,7 @@ namespace 云打印
             try
             {
                 User user = new User();
-                FileStream fs = new FileStream("data.bin", FileMode.OpenOrCreate);
+                FileStream fs = new FileStream(Config.ACCOUNT_CONFIG_PATH + "account.bin", FileMode.OpenOrCreate);
                 BinaryFormatter bf = new BinaryFormatter();
                 user.UserName = tbUsername.Text.Trim();
                 user.RememberPwd = checkBoxRememberPwd.Checked;
@@ -169,7 +167,20 @@ namespace 云打印
         {
             try
             {
-                FileStream fs = new FileStream("data.bin", FileMode.OpenOrCreate);
+                string configPath = Config.ACCOUNT_CONFIG_PATH;
+                //判断文件夹是否存在
+                if (!Directory.Exists(configPath))
+                {
+                    //创建文件夹
+                    try
+                    {
+                        Directory.CreateDirectory(configPath);
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                }
+                FileStream fs = new FileStream(Config.ACCOUNT_CONFIG_PATH + "account.bin", FileMode.OpenOrCreate);
 
                 if (fs.Length > 0)
                 {
@@ -191,9 +202,9 @@ namespace 云打印
                 }
                 fs.Close();
             }
-            catch
+            catch (Exception ex)
             {
-                Console.WriteLine("出错");
+                Console.WriteLine(ex);
                 return;
             }
 

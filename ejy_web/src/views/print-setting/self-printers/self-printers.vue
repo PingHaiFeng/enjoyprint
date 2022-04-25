@@ -177,6 +177,10 @@ export default {
     handleUpdate(row) {
       updatePrinter(row).then((response) => {
         this.$modal.msgSuccess("配置成功");
+<<<<<<< HEAD
+=======
+        this.open = false;
+>>>>>>> 84af6262785d8c2cee53c1f0e364859c3586c3c9
         this.getList();
       });
     },
@@ -193,6 +197,7 @@ export default {
     },
     // 保存专属二维码图片到本地
     handleCreateQrCode(row) {
+<<<<<<< HEAD
       var url = `https://cloudprint.pinghaifeng.cn/web/printer_ewm?store_id=${row.store_id}&printer_id=${row.printer_id}`;
       var domObj = document.getElementById("posterHtml");
       var qrcodeImgEl = document.getElementById("qrcodeImg");
@@ -201,6 +206,11 @@ export default {
       // qrcodeImgEl.removeChild(eleCavas)
       //      qrcodeImgEl.removeChild(eleImg)
       console.log(qrcodeImgEl);
+=======
+      var url =`https://cloudprint.pinghaifeng.cn/web/printer_ewm?store_id=${row.store_id}&printer_id=${row.printer_id}` 
+      const domObj = document.getElementById("posterHtml");
+      const qrcodeImgEl = document.getElementById("qrcodeImg");
+>>>>>>> 84af6262785d8c2cee53c1f0e364859c3586c3c9
       let qrcode = new QRCode(qrcodeImgEl, {
         width: 500,
         height: 500,

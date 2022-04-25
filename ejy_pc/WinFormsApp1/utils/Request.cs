@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using EnjoyPrint;
+using EnjoyPrint.config;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -7,12 +9,12 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CloudPrint
+namespace EnjoyPrint.utils
 {
-    
-   public static class Request
+
+    public static class Request
     {
-      
+
 
         /// <summary>
         /// 指定Post地址使用Get 方式获取全部字符串
@@ -22,7 +24,7 @@ namespace CloudPrint
         public static JObject Post(string url, Dictionary<string, object> dic)
         {
             string result = "";
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(Config.BASEURL+url);
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(Config.BASEURL + url);
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
             req.Headers.Add("X-Token", GlobalData.token);
@@ -45,7 +47,7 @@ namespace CloudPrint
             }
             #endregion
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-            
+
             Stream stream = resp.GetResponseStream();
             //获取响应内容
             using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
@@ -61,7 +63,7 @@ namespace CloudPrint
             //    if (stateCode == "1")
             //    {
             //       jResult
-   
+
             //    }
             //    else
             //    {

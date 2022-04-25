@@ -6,20 +6,18 @@ using System.Net.Sockets;
 using System.Threading;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using 云打印;
-using CloudPrint.Entity;
-using CloudPrint.utils;
-using CloudPrint.entity;
-using CloudPrint.Api;
+using EnjoyPrint.utils;
+using EnjoyPrint.entity;
+using EnjoyPrint.api;
 
-namespace CloudPrint
+namespace EnjoyPrint
 {
-   public class TcpClient
+    public class TcpClient
     {
         static Socket clientSocket;
-        static String outBufferStr;
-        static Byte[] outBuffer = new Byte[1024*1024];
-        static Byte[] inBuffer = new Byte[1024*1024];
+        static string outBufferStr;
+        static byte[] outBuffer = new byte[1024 * 1024];
+        static byte[] inBuffer = new byte[1024 * 1024];
 
         private bool isRunning = false;
         private int lostConneTime = 0;
@@ -32,13 +30,13 @@ namespace CloudPrint
             WorkThread = new Thread(WorkFunc);//工作（接收数据）线程
             WorkThread.IsBackground = true;
             WorkThread.Start();
-           
+
         }
 
         public void BuildConnection()
         {
             //将网络端点表示为IP地址和端口 用于socket侦听时绑定  
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Parse("59.111.148.52"), 5301); 
+            IPEndPoint ipep = new IPEndPoint(IPAddress.Parse("59.111.148.52"), 5301);
             clientSocket = new Socket(ipep.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             try
             {
@@ -48,7 +46,7 @@ namespace CloudPrint
             catch
             {
                 Console.WriteLine("服务器未开启！");
-                
+
             }
         }
 
@@ -61,15 +59,15 @@ namespace CloudPrint
                 clientSocket.Send(outBuffer, outBuffer.Length, SocketFlags.None);
             }
             catch
-            
+
             {
-                this.lostConneTime += 1;
-                Console.WriteLine("丢失python连接{0:N0}", this.lostConneTime);
+                lostConneTime += 1;
+                Console.WriteLine("丢失python连接{0:N0}", lostConneTime);
             }
-            if (this.lostConneTime == 10)
+            if (lostConneTime == 10)
             {
                 BuildConnection();
-                this.lostConneTime = 0;
+                lostConneTime = 0;
             }
         }
 
@@ -82,7 +80,7 @@ namespace CloudPrint
                     try
                     {
                         Console.WriteLine("正在监听...");
-                        int recvCount = clientSocket.Receive(inBuffer, 1024*1024, SocketFlags.None);
+                        int recvCount = clientSocket.Receive(inBuffer, 1024 * 1024, SocketFlags.None);
                         if (recvCount > 0)
                         {
                             string recvMsg = Encoding.UTF8.GetString(inBuffer, 0, recvCount);
@@ -93,7 +91,7 @@ namespace CloudPrint
                     {
                         Console.WriteLine(ex);
                         Thread.Sleep(3000);
-                        this.BuildConnection();
+                        BuildConnection();
                     }
                 }
             }
@@ -116,7 +114,7 @@ namespace CloudPrint
             {
                 instruct_data.instruct_id = 2002;
                 GlobalData.printer_name = jsonData["instruct_dict"]["printer_name"].ToString();
-                String OrderId = jsonData["instruct_dict"]["order_id"].ToString();
+                string OrderId = jsonData["instruct_dict"]["order_id"].ToString();
                 int FileCount = (int)jsonData["instruct_dict"]["file_count"];
                 List<TempFile> file_list = JsonConvert.DeserializeObject<List<TempFile>>(jsonData["instruct_dict"]["tempFile_list"].ToString());
 
@@ -135,10 +133,10 @@ namespace CloudPrint
                     //file.PrintToRange = (short)Convert.ToDouble(file.PrintInfo["PrintToPage"]);
                     //file.PrintPageNum = (short)Convert.ToDouble(file.PrintInfo["PrintPageNum"]);
                     //file.PrintCount = (short)Convert.ToDouble(file.PrintInfo["PrintCount"]);
-                    
+
                     //file.FileNewName = file.FileId + "." + file.FileType;
                     //file.FileNewNamePdf = file.FileNewName + ".pdf";
-               
+
                     PrintJob printJob = new PrintJob();
                     Thread printThread = new Thread(() => printJob.StartPrintWork(file));
                     printThread.IsBackground = true;
@@ -153,7 +151,11 @@ namespace CloudPrint
                 string instruct_data_str = JsonConvert.SerializeObject(instruct_data);//对象转字符串
                 Send(instruct_data_str);
             }
-           
+            if(instruct_data.instruct_id == 1005)
+            {
+            
+                SysPro.Restart();
+            }
         }
 
         public void SendAliveHeart()
@@ -161,7 +163,7 @@ namespace CloudPrint
             Instruct instruct_data = new Instruct();
             instruct_data.instruct_dict = new Dictionary<string, object>();
             instruct_data.instruct_id = 2004;
-            instruct_data.instruct_content = "Heart_"+ GlobalData.store_id;
+            instruct_data.instruct_content = "Heart_" + GlobalData.store_id;
             instruct_data.instruct_dict.Add("store_id", GlobalData.store_id);
             string instruct_data_str = JsonConvert.SerializeObject(instruct_data);//对象转字符串
 
@@ -170,8 +172,9 @@ namespace CloudPrint
                 Console.WriteLine("心跳" + instruct_data_str);
                 Thread.Sleep(60000);
 
-                try {
-                
+                try
+                {
+
                     Send(instruct_data_str);
                     Console.WriteLine("发送成功");
                 }
@@ -180,8 +183,8 @@ namespace CloudPrint
                     Console.WriteLine("发送失败");
                 }
             }
-            
-            
+
+
         }
 
         public static object Add(object obj, string key, object value)
