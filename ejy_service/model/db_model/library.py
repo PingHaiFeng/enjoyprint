@@ -6,8 +6,8 @@ import time
 CURRENT_TIME = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
 
 # 文件夹
-class Folder(db.Model):
-    __tablename__ = "folder"
+class DocFolder(db.Model):
+    __tablename__ = "doc_folder"
     __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True) 
     folder_id=db.Column(db.Integer, primary_key=True)
@@ -27,8 +27,8 @@ class Folder(db.Model):
         self.doc_num=doc_num
 
 # 文件
-class Document(db.Model):
-    __tablename__ = "document"
+class Doc(db.Model):
+    __tablename__ = "doc"
     __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True) 
     file_id=db.Column(db.String(255), primary_key=True)

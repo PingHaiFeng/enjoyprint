@@ -157,7 +157,7 @@ export default {
       getNotice().then((response) => {
         this.notice = response.data.notice;
         var a = this.notice.filter(function (x) {
-          if (x.show_screen_center === 1) {
+          if (x.auto_show === 1) {
             return x;
           }
         });
