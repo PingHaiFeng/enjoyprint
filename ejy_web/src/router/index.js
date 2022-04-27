@@ -115,7 +115,7 @@ export const constantRoutes = [{
     path: '/price',
     component: Layout,
     redirect: 'price-list',
-    meta: { title: '价格设置', icon: 'el-icon-printer' },
+    meta: { title: '价格设置', icon: 'el-icon-price-tag' },
     children: [
         {
             path: 'price-list',
@@ -187,7 +187,7 @@ export const constantRoutes = [{
     path: '/help',
     component: Layout,
     redirect: 'use-help',
-    meta: { title: '云即印助手', icon: 'dashboard' },
+    meta: { title: '云即印助手', icon: 'el-icon-help' },
     children: [
         {
             path: 'use-help',
@@ -216,7 +216,7 @@ export const constantRoutes = [{
 {
     path: '/credit',
     component: Layout,
-    meta: { title: '挂账管理', icon: 'dashboard' },
+    meta: { title: '挂账管理', icon: 'credit' },
     children: [
         {
             path: 'credit-record',
@@ -231,6 +231,28 @@ export const constantRoutes = [{
             component: () =>
                 import('@/views/credit/credit-manage/credit-manage'),
             meta: { title: '挂账管理', icon: '' }
+        },
+
+    ]
+},
+{
+    path: '/library',
+    component: Layout,
+    meta: { title: '文库管理', icon: 'el-icon-folder-opened' },
+    children: [
+        {
+            path: 'doc-upload',
+            name: 'doc-upload',
+            component: () =>
+                import('@/views/library/doc-upload/doc-upload'),
+            meta: { title: '文件上传', icon: '' }
+        },
+        {
+            path: 'folder',
+            name: 'folder',
+            component: () =>
+                import('@/views/library/folder/folder'),
+            meta: { title: '文件夹管理', icon: '' }
         },
 
     ]

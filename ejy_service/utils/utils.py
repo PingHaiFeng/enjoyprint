@@ -19,7 +19,7 @@ def get_relative_path():
 
 def make_file_id():
     import random
-    file_id =time.strftime('%Y%m%d%H:%M:%S', time.localtime(time.time()))+ ''.join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 15)).replace(" ", "")
+    file_id =time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))+ ''.join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 15)).replace(" ", "")
     return file_id
 
 def create_unique_code():

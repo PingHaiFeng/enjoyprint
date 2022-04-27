@@ -35,12 +35,13 @@ class StoreAccount(db.Model):
     username = db.Column(db.String(255))
     password = db.Column(db.String(255))
     host_ip = db.Column(db.String(255))
-    def __init__(self,  store_id, username, password, host_ip):
+    enabled = db.Column(db.Integer)
+    def __init__(self,  store_id, username, password, host_ip,enabled):
         self.store_id = store_id
         self.username = username
         self.password = password
         self.host_ip = host_ip
-
+        self.enabled = enabled
 #价格信息
 class Price(db.Model):
     __tablename__ = "price"

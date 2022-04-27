@@ -14,18 +14,16 @@ pc = Blueprint('pc', __name__)  # 第一个蓝图名称，第二个参数表示�
 # 初始化版本信息
 @pc.route('/version-info', methods=["POST", "GET"])
 def version_info():
-    version = request.args.get("version")
-    # if PC_LAST_VERSION > float(version):
-    return State.success(data={"last_version":PC_LAST_VERSION})
-
-# 更新版本信息
+    version = request.form.get("version")
+    if PC_LAST_VERSION > float(version):
+        return State.success("Y",data={'info':"版本有更新，请卸载更新","url":"www.baidu.com"})
+    return State.success("N")
+        
+# 更新版本下载文件链接
 @pc.route('/version-update', methods=["POST", "GET"])
 def version_update():
-    Path = PC_UPDATE_PACKAGR_PATH
-    
-    return send_from_directory(Path, file_new_name, as_attachment=True)
-
-
+    filename = "EnjoyPrint.zip"
+    return send_from_directory(PC_UPDATE_PACKAGR_PATH, filename, as_attachment=True)
 
 
 # 店铺账号登录
