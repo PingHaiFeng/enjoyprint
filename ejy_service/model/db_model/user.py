@@ -6,6 +6,7 @@ class Order(db.Model):
     __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     order_id=db.Column(db.String(50))
+    store_name=db.Column(db.String(50))
     order_type = db.Column(db.Integer)
     take_id = db.Column(db.String(50))
     store_id = db.Column(db.String(50))
@@ -17,9 +18,10 @@ class Order(db.Model):
     openid = db.Column(db.String(60))
     create_time = db.Column(db.String(60),default=db.func.now())
     timestamp = db.Column(db.Integer, default = int(time.time()))
-    def __init__(self,order_id,order_type,take_id,file_count, store_id,printer_name, price,print_situation_code, print_situation,openid):
+    def __init__(self,order_id,order_type,take_id,store_name,file_count, store_id,printer_name, price,print_situation_code, print_situation,openid):
         self.order_id=order_id
         self.order_type = order_type
+        self.store_name=store_name
         self.file_count=file_count
         self.take_id=take_id
         self.store_id = store_id

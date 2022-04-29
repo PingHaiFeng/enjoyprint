@@ -1581,3 +1581,12 @@ Traceback (most recent call last):
     if not account.enabled:
 AttributeError: 'StoreAccount' object has no attribute 'enabled'
 
+[2022-04-27 17:45:10]
+set_orders
+Traceback (most recent call last):
+  File "d:\enjoyprint\ejy_service\log\except_logger.py", line 10, in wrapper
+    return func(*args,**kwargs)
+  File "d:\enjoyprint\ejy_service\view\mini\mini.py", line 131, in set_orders
+    orders = Order(order_id=order_id,store_name=store_name,order_type=order_type,store_id=store_id,file_count=file_count, printer_name=printer_name,price=price,print_situation_code=print_situation_code, print_situation=print_situation,take_id=take_id, openid=openid)
+TypeError: __init__() got an unexpected keyword argument 'store_name'
+

@@ -22,6 +22,7 @@ web = Blueprint('web', __name__)
 def login():
     username = request.form.get("username")
     password = request.form.get("password")
+    print(password)
     if not all([username,password]):
         return State.fail("请填写手机号和密码")
     user = StoreAccount.query.filter_by(username=username,password=password).first()

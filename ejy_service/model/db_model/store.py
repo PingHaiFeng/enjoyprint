@@ -76,11 +76,10 @@ class Printer(db.Model):
     supports_color=db.Column(db.Integer)
 
     can_self_print=db.Column(db.Integer,default=0)
-    def __init__(self, store_id,computer_id,printer_id,host_ip,printer_name,can_duplex,is_defalut,is_user_set_defalut,supports_color,can_self_print):
+    def __init__(self, store_id,computer_id,host_ip,printer_name,can_duplex,is_defalut,is_user_set_defalut,supports_color,can_self_print):
        self.store_id=store_id
        self.computer_id=computer_id
        self.host_ip=host_ip
-       self.printer_id=printer_id
        self.printer_name=printer_name
        self.can_duplex=can_duplex
        self.is_defalut=is_defalut

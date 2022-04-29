@@ -69,7 +69,7 @@ def set_printers_info():
         supports_color=printers_params[i]["supports_color"]
         can_duplex=printers_params[i]["can_duplex"]
         is_defalut=printers_params[i]["is_defalut"]
-        res = Printer.query.filter_by(store_id=store_id,printer_name=printer_name).first()
+        res = Printer.query.filter_by(store_id=store_id,printer_name=printer_name,computer_id=computer_id).first()
         if res:
             res.computer_id=computer_id
             res.printer_name=printer_name
@@ -100,6 +100,7 @@ def save_host_ip():
         host_ip = request.form.get("host_ip")
         token=request.form.get("token")
         res = verify_token(token)
+        print(host_ip)
         res.host_ip=host_ip
         db.session.commit()
         return "1"
@@ -115,6 +116,7 @@ def handle_print_state():
         code =request.form.get("code")
         print(order_id,code)
         res = Order.query.filter_by(order_id=order_id).first()
+        print(res)
         res.print_situation_code=code
         if code=="1":res.print_situation="已打印"
         if code=="-1":res.print_situation="待打印"

@@ -31,19 +31,24 @@
       </el-col>
       <el-col :span="12">
         <div class="bind-default">
-          <el-form>
-            <el-form-item
-              label="线上默认打印机"
-              label-width="300"
-              required
-              size="small"
-            >
+          <el-form inline>
+            <el-form-item label="线上默认打印机" label-width="300" size="small">
               <el-select v-model="user_set_defalut_printer">
                 <el-option
                   v-for="item in printerList"
                   :key="item.id"
                   :label="item.printer_name"
                   :value="item.printer_name"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="当前电脑" label-width="500" size="small" >
+              <el-select v-model="curComputerId" :change="filterPrinter">
+                <el-option
+                  v-for="(item, index) in computerIdList"
+                  :key="index"
+                  :label="item"
+                  :value="item"
                 ></el-option>
               </el-select>
             </el-form-item>
@@ -54,7 +59,7 @@
 
     <el-table
       :header-cell-style="{ background: '#F7F7FA', color: '#555' }"
-      :data="printerList"
+      :data="curPrintersList"
       style="width: 100%"
       v-loading="listLoading"
     >
@@ -148,8 +153,11 @@ export default {
       dataVisable: true,
       canSelfPrint: true,
       printerList: null,
+      computerIdList: [],
       printersList: [],
+      curPrintersList: [],
       computersList: [],
+      curComputerId: "",
       user_set_defalut_printer: null,
       posterContent: "", // 文案内容
       posterImg: "", // 最终生成的海报图片
@@ -160,9 +168,15 @@ export default {
   created() {
     this.getList();
   },
+  watch:{
+curComputerId(){
+  this.filterPrinter()
+}
+  },
   methods: {
     //获取打印机
     getList() {
+      
       listPrinter().then((response) => {
         this.listLoading = false;
         this.printerList = response.data.list;
@@ -170,23 +184,34 @@ export default {
           this.$modal.alert("暂未获取到打印机数据，您需要先登录pc端以获取信息");
           return;
         }
-        this.initDefaultPrinter();
+        this.computerIdList = Array.from(
+          new Set(this.printerList.map((item) => item.computer_id))
+        );
+        this.curComputerId = this.computerIdList[0];
+        this.filterPrinter();
       });
     },
     // 修改打印配置
     handleUpdate(row) {
       updatePrinter(row).then((response) => {
         this.$modal.msgSuccess("配置成功");
-        this.getList();
+       
       });
     },
-    initDefaultPrinter() {
-      for (let i = 0; i < this.printerList.length; i++) {
-        if (this.printerList[i].is_user_set_defalut == 1) {
-          this.user_set_defalut_printer = this.printerList[i].printer_name;
+    filterPrinter() {
+      
+      this.curPrintersList = this.printerList.filter((item) => {
+        if (item.computer_id == this.curComputerId) {
+          return item;
         }
-      }
+      });
+      this.curPrintersList.filter((item) => {
+        if (item.is_user_set_defalut === 1) {
+          this.user_set_defalut_printer = item.printer_name;
+        }
+      });
     },
+    filterComputer() {},
     //编辑
     handleEdit() {
       this.$modal.msg("此版本未开通");

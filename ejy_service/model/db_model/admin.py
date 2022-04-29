@@ -55,6 +55,7 @@ class FeedBack(db.Model):
     store_id=db.Column(db.String(255))
     suggestion=db.Column(db.String(255))
     plat=db.Column(db.String(255))
+    create_time = db.Column(db.String(30),default=time_now())
     def __init__(self, data):
        self.nick_name=data.get("nick_name")
        self.picture=data.get("picture")
