@@ -131,8 +131,8 @@ def account():
 @except_logger
 @login_required
 def get_notice():
-    notice = model_to_dict(NoticeBoard.query.all())
-    return  State.success(data={"notice": notice})
+    list = model_to_dict(NoticeBoard.query.all())
+    return  State.success(data={"list": list})
 
 # 订单列表
 @web.route('/list-order', methods=["POST", "GET"])
@@ -180,6 +180,7 @@ def get_recent_sales():
     store_id = verify_token(request.headers["X-Token"]).store_id
     s_date = request.form.get("s_date")
     e_date = request.form.get("e_date")
+    print(s_date,e_date)
     date_list=getEveryDay(s_date,e_date)
     bill_data=[]
     for date_item in date_list:
@@ -189,10 +190,45 @@ def get_recent_sales():
         order_num=Order.query.filter(*map).filter_by(store_id=store_id).count()
         order_money = db.session.query(func.sum(Order.price)).filter(*map).filter_by(store_id=store_id).scalar()#计算总价
         if order_money is None:order_money=0
-        d = {date_item:{"order_num":order_num,"order_money":order_money}}
+        d = {"date":date_item,"order_num":order_num,"order_money":order_money}
         bill_data.append(d)
     return  State.success(data={"recent_sales": bill_data})
 
+#获取历史总收益数据
+@web.route('/all-sales', methods=["POST", "GET"])
+@login_required
+def get_all_sales():
+    store_id = verify_token(request.headers["X-Token"]).store_id
+    print( request.form.get("date_range"))
+    s_date = request.form.get("date_range").split(",")[0]
+    e_date = request.form.get("date_range").split(",")[1]
+    date_list=getEveryDay(s_date,e_date)
+    bill_data=[]
+
+    for date_item in date_list:
+        map=[]
+        total_order_num=0
+        total_order_money=0
+        map.append(Order.create_time  >= date_item+" 00:00:00")
+        map.append(Order.create_time <=date_item+" 23:59:59" )
+        phone_order_num=Order.query.filter(*map).filter_by(store_id=store_id,order_type=1).count()
+        phone_order_money = db.session.query(func.sum(Order.price)).filter(*map).filter_by(store_id=store_id,order_type=1).scalar()#计算总价
+        computer_order_num=Order.query.filter(*map).filter_by(store_id=store_id,order_type=2).count()
+        computer_order_money = db.session.query(func.sum(Order.price)).filter(*map).filter_by(store_id=store_id,order_type=2).scalar()#计算总价
+        booking_order_num=Order.query.filter(*map).filter_by(store_id=store_id,order_type=3).count()
+        booking_order_money = db.session.query(func.sum(Order.price)).filter(*map).filter_by(store_id=store_id,order_type=3).scalar()#计算总价
+        if phone_order_money is None:phone_order_money=0
+        if computer_order_money is None:computer_order_money=0
+        if booking_order_money is None:booking_order_money=0
+        total_order_num += phone_order_num + computer_order_num + booking_order_num
+        total_order_money += phone_order_money + computer_order_money + booking_order_money
+        d = {"date":date_item,"phone_order_num":phone_order_num,"phone_order_money":phone_order_money,
+             "computer_order_num":computer_order_num,"computer_order_money":computer_order_money,
+             "booking_order_num":booking_order_num,"booking_order_money":booking_order_money,
+             "total_order_num":total_order_num,"total_order_money":total_order_money
+             }
+        bill_data.insert(0,d)
+    return  State.success(data={"list": bill_data})
 
 
 # 获取张贴二维码

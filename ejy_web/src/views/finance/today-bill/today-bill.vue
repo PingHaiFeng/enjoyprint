@@ -6,31 +6,22 @@
         <el-card class="jy-card">
           <div slot="header" class="header" style="display: flex">
             <span style="font-weight: bold">经营数据</span>
-            <div class="header-right">
-              <span style="margin-right: 10px">显示数据</span>
-              <el-switch
-                v-model="dataVisable"
-                active-color="#409eff"
-                inactive-color="#bfbfbf"
-              >
-              </el-switch>
-            </div>
           </div>
           <div class="card1-wrp">
             <div class="card1-item">
               <p class="item-data">
-                {{ dataVisable ? todayOrdersMoney : "**" }}
+                {{todaySales.order_money }}
               </p>
               <p class="item-title">线上收款（元）</p>
             </div>
             <div class="card1-item flex-center">
               <p class="item-data">
-                {{ dataVisable ? todayOrdersNum : "**" }}
+                {{todaySales.order_num  }}
               </p>
               <p class="item-title">今日订单数（单）</p>
             </div>
             <div class="card1-item flex-center">
-              <p class="item-data">{{ dataVisable ? orders_waited : "**" }}</p>
+              <p class="item-data">{{orders_waited}}</p>
               <p class="item-title">预约打印待处理（单）</p>
             </div>
           </div>
@@ -39,261 +30,44 @@
 
     
     </el-row>
-    <!-- 营业额折线图 -->
-    <el-row>
-      <el-col :span="18">
-        <el-card class="yye-card">
-          <div slot="header" class="header">
-            <el-row>
-              <el-col :span="11"
-                ><span style="font-weight: bold">营业额数据</span>
-              </el-col>
-              <el-col :span="12">
-                <el-button autofocus @click="daySpace = 7">近7天</el-button>
-                <el-button @click="daySpace = 15">近15天</el-button>
-                <el-button @click="daySpace = 30">近30天</el-button>
-              </el-col>
-            </el-row>
-            <div id="order-money-chart"></div>
-          </div>
-        </el-card>
-      </el-col>
-    </el-row>
-    <!-- 订单数 -->
-    <el-row>
-      <el-col :span="18">
-        <el-card class="yye-card">
-          <div slot="header" class="header">
-            <span style="font-weight: bold">订单数据</span>
-            <div id="order-num-chart"></div>
-          </div>
-        </el-card>
-      </el-col>
-    </el-row>
 
-    <el-dialog :title="notice[noticeCurIndex]['title']" :visible.sync="noticeDialogVisible" width="30%">
-      <span>{{ notice[noticeCurIndex]["content"] }}</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="handleNoticeDialog(-1)"
-          >确 定</el-button
-        >
-      </span>
-    </el-dialog>
-    
+
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import { getNotice } from "@/api/news";
 import { getRecentSales } from "@/api/order";
 import { getTodayDate } from "@/utils/date";
 import { calDate } from "@/utils/date";
-let echarts = require("echarts");
 var date_now = getTodayDate();
 export default {
-  name: "dashboard",
   data() {
     return {
-      charts: "",
-      y_orderMoneyData: [],
-      y_orderNumData: [],
-      x_orderData: [],
-      daySpace: 7, //间隔天数，7天，30天
-      dataVisable: true, //数据是否可见
-      notice: [{ content: null }],
+      todaySales:null,
       todayOrdersNum: null,
       todayOrdersMoney: null,
       orders_waited: 0, //待处理订单
-      noticeDialogVisible: false, //公告对话框是否显示u
-      noticeCurIndex: 0, //当前点击的公告索引
     };
   },
-  computed: {
-    ...mapGetters(["name"]),
-  },
-  watch: {
-    daySpace(val) {
-      this._getRecentSales();
-    },
-    dataVisable() {
-      this.drawLine();
-      this.drawColBar();
-    },
-  },
+
   mounted() {
-    this._getNotice();
     this._getRecentSales(); //获取最近销售
   },
   methods: {
-    //获取公告信息
-    _getNotice() {
-      getNotice().then((response) => {
-        console.log(response.data);
-        this.notice = response.data.notice;
-        this.listLoading = false;
-      });
-    },
-    // //获取订单信息
-    // _getOrder() {
-    //   var data = {
-    //     current_page: 1,
-    //     page_size: 1000000,
-    //     start_date: this.calDate(date_now, -7),
-    //     end_date: date_now,
-    //   };
-    //   getOrder(data).then((response) => {
-    //     this.all_orders = response.data.all_orders;
-    //     this.total_orders_count = response.data.total_orders_count;
-    //     var total_orders_price = 0;
-    //     for (let i = 0; i < this.all_orders.length; i++) {
-    //       total_orders_price += parseFloat(this.all_orders[i].price);
-    //     }
-    //     console.log(total_orders_price);
-    //     this.total_orders_price = total_orders_price.toFixed(2);
-    //     this.listLoading = false;
-    //   });
-    // },
 
-    //打开公告对话框
-    handleNoticeDialog(index) {
-      if (index >= 0) {
-        this.noticeCurIndex = index;
-      }
-      this.noticeDialogVisible = !this.noticeDialogVisible;
-    },
     //获取最近销量数据
     _getRecentSales() {
       var data = {
-        s_date: calDate(date_now, -this.daySpace),
+        s_date: date_now,
         e_date: date_now,
       };
       getRecentSales(data).then((response) => {
-        console.log(response);
-        var recent_sales = response.data.recent_sales;
-        var x_orderData = [];
-        var y_orderMoneyData = [];
-        var y_orderNumData = [];
-        for (var i = 0; i < recent_sales.length; i++) {
-          for (var key in recent_sales[i]) {
-            x_orderData.push(key);
-            y_orderMoneyData.push(parseFloat(recent_sales[i][key].order_money));
-            y_orderNumData.push(parseFloat(recent_sales[i][key].order_num));
-          }
-        }
-        this.x_orderData = x_orderData;
-        this.y_orderMoneyData = y_orderMoneyData;
-        this.y_orderNumData = y_orderNumData;
-        this.todayOrdersNum =
-          recent_sales[recent_sales.length - 1][date_now].order_num;
-        this.todayOrdersMoney =
-          recent_sales[recent_sales.length - 1][date_now].order_money;
-        this.drawLine();
-        this.drawColBar();
+        this.todaySales = response.data.recent_sales;
         this.listLoading = false;
       });
     },
-    //画折线图
-    drawLine() {
-      this.charts = echarts.init(document.getElementById("order-money-chart"));
-      this.charts.setOption({
-        tooltip: {
-          trigger: "axis",
-        },
-        legend: {
-          //设置区分（哪条线属于什么）
-          data: ["收益"],
-        },
-        color: ["#409EFF"], //设置区分（每条线是什么颜色，和 legend 一一对应）
-        grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true,
-        },
 
-        toolbox: {
-          feature: {
-            saveAsImage: {},
-          },
-        },
-        xAxis: {
-          type: "category",
-
-          boundaryGap: false,
-          data: this.x_orderData,
-        },
-        yAxis: {
-          type: "value",
-          name: "营业额（元）",
-        },
-
-        series: [
-          {
-            name: "收益",
-            type: "line",
-            stack: "总量",
-            data: this.dataVisable ? this.y_orderMoneyData : [],
-          },
-        ],
-      });
-    },
-    //画柱状图
-    drawColBar() {
-      this.charts = echarts.init(document.getElementById("order-num-chart"));
-      this.charts.setOption({
-        tooltip: {
-          trigger: "axis",
-        },
-        legend: {
-          data: ["订单数"],
-        },
-        color: ["#409EFF"], //设置区分（每条线是什么颜色，和 legend 一一对应）
-        grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true,
-        },
-
-        toolbox: {
-          feature: {
-            saveAsImage: {},
-          },
-        },
-        xAxis: {
-          type: "category",
-          boundaryGap: false,
-
-          data: this.x_orderData,
-        },
-        yAxis: {
-          type: "value",
-          name: "订单量（个）",
-        },
-
-        series: [
-          {
-            name: "订单数",
-            type: "bar",
-            stack: "总量",
-            barWidth: "22%",
-            data: this.dataVisable ? this.y_orderNumData : [],
-          },
-        ],
-      });
-    },
-
-    // //生成x轴数据
-    // createDaysList(daySpace) {
-    //   var x_orderData = [];
-    //   for (let i = 0; i > -daySpace; i--) {
-    //     x_orderData.unshift(this.calDate(date_now, i));
-    //   }
-    //   this.x_orderData = x_orderData;
-    // },
-    // //生成y轴数据
-    // calEveryDayData() {},
   },
 };
 </script>
@@ -304,19 +78,6 @@ export default {
     margin: 10px 20px !important;
   }
 }
-// .top-wrp {
-//   display: flex;
-//   width: 100%;
-// }
-// .jy-card,
-// .yye-card {
-
-//   margin: 20px 30px;
-// }
-// .announce-card {
-//   margin: 20px 0;
-//   width: 320px;
-// }
 .el-row {
   margin-bottom: 20px;
 

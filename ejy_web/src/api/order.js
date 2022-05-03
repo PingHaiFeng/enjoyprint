@@ -24,3 +24,12 @@ export function getRecentSales(data) {
         data
     })
 }
+
+// 获取历史总营业数据
+export function getAllSales(data) {
+    return request({
+        url: '/web/all-sales',
+        method: 'post',
+        data
+    })
+}

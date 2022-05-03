@@ -105,7 +105,7 @@ def save_host_ip():
         db.session.commit()
         return "1"
     except:
-   
+        
         return "0"
 
 # 追踪每份文件打印状态

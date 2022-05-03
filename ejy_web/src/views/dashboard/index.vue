@@ -30,7 +30,7 @@
               <p class="item-title">今日订单数（单）</p>
             </div>
             <div class="card1-item flex-center">
-              <p class="item-data">{{ dataVisable ? orders_waited : "**" }}</p>
+              <p class="item-data">{{ dataVisable ? ordersWaited : "**" }}</p>
               <p class="item-title">预约打印待处理（单）</p>
             </div>
           </div>
@@ -42,17 +42,14 @@
         <el-card class="announce-card" :body-style="{ padding: '0' }">
           <div slot="header" class="header">
             <span style="font-weight: bold">公告栏</span>
-            <!-- <div class="header-right">
-              <span style="margin-right: 10px">更多</span>
-            </div> -->
           </div>
           <div class="notice">
             <div
               class="notice-item"
-              v-for="(item, index) in notice"
+              v-for="item in noticeList"
               :key="item.id"
               v-show="item.show === 1"
-              @click="handleNoticeDialog(index)"
+              @click="handleNoticeDialog(item)"
             >
               <div class="time">{{ item.create_time }}</div>
               <div class="content">{{ item.title }}</div>
@@ -94,13 +91,13 @@
     </el-row>
     <!-- 点击打开查看详情 -->
     <el-dialog
-      :title="notice[noticeCurIndex]['title']"
-      :visible.sync="noticeDialogVisible"
+      :title="curNotice.title"
+      :visible.sync="noticeDiaVisible"
       width="30%"
     >
-      <span>{{ notice[noticeCurIndex]["content"] }}</span>
+      <span>{{ curNotice.content }}</span>
       <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="handleNoticeDialog(-1)"
+        <el-button type="primary" @click="noticeDiaVisible = false"
           >确 定</el-button
         >
       </span>
@@ -121,17 +118,21 @@ export default {
     return {
       charts: "",
       listLoading: true,
-      y_orderMoneyData: [],
-      y_orderNumData: [],
-      x_orderData: [],
+      yOrderMoneyData: [],
+      yOrderNumData: [],
+      xOrderData: [],
       daySpace: 7, //间隔天数，7天，30天
       dataVisable: true, //数据是否可见
-      notice: [{ content: null }],
+      noticeList: [],
+      curNotice: {
+        title: "",
+        content: "",
+        create_time: "",
+      },
       todayOrdersNum: null,
       todayOrdersMoney: null,
-      orders_waited: 0, //待处理订单
-      noticeDialogVisible: false, //公告对话框是否显示u
-      noticeCurIndex: 0, //当前点击的公告索引
+      ordersWaited: 0, //待处理订单
+      noticeDiaVisible: false, //公告对话框是否显示
     };
   },
   computed: {
@@ -153,24 +154,21 @@ export default {
   methods: {
     //获取公告信息
     _getNotice() {
-      let self = this;
       getNotice().then((response) => {
-        this.notice = response.data.notice;
-        var a = this.notice.filter(function (x) {
-          if (x.auto_show === 1) {
-            return x;
+        this.noticeList = response.data.list;
+        this.noticeList.filter((item) => {
+          if (item.auto_show === 1) {
+            this.curNotice = item;
+            this.noticeDiaVisible = true;
           }
         });
-        console.log(a);
       });
     },
 
     //打开公告对话框
-    handleNoticeDialog(index) {
-      if (index >= 0) {
-        this.noticeCurIndex = index;
-      }
-      this.noticeDialogVisible = !this.noticeDialogVisible;
+    handleNoticeDialog(item) {
+      this.curNotice = item;
+      this.noticeDiaVisible = true;
     },
     //获取最近销量数据
     _getRecentSales() {
@@ -180,24 +178,16 @@ export default {
         e_date: date_now,
       };
       getRecentSales(data).then((response) => {
-        var recent_sales = response.data.recent_sales;
-        var x_orderData = [];
-        var y_orderMoneyData = [];
-        var y_orderNumData = [];
-        for (var i = 0; i < recent_sales.length; i++) {
-          for (var key in recent_sales[i]) {
-            x_orderData.push(key);
-            y_orderMoneyData.push(parseFloat(recent_sales[i][key].order_money));
-            y_orderNumData.push(parseFloat(recent_sales[i][key].order_num));
+        let recent_sales = response.data.recent_sales;
+        this.xOrderData = recent_sales.map((item) => item.date);
+        this.yOrderMoneyData = recent_sales.map((item) => item.order_money);
+        this.yOrderNumData = recent_sales.map((item) => item.order_num);
+        recent_sales.filter((item) => {
+          if (item.date == date_now) {
+            this.todayOrdersNum = item.order_num;
+            this.todayOrdersMoney = item.order_money;
           }
-        }
-        this.x_orderData = x_orderData;
-        this.y_orderMoneyData = y_orderMoneyData;
-        this.y_orderNumData = y_orderNumData;
-        this.todayOrdersNum =
-          recent_sales[recent_sales.length - 1][date_now].order_num;
-        this.todayOrdersMoney =
-          recent_sales[recent_sales.length - 1][date_now].order_money;
+        });
         this.drawLine();
         this.drawColBar();
         this.listLoading = false;
@@ -231,7 +221,7 @@ export default {
           type: "category",
 
           boundaryGap: false,
-          data: this.x_orderData,
+          data: this.xOrderData,
         },
         yAxis: {
           type: "value",
@@ -243,7 +233,7 @@ export default {
             name: "收益",
             type: "line",
             stack: "总量",
-            data: this.dataVisable ? this.y_orderMoneyData : [],
+            data: this.dataVisable ? this.yOrderMoneyData : [],
           },
         ],
       });
@@ -275,7 +265,7 @@ export default {
           type: "category",
           boundaryGap: false,
 
-          data: this.x_orderData,
+          data: this.xOrderData,
         },
         yAxis: {
           type: "value",
@@ -288,7 +278,7 @@ export default {
             type: "bar",
             stack: "总量",
             barWidth: "22%",
-            data: this.dataVisable ? this.y_orderNumData : [],
+            data: this.dataVisable ? this.yOrderNumData : [],
           },
         ],
       });
