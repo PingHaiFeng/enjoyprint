@@ -63,7 +63,6 @@ def set_printers_info():
     store_id=request.form.get("store_id")
     computer_id=request.form.get("computer_id")
     printers_params=ast.literal_eval(request.form.get("printers_params"))
-    host_ip = StoreAccount.query.filter_by(store_id=store_id).first().host_ip
     for i in range(0,len(printers_params)):
         printer_name=printers_params[i]["printer_name"]
         supports_color=printers_params[i]["supports_color"]
@@ -76,10 +75,10 @@ def set_printers_info():
             res.supports_color=supports_color 
             res.can_duplex=can_duplex 
             res.is_defalut=is_defalut
-            res.host_ip = host_ip
+
             db.session.commit()
         else:
-            printer=Printer(store_id=store_id,computer_id=computer_id,host_ip=host_ip,printer_name=printer_name,supports_color=supports_color,can_duplex=can_duplex,is_defalut=is_defalut,can_self_print=0,is_user_set_defalut=is_defalut)
+            printer=Printer(store_id=store_id,computer_id=computer_id,printer_name=printer_name,supports_color=supports_color,can_duplex=can_duplex,is_defalut=is_defalut,can_self_print=0,is_user_set_defalut=is_defalut)
             db.session.add(printer)
             db.session.commit()
         
@@ -99,9 +98,10 @@ def save_host_ip():
     try:
         host_ip = request.form.get("host_ip")
         token=request.form.get("token")
+        computer_id=request.form.get("computer_id")
         res = verify_token(token)
-        print(host_ip)
         res.host_ip=host_ip
+        res.computer_id = computer_id
         db.session.commit()
         return "1"
     except:
@@ -133,7 +133,8 @@ def admin_exit():
     password = request.form.get("password")
     account = StoreAccount.query.filter_by(username=username,password=password).first()
     if account:
-        r.delete("ONLINE_STATE_"+str(account.store_id))
+        r.delete("ONLINE_"+str(account.store_id))
+        
         return State.success()
     else:
         return State.fail("用户名或密码错误")

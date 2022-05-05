@@ -42,12 +42,12 @@
                 ></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="当前电脑" label-width="500" size="small" >
+            <el-form-item label="当前电脑" label-width="500" size="small">
               <el-select v-model="curComputerId" :change="filterPrinter">
                 <el-option
                   v-for="(item, index) in computerIdList"
                   :key="index"
-                  :label="item"
+                  :label="item + (item == onlineComId ? '（在线）' : '（离线）')"
                   :value="item"
                 ></el-option>
               </el-select>
@@ -153,6 +153,7 @@ export default {
       dataVisable: true,
       canSelfPrint: true,
       printerList: null,
+      onlineComId: null,
       computerIdList: [],
       printersList: [],
       curPrintersList: [],
@@ -168,18 +169,18 @@ export default {
   created() {
     this.getList();
   },
-  watch:{
-curComputerId(){
-  this.filterPrinter()
-}
+  watch: {
+    curComputerId() {
+      this.filterPrinter();
+    },
   },
   methods: {
     //获取打印机
     getList() {
-      
       listPrinter().then((response) => {
         this.listLoading = false;
         this.printerList = response.data.list;
+        this.onlineComId = response.data.cur_computer_id;
         if (this.printerList.length === 0) {
           this.$modal.alert("暂未获取到打印机数据，您需要先登录pc端以获取信息");
           return;
@@ -187,7 +188,8 @@ curComputerId(){
         this.computerIdList = Array.from(
           new Set(this.printerList.map((item) => item.computer_id))
         );
-        this.curComputerId = this.computerIdList[0];
+
+        this.curComputerId = this.onlineComId ? this.onlineComId : this.computerIdList[0];
         this.filterPrinter();
       });
     },
@@ -195,11 +197,9 @@ curComputerId(){
     handleUpdate(row) {
       updatePrinter(row).then((response) => {
         this.$modal.msgSuccess("配置成功");
-       
       });
     },
     filterPrinter() {
-      
       this.curPrintersList = this.printerList.filter((item) => {
         if (item.computer_id == this.curComputerId) {
           return item;
@@ -221,11 +221,7 @@ curComputerId(){
       var url = `https://cloudprint.pinghaifeng.cn/web/printer_ewm?store_id=${row.store_id}&printer_id=${row.printer_id}`;
       var domObj = document.getElementById("posterHtml");
       var qrcodeImgEl = document.getElementById("qrcodeImg");
-      // var eleCavas = document.getElementsByName("cavans")
-      // var eleImg = document.getElementsByName("img")
-      // qrcodeImgEl.removeChild(eleCavas)
-      //      qrcodeImgEl.removeChild(eleImg)
-      console.log(qrcodeImgEl);
+
       let qrcode = new QRCode(qrcodeImgEl, {
         width: 500,
         height: 500,

@@ -35,13 +35,15 @@ class StoreAccount(db.Model):
     username = db.Column(db.String(255))
     password = db.Column(db.String(255))
     host_ip = db.Column(db.String(255))
+    computer_id = db.Column(db.String(50))
     enabled = db.Column(db.Integer)
-    def __init__(self,  store_id, username, password, host_ip,enabled):
+    def __init__(self,  store_id, username, password, host_ip,enabled,computer_id):
         self.store_id = store_id
         self.username = username
         self.password = password
         self.host_ip = host_ip
         self.enabled = enabled
+        self.computer_id = computer_id
 #价格信息
 class Price(db.Model):
     __tablename__ = "price"
@@ -68,7 +70,7 @@ class Printer(db.Model):
     printer_id = db.Column(db.Integer, primary_key=True,autoincrement=True) 
     store_id=db.Column(db.String(255))
     computer_id=db.Column(db.String(255))
-    host_ip=db.Column(db.String(255))
+
     printer_name=db.Column(db.String(255))
     can_duplex=db.Column(db.Integer)
     is_defalut=db.Column(db.Integer)
@@ -76,10 +78,9 @@ class Printer(db.Model):
     supports_color=db.Column(db.Integer)
 
     can_self_print=db.Column(db.Integer,default=0)
-    def __init__(self, store_id,computer_id,host_ip,printer_name,can_duplex,is_defalut,is_user_set_defalut,supports_color,can_self_print):
+    def __init__(self, store_id,computer_id,printer_name,can_duplex,is_defalut,is_user_set_defalut,supports_color,can_self_print):
        self.store_id=store_id
        self.computer_id=computer_id
-       self.host_ip=host_ip
        self.printer_name=printer_name
        self.can_duplex=can_duplex
        self.is_defalut=is_defalut

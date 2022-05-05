@@ -20,10 +20,7 @@
               </p>
               <p class="item-title">今日订单数（单）</p>
             </div>
-            <div class="card1-item flex-center">
-              <p class="item-data">{{orders_waited}}</p>
-              <p class="item-title">预约打印待处理（单）</p>
-            </div>
+           
           </div>
         </el-card>
       </el-col>
@@ -63,7 +60,7 @@ export default {
         e_date: date_now,
       };
       getRecentSales(data).then((response) => {
-        this.todaySales = response.data.recent_sales;
+        this.todaySales = response.data.recent_sales[0];
         this.listLoading = false;
       });
     },
@@ -113,33 +110,5 @@ export default {
   font-size: 14px;
   margin-left: 20px;
   color: #7c7d83;
-}
-#order-money-chart,
-#order-num-chart {
-  height: 280px;
-}
-.notice {
-  display: flex;
-  flex-direction: column;
-  padding: 0 10px;
-  box-sizing: border-box;
-
-  &-item {
-    display: flex;
-
-    font-size: 12px;
-    height: 30px;
-    line-height: 30px;
-
-    cursor: pointer;
-    .time {
-      color: #409eff;
-      margin-right: 15px;
-    }
-    .content {
-      color: #7c7d83;
-      width: 150px;
-    }
-  }
 }
 </style>

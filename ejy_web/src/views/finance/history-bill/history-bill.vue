@@ -104,7 +104,7 @@
           width="100"
         />
       </el-table-column>
-      <el-table-column label="总收益"  align="center">
+      <el-table-column label="总计"  align="center">
         <el-table-column
           prop="total_order_num"
           label="订单数"

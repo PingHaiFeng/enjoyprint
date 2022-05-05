@@ -44,11 +44,12 @@ def recieve(sc,addr):
         else:
             startServer()
             
-def save_host_ip(token,host_ip):
+def save_host_ip(token,host_ip,computer_id):
     url = "http://localhost:5300/pc/save_host_ip"
     data = {
         "token":token,
-        "host_ip":host_ip
+        "host_ip":host_ip,
+        "computer_id":computer_id
     }
     res = requests.post(url=url,data=data).text
     return res
@@ -74,9 +75,16 @@ def parse(sc,socket_mapping,host_ip,instruct_data):
             
             token=instruct_data["instruct_dict"]["token"]
             store_id=instruct_data["instruct_dict"]["store_id"]
-            save_host_ip(token,host_ip)
+            computer_id=instruct_data["instruct_dict"]["computer_id"]
+            save_host_ip(token,host_ip,computer_id)
             print("pc端（{}）联机成功".format(host_ip))
-            r.set("ONLINE_STATE_"+store_id,"Y",60)
+            # goal_client_socket = socket_mapping[host_ip]
+            # # 联机返回host_ip
+            # s_instruct_data=[]
+            # s_instruct_data["instruct_id"] = 1001
+            # s_instruct_data["instruct_dict"]["host_ip"] = host_ip
+            # goal_client_socket.send(json.dumps(s_instruct_data).encode('utf-8'))
+            r.set("ONLINE_"+store_id,computer_id,60)
 
         if instruct_id==2002:  #2002 pc端响应打印反馈
             pass
@@ -88,7 +96,8 @@ def parse(sc,socket_mapping,host_ip,instruct_data):
         if instruct_id==2004: #2004 pc端心跳包
             print("收到心跳包")
             store_id=instruct_data['instruct_dict']["store_id"]
-            r.set("ONLINE_STATE_"+store_id,"Y",60)
+            computer_id=instruct_data["instruct_dict"]["computer_id"]
+            r.set("ONLINE_"+str(store_id),computer_id,60)
 
         if instruct_id==3002:  #3002 中转站打印请求
             print("发送指令")

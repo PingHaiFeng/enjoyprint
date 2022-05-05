@@ -52,7 +52,7 @@ def get_store_detail():
     storeAccount = verify_token(request.headers["X-Token"])
     if request.method=="GET":
         store= Store.query.filter_by(store_id=storeAccount.store_id).first()
-        pc_online =  r.exists("ONLINE_STATE_"+str(storeAccount.store_id))
+        pc_online = r.exists("ONLINE_"+str(storeAccount.store_id))
         return State.success(data={"store_name":store.store_name,"username":storeAccount.username,"store_announce":store.store_announce,"detail_addr":store.detail_addr,"pc_online":pc_online })
     if request.method=="PUT":
         store_name=request.form.get("store_name")
@@ -70,17 +70,20 @@ def get_store_detail():
 @except_logger
 @login_required
 def handlePrinter():
-    store_id = verify_token(request.headers["X-Token"]).store_id
+    store_account = verify_token(request.headers["X-Token"])
+
     '''改'''
     if request.method == "PUT": 
             data = request.form.to_dict()
-            Printer.query.filter_by(store_id=store_id,printer_id=data.get("printer_id")).update(data)
+            Printer.query.filter_by(store_id=store_account.store_id,printer_id=data.get("printer_id")).update(data)
             db.session.commit()
             return State.success()
     '''查'''         
     if request.method == 'GET': 
-            list = model_to_dict(Printer.query.filter_by(store_id=store_id))
-            return State.success(data={"list":list})
+            has_computer_online = r.exists("ONLINE_"+str(store_account.store_id))==1
+            cur_computer_id = r.get("ONLINE_"+str(store_account.store_id)).decode('utf-8') if has_computer_online else ""
+            list = model_to_dict(Printer.query.filter_by(store_id=store_account.store_id))
+            return State.success(data={"list":list,"cur_computer_id":cur_computer_id})
 
 
 
@@ -204,7 +207,14 @@ def get_all_sales():
     e_date = request.form.get("date_range").split(",")[1]
     date_list=getEveryDay(s_date,e_date)
     bill_data=[]
-
+    all_phone_order_num = 0
+    all_phone_order_money = 0
+    all_computer_order_num = 0
+    all_computer_order_money = 0
+    all_booking_order_num = 0
+    all_booking_order_money = 0
+    all_total_order_num = 0
+    all_total_order_money = 0
     for date_item in date_list:
         map=[]
         total_order_num=0
@@ -227,7 +237,21 @@ def get_all_sales():
              "booking_order_num":booking_order_num,"booking_order_money":booking_order_money,
              "total_order_num":total_order_num,"total_order_money":total_order_money
              }
+        all_phone_order_num += phone_order_num
+        all_phone_order_money += phone_order_money
+        all_computer_order_num += computer_order_num
+        all_computer_order_money += computer_order_money
+        all_booking_order_num += booking_order_num
+        all_booking_order_money += booking_order_money
+        all_total_order_num += total_order_num
+        all_total_order_money += total_order_money
         bill_data.insert(0,d)
+    d_all = {"date":"总计","phone_order_num":all_phone_order_num,"phone_order_money":all_phone_order_money,
+             "computer_order_num":all_computer_order_num,"computer_order_money":all_computer_order_money,
+             "booking_order_num":all_booking_order_num,"booking_order_money":all_booking_order_money,
+             "total_order_num":all_total_order_num,"total_order_money":all_total_order_money
+             }
+    bill_data.insert(0,d_all)
     return  State.success(data={"list": bill_data})
 
 

@@ -23,11 +23,11 @@ mini = Blueprint('mini', __name__)  # 第一个蓝图名称，第二个参数表
 @except_logger
 def get_store_info():
     store_id =request.args.get("store_id")
-    host_ip = StoreAccount.query.filter_by(store_id=store_id).first().host_ip
-    printers_params = model_to_dict(Printer.query.filter_by(store_id=store_id,host_ip=host_ip,can_self_print=1).all())
+    computer_id = StoreAccount.query.filter_by(store_id=store_id).first().computer_id
+    printers_params = model_to_dict(Printer.query.filter_by(store_id=store_id,computer_id =computer_id ,can_self_print=1).all())
     price_list = model_to_dict(Price.query.filter_by(store_id=store_id).all())
     account_info = model_to_dict(Store.query.filter_by(store_id=store_id).first())
-    pc_online=r.exists("ONLINE_STATE_"+str(store_id))
+    pc_online=r.exists("ONLINE_"+str(store_id))
     store_info={
         "pc_online":pc_online,
         "printers_params":printers_params,
@@ -160,15 +160,6 @@ def list_store():
     return State.success(data={"list": list})
 
 
-# 获取所选店铺信息
-@mini.route('/online-state', methods=["POST", "GET"])
-@except_logger
-def get_store_selected():
-    store_id = request.form.get("store_id")
-    if r.exists("ONLINE_STATE_"+str(store_id))==1:
-        return State.success()
-    else:
-        return State.fail()
 
 # 下载文件
 @mini.route("/send_file/<file_new_name>", methods=["POST", "GET"])
