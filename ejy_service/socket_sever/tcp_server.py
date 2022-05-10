@@ -71,38 +71,33 @@ def parse(sc,socket_mapping,host_ip,instruct_data):
         local_client_socket = socket_mapping[host_ip]
         instruct_id=instruct_data['instruct_id']
 
-        if instruct_id==2001:  #2001 pc端联机请求
+        if instruct_id=="Connect":  #2001 pc端联机请求
             
             token=instruct_data["instruct_dict"]["token"]
             store_id=instruct_data["instruct_dict"]["store_id"]
             computer_id=instruct_data["instruct_dict"]["computer_id"]
             save_host_ip(token,host_ip,computer_id)
-            print("pc端（{}）联机成功".format(host_ip))
-            # goal_client_socket = socket_mapping[host_ip]
-            # # 联机返回host_ip
-            # s_instruct_data=[]
-            # s_instruct_data["instruct_id"] = 1001
-            # s_instruct_data["instruct_dict"]["host_ip"] = host_ip
-            # goal_client_socket.send(json.dumps(s_instruct_data).encode('utf-8'))
-            r.set("ONLINE_"+store_id,computer_id,60)
+            print("pc端（{}）联机成功".format(computer_id))
+            has_computer_online = r.exists("ONLINE_"+str(store_id))==1
+            cur_computer_id = r.get("ONLINE_"+str(store_id)).decode('utf-8').split("_")[0] if has_computer_online else ""
+            if has_computer_online and computer_id!=cur_computer_id:
+                instruct_data['instruct_id']=1006
+                goal_ip=r.get("ONLINE_"+str(store_id)).decode('utf-8').split("_")[1]
+                goal_client_socket = socket_mapping[goal_ip]
+                goal_client_socket.send(json.dumps(instruct_data).encode('utf-8'))
+            r.set("ONLINE_"+store_id,computer_id+'_'+host_ip,60)
 
-        if instruct_id==2002:  #2002 pc端响应打印反馈
-            pass
 
-        if instruct_id==2003:  #2003 pc端传输打印机等信息
-           instruct_dict=instruct_data['instruct_dict']
-           print("pc端传输打印机等信息")
-
-        if instruct_id==2004: #2004 pc端心跳包
+        if instruct_id=="Heart": #2004 pc端心跳包
             print("收到心跳包")
             store_id=instruct_data['instruct_dict']["store_id"]
             computer_id=instruct_data["instruct_dict"]["computer_id"]
-            r.set("ONLINE_"+str(store_id),computer_id,60)
+            r.set("ONLINE_"+store_id,computer_id+'_'+host_ip,60)
 
-        if instruct_id==3002:  #3002 中转站打印请求
+        if instruct_id=="Print":  #3002 中转站打印请求
             print("发送指令")
             try:
-                instruct_data['instruct_id']=1002
+                instruct_data['instruct_id']=instruct_id
                 goal_ip=instruct_data["instruct_dict"]["goal_ip"] #目标ip地址
                 goal_client_socket = socket_mapping[goal_ip]
                 goal_client_socket.send(json.dumps(instruct_data).encode('utf-8'))
@@ -117,9 +112,9 @@ def parse(sc,socket_mapping,host_ip,instruct_data):
                 print("发送失败,该店铺账号强行下线关闭")
             local_client_socket.send(json.dumps(res).encode('utf-8'))
             
-        if instruct_id==3005:  #3005 中转站重启客户端请求
+        if instruct_id=="Restart":  #3005 中转站重启客户端请求
             try:
-                instruct_data['instruct_id']=1005
+                instruct_data['instruct_id']="Restart"
                 goal_ip=instruct_data["instruct_dict"]["goal_ip"] #目标ip地址
                 goal_client_socket = socket_mapping[goal_ip]
                 goal_client_socket.send(json.dumps(instruct_data).encode('utf-8'))

@@ -81,7 +81,7 @@ def handlePrinter():
     '''查'''         
     if request.method == 'GET': 
             has_computer_online = r.exists("ONLINE_"+str(store_account.store_id))==1
-            cur_computer_id = r.get("ONLINE_"+str(store_account.store_id)).decode('utf-8') if has_computer_online else ""
+            cur_computer_id = r.get("ONLINE_"+str(store_account.store_id)).decode('utf-8').split("_")[0] if has_computer_online else ""
             list = model_to_dict(Printer.query.filter_by(store_id=store_account.store_id))
             return State.success(data={"list":list,"cur_computer_id":cur_computer_id})
 
@@ -342,7 +342,7 @@ def pc_restart():
     host_ip = StoreAccount.query.filter_by(store_id=store_id).first().host_ip
     if host_ip:
         instruct_data = {
-            "instruct_id":3005,
+            "instruct_id":"Restart",
             "instruct_content":"pc-restart",
             "instruct_dict":{"goal_ip":host_ip}
         }

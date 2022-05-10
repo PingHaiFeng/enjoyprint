@@ -14,7 +14,6 @@ from log.except_logger import *
 from plugins.redis_serve import *
 from view.mini.func.take_id import take_id_maker
 from config import *
-from utils.qq_map import reverseGeocoder
 mini = Blueprint('mini', __name__)  # 第一个蓝图名称，第二个参数表示蓝图所在板块
 
 
@@ -23,7 +22,8 @@ mini = Blueprint('mini', __name__)  # 第一个蓝图名称，第二个参数表
 @except_logger
 def get_store_info():
     store_id =request.args.get("store_id")
-    computer_id = StoreAccount.query.filter_by(store_id=store_id).first().computer_id
+    has_computer_online = r.exists("ONLINE_"+str(store_id))==1
+    computer_id = r.get("ONLINE_"+str(store_id)).decode('utf-8').split("_")[0] if has_computer_online else ""
     printers_params = model_to_dict(Printer.query.filter_by(store_id=store_id,computer_id =computer_id ,can_self_print=1).all())
     price_list = model_to_dict(Price.query.filter_by(store_id=store_id).all())
     account_info = model_to_dict(Store.query.filter_by(store_id=store_id).first())
@@ -81,16 +81,39 @@ def upload():
 @mini.route("/exe_print", methods=["POST", "GET"])
 @except_logger
 def exe_print():
-    if request.form.get("tempFile_list"):tempFile_list = ast.literal_eval(request.form.get("tempFile_list"))
+    tempFile_list = ast.literal_eval(request.form.get("tempFile_list"))
     store_id = request.form.get("store_id")
     order_id = request.form.get("order_id")
     printer_name = request.form.get("printer_name")
     file_count = int(request.form.get("file_count"))
     take_id = take_id_maker(store_id)
+    openid = request.form.get("openid")
+    store_name = request.form.get("store_name")
+    price = request.form.get("price")
+    order_type = 1
+    for i in tempFile_list:
+        file_id = i["file_id"]
+        file_name = i["file_name"]
+        duplex = i["duplex"]
+        print_color = i["print_color"]
+        print_count = i["print_count"]
+        size = i["size"]
+        print_price=float(i["print_price"])
+        print_situation_code=-1
+        print_situation="待打印"
+        file_type = i["file_type"]
+        file_type_id = i["file_type_id"]
+        print_file = FileOrder(order_id=order_id,file_id=file_id,print_count=print_count,size=size, file_name=file_name,print_price=print_price,file_type=file_type,file_type_id=file_type_id,duplex=duplex,print_color=print_color)
+        db.session.add(print_file)
+        db.session.commit()
+    orders = Order(order_id=order_id,store_name=store_name,order_type=order_type,store_id=store_id,file_count=file_count, printer_name=printer_name,price=price,print_situation_code=print_situation_code, print_situation=print_situation,take_id=take_id, openid=openid)
+    db.session.add(orders)
+    db.session.commit()
+
     host_ip = StoreAccount.query.filter_by(store_id=store_id).first().host_ip
     if host_ip:
         instruct_data = {
-            "instruct_id":3002,
+            "instruct_id":"Print",
             "instruct_content":"transmit",
             "instruct_dict":{"goal_ip":host_ip,"take_id":take_id, "tempFile_list":tempFile_list,"printer_name":printer_name,"order_id":order_id,"file_count":file_count}
         }

@@ -172,6 +172,7 @@ export default {
     },
     //获取最近销量数据
     _getRecentSales() {
+      debugger
       this.listLoading = true;
       var data = {
         s_date: calDate(date_now, -this.daySpace),

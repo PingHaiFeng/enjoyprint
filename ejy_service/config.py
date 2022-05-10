@@ -11,3 +11,11 @@ USER_FILE_ROUTE = "/mini/send_file/"
 LIB_FILE_ROUTE = ""
 
 MAP_KEY = "JD3BZ-DIFCK-YQ7JL-AICKT-VSPGH-P7B3E"
+# import json
+# def read_config():
+#     with open(r"config.json") as json_file:
+#         config = json.load(json_file)
+#     return config
+
+# config = read_config()
+# globals().update(config)
