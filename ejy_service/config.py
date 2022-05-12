@@ -1,5 +1,5 @@
 # 客户端最新版本号
-PC_LAST_VERSION=1.0
+PC_LAST_VERSION=101
 PC_UPDATE_PACKAGR_PATH='D:\\ejy_data\pc_update\\'
 
 

@@ -23,7 +23,7 @@ def version_info():
 @pc.route('/version-update', methods=["POST", "GET"])
 def version_update():
     filename = "EnjoyPrint.zip"
-    return send_from_directory(PC_UPDATE_PACKAGR_PATH, filename, as_attachment=True)
+    return send_from_directory(PC_UPDATE_PACKAGR_PATH, filename, as_attachment=True,cache_timeout=0)
 
 
 # 店铺账号登录
