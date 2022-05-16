@@ -81,7 +81,7 @@ def parse(sc,socket_mapping,host_ip,instruct_data):
             has_computer_online = r.exists("ONLINE_"+str(store_id))==1
             cur_computer_id = r.get("ONLINE_"+str(store_id)).decode('utf-8').split("_")[0] if has_computer_online else ""
             if has_computer_online and computer_id!=cur_computer_id:
-                instruct_data['instruct_id']=1006
+                instruct_data['instruct_id']="Exit"
                 goal_ip=r.get("ONLINE_"+str(store_id)).decode('utf-8').split("_")[1]
                 goal_client_socket = socket_mapping[goal_ip]
                 goal_client_socket.send(json.dumps(instruct_data).encode('utf-8'))

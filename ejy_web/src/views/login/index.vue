@@ -42,7 +42,7 @@
       </el-form-item>
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
-      <p class="tags">厦门云即印科技有限公司</p>
+      <!-- <p class="tags">厦门云即印科技有限公司</p> -->
     </el-form>
   </div>
 </template>

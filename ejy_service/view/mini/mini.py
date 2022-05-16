@@ -32,7 +32,9 @@ def get_store_info():
         "pc_online":pc_online,
         "printers_params":printers_params,
         "price_list":price_list,
-        "account_info":account_info
+        "account_info":account_info,
+        "service_charge":0
+        
     }
     return State.success(data={"store_info": store_info})
 
@@ -49,7 +51,6 @@ def upload():
     upload_platform = request.form.get("upload_platform")  # 平台类型
     file_path = request.form.get("file_path") if upload_platform == "MiniProgram" else ""
     n_suffix_name = file_name[::-1].split(".", 1)[-1][::-1]  # 取消后缀名
-
     download_url = BASE_URL +USER_FILE_ROUTE + file_id+".pdf"
     with open(IO_PATH +file_id + '.' + file_type , "wb") as f:
         data = file.read()
@@ -121,40 +122,6 @@ def exe_print():
     else:
         return State.fail("无此店铺账号或未登陆激活")
 
-
-# 生成订单
-@mini.route('/set_orders', methods=["POST", "GET"])
-@except_logger
-def set_orders():
-    tempFile_list=ast.literal_eval(request.form.get("tempFile_list"))
-    openid = request.form.get("openid")
-    store_id = request.form.get("store_id")
-    store_name = request.form.get("store_name")
-    order_id = request.form.get("order_id")
-    take_id = request.form.get("take_id")
-    order_type = request.form.get("order_type")
-    printer_name = request.form.get("printer_name")
-    price = request.form.get("price")
-    file_count = request.form.get("file_count")
-    for i in tempFile_list:
-        file_id = i["file_id"]
-        file_name = i["file_name"]
-        duplex = i["duplex"]
-        print_color = i["print_color"]
-        print_count = i["print_count"]
-        size = i["size"]
-        print_price=float(i["print_price"])
-        print_situation_code=-1
-        print_situation="待打印"
-        file_type = i["file_type"]
-        file_type_id = i["file_type_id"]
-        print_file = FileOrder(order_id=order_id,file_id=file_id,print_count=print_count,size=size, file_name=file_name,print_price=print_price,file_type=file_type,file_type_id=file_type_id,duplex=duplex,print_color=print_color)
-        db.session.add(print_file)
-        db.session.commit()
-    orders = Order(order_id=order_id,store_name=store_name,order_type=order_type,store_id=store_id,file_count=file_count, printer_name=printer_name,price=price,print_situation_code=print_situation_code, print_situation=print_situation,take_id=take_id, openid=openid)
-    db.session.add(orders)
-    db.session.commit()
-    return State.success()
 
 
 # 获取订单

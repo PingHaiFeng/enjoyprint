@@ -1,7 +1,7 @@
 from flask import Blueprint, request,jsonify
 from utils.utils import *
 from model.db_model.admin import NoticeBoard
-from model.db_model.admin import AdminAccount,db
+from model.db_model.admin import AdminAccount,StoreLoginLog,db
 from model.db_model.store import Store,StoreAccount
 from utils.auth import create_token,login_required,verify_token
 from utils.state_handler import *
@@ -76,6 +76,24 @@ def list_store():
     else:
         total=Store.query.count()
         list = Store.query.limit(_args.get("page_size")).offset((int(_args.get("page_num"))-1)*int(_args.get("page_size")))
+    list=model_to_dict(list)
+    return State.success(data={"list": list,"total":total})
+
+# 店铺列表
+@admin.route('/list-login-log', methods=["POST", "GET"])
+@login_required
+@except_logger
+def list_login_log():
+    _args=request.args
+    map=[]
+    if _args.get("store_id"):  #id
+        map.append(store_id=_args.get("store_id"))
+    if len(map)>0:
+        total=StoreLoginLog.query.filter(*map).count()
+        list = StoreLoginLog.query.filter(*map).limit(_args.get("page_size")).offset((int(_args.get("page_num"))-1)*int(_args.get("page_size")))
+    else:
+        total=StoreLoginLog.query.count()
+        list = StoreLoginLog.query.limit(_args.get("page_size")).offset((int(_args.get("page_num"))-1)*int(_args.get("page_size")))
     list=model_to_dict(list)
     return State.success(data={"list": list,"total":total})
 
