@@ -77,6 +77,15 @@ def img2pdf(img_name,pdf_name):
     return pdf_name
 
 
+
+def combine_pdf(pdf_lst,new_pdf_path):
+    from PyPDF2 import PdfFileMerger
+    file_merger = PdfFileMerger()
+    for pdf in pdf_lst:
+        file_merger.append(pdf,import_bookmarks=False)     # 合并pdf文件
+    file_merger.write(new_pdf_path)
+    return new_pdf_path
+
 if __name__ == '__main__':
     # doc2pdf(r"C:\Users\92098\PycharmProjects\pythonProject\example\云打印后端接口\云打印文件存放\text.docx",r"C:\Users\92098\PycharmProjects\pythonProject\example\云打印后端接口\云打印文件存放\texd.pdf")
     img2pdf(r"C:\\Users\\Administrator\\Desktop\\云打印后端接口\\云打印文件存放\\-262e32199e87bb57.png",

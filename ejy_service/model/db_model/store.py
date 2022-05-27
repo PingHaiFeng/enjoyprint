@@ -14,9 +14,9 @@ class Store(db.Model):
     adname = db.Column(db.String(255))
     store_announce = db.Column(db.String(255))
     detail_addr =  db.Column(db.String(255))
-    use_take_id = db.Column(db.Integer)
+    use_take_id =  db.Column(db.Integer)
     o_id = db.Column(db.Integer,db.ForeignKey("order.id"))
-    def __init__(self, store_id, store_name, area, adcode,adname, store_announce,detail_addr,use_take_id):
+    def __init__(self, store_id, use_take_id, store_name, area, adcode,adname, store_announce,detail_addr):
         self.store_id = store_id
         self.store_name = store_name
         self.area = area
@@ -24,6 +24,7 @@ class Store(db.Model):
         self.adcode = adcode
         self.adname = adname
         self.store_announce = store_announce
+        self.use_take_id = use_take_id
 
 
 # 店铺账号信息
@@ -36,14 +37,16 @@ class StoreAccount(db.Model):
     password = db.Column(db.String(255))
     host_ip = db.Column(db.String(255))
     computer_id = db.Column(db.String(50))
+
     enabled = db.Column(db.Integer)
-    def __init__(self,  store_id, username, password, host_ip,enabled,computer_id):
+    def __init__(self,  store_id, use_take_id ,username, password, host_ip,enabled,computer_id):
         self.store_id = store_id
         self.username = username
         self.password = password
         self.host_ip = host_ip
         self.enabled = enabled
         self.computer_id = computer_id
+        self.use_take_id = use_take_id
 #价格信息
 class Price(db.Model):
     __tablename__ = "price"

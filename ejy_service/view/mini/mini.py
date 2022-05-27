@@ -14,6 +14,7 @@ from log.except_logger import *
 from plugins.redis_serve import *
 from view.mini.func.take_id import take_id_maker
 from config import *
+from plugins import transform_pdf
 mini = Blueprint('mini', __name__)  # 第一个蓝图名称，第二个参数表示蓝图所在板块
 
 
@@ -33,7 +34,8 @@ def get_store_info():
         "printers_params":printers_params,
         "price_list":price_list,
         "account_info":account_info,
-        "service_charge":0
+        "service_charge":0,
+        
         
     }
     return State.success(data={"store_info": store_info})
@@ -45,17 +47,22 @@ def get_store_info():
 @except_logger
 def upload():
     file = request.files.get("file")  # 待接收文件
-    file_id = request.form.get("file_id")  # 文件id，特有标识
+    file_id = make_file_id()  # 文件id，特有标识
     file_name = request.form.get("file_name")  # 文件名带扩展名
     file_type = file_name.split(".")[-1]  # 文件扩展名
     upload_platform = request.form.get("upload_platform")  # 平台类型
     file_path = request.form.get("file_path") if upload_platform == "MiniProgram" else ""
     n_suffix_name = file_name[::-1].split(".", 1)[-1][::-1]  # 取消后缀名
     download_url = BASE_URL +USER_FILE_ROUTE + file_id+".pdf"
+    parse_this = request.form.get("parse_this")
     with open(IO_PATH +file_id + '.' + file_type , "wb") as f:
         data = file.read()
         f.write(data)
-    file_page_num, file_type_id = readFiles(IO_PATH,file_id,  file_type)  # 返回文件页数和文件图标路径
+    if parse_this == 0:
+        file_page_num = 1
+        file_type_id = 4
+    else:
+        file_page_num, file_type_id = readFiles(IO_PATH, file_id,  file_type)  # 返回文件页数和文件图标路径
     data =  {
             "file_id": file_id,
             "file_name": n_suffix_name,
@@ -76,7 +83,75 @@ def upload():
             "print_price":0
         }
     return State.success(data=data)
-    
+
+# 接收小程序上传的文件
+@mini.route('/pic-upload', methods=["POST", "GET"])
+@except_logger
+def pic_upload():
+    file = request.files.get("file")  # 待接收文件
+    file_id = make_file_id()  # 文件id，特有标识
+    file_name = request.form.get("file_name")  # 文件名带扩展名
+    file_type = file_name.split(".")[-1]  # 文件扩展名
+    upload_platform = request.form.get("upload_platform")  # 平台类型
+    file_path = request.form.get("file_path") if upload_platform == "MiniProgram" else ""
+    n_suffix_name = file_name[::-1].split(".", 1)[-1][::-1]  # 取消后缀名
+    download_url = BASE_URL + USER_FILE_ROUTE + file_id + ".pdf"
+    with open(IO_PATH + file_id + '.' + file_type , "wb") as f:
+        data = file.read()
+        f.write(data)
+    file_page_num, file_type_id = readFiles(IO_PATH, file_id,  file_type)  # 返回文件页数和文件图标路径
+    data =  {
+            "file_id": file_id,
+            "file_name": n_suffix_name,
+            "file_page_num": file_page_num,
+            "file_type": file_type,
+            "file_type_id": file_type_id,
+            "file_path": file_path,
+            "size": "A4",
+            "print_color": 1,
+            "duplex": 1,
+            "print_count": 1,
+            "is_print_all": 1,
+            "print_from_page": 1,
+            "print_to_page":file_page_num,
+            "print_page_num": file_page_num,
+            "source":1,
+            "download_url":download_url,
+            "print_price":0
+        }
+    return State.success(data=data)
+
+# 合并pdf
+@mini.route('/combine-file', methods=["POST", "GET"])
+@except_logger
+def combine_file():
+    file_ids = request.files.get("file_ids")  # 待接收文件
+    pdf_lst = []
+    for file_id in file_ids:
+        pdf_lst.append(IO_PATH + file_id + ".pdf")
+    new_pdf_path = IO_PATH + make_file_id() + ".pdf"
+    transform_pdf.combine_pdf(pdf_lst, new_pdf_path)
+    download_url = BASE_URL + USER_FILE_ROUTE + file_id + ".pdf"
+    data =  {
+            "file_id": file_id,
+            "file_name": str(len(file_ids)) + "张图片",
+            "file_page_num": len(file_ids),
+            "file_type": ".png",
+            "file_type_id": 4,
+            "file_path": "",
+            "size": "A4",
+            "print_color": 1,
+            "duplex": 1,
+            "print_count": 1,
+            "is_print_all": 1,
+            "print_from_page": 1,
+            "print_to_page":len(file_ids),
+            "print_page_num": len(file_ids),
+            "source":1,
+            "download_url":download_url,
+            "print_price":0
+        }
+    return State.success(data=data)
 
 # 执行打印
 @mini.route("/exe_print", methods=["POST", "GET"])
@@ -180,7 +255,7 @@ def partner_settle():
 @mini.route('/list-folder', methods=["POST", "GET"])
 @except_logger
 def list_folder():
-    list =  model_to_dict(DocFolder.query.all())
+    list =  model_to_dict(DocFolder.query.filter_by(on_sale = 1).order_by(DocFolder.ishot.desc()).all())
     return State.success(data={"list": list})
 
 
@@ -189,7 +264,7 @@ def list_folder():
 @except_logger
 def list_doc():
     folder_id=request.form.get("folder_id")
-    list =  model_to_dict(Doc.query.filter_by(folder_id=folder_id).order_by(Doc.ishot.desc()).all())
+    list =  model_to_dict(Doc.query.filter_by(folder_id=folder_id, on_sale = 1).order_by(Doc.ishot.desc()).all())
     return State.success(data={"list": list})
 
     

@@ -28,7 +28,7 @@ def readFiles(IO_PATH,file_id, file_type):
     elif file_type == "jpg" or file_type == "png":
         file_type_id=4
         page_num = 1
-        img_path = IO_PATH+file_id+"."+file_type
+        img_path = IO_PATH + file_id+"." + file_type
         pdf_path = IO_PATH + file_id + ".pdf"
         transform_pdf.img2pdf(img_path, pdf_path)
         return page_num, file_type_id

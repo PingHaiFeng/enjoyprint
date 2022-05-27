@@ -87,11 +87,9 @@
 </template>
 
   <script>
-import { getPrice } from "@/api/price";
-import { setPrice } from "@/api/price";
-import { getToken } from "@/utils/auth"; // get token from cookie
-import store from "@/store"; // get token from cookie
-const store_id = store.getters.store_id;
+
+
+
 export default {
   data() {
     return {
@@ -118,123 +116,9 @@ export default {
     // this.getPriceData();
   },
   methods: {
-    //打开新建修改价格表单
-    openPriceDialog(row, index) {
-    //   if (index >= 0) {
-    //     console.log(row);
-    //     this.action = 3;
-    //     this.currentIndex = index;
-    //     var pl = row.type_param.split("-");
-    //     this.discount_form.system_type = "手机自助";
-    //     this.discount_form.size = pl[0];
-    //     this.discount_form.color = pl[1];
-    //     this.discount_form.duplex = pl[2];
-    //     this.discount_form.price = row.price;
-    //   } else {
-    //     this.action = 1;
-    //     this.currentIndex = -1;
-        
-    //   }
-      this.dialogFormVisible = true;
-    },
 
-    //重置价格
-    resetPrice(formName) {
-      var that = this;
-      var type_param =
-        this.discount_form.size +
-        "-" +
-        this.discount_form.color +
-        "-" +
-        this.discount_form.duplex;
-      var price = this.discount_form.price;
-      if (price < 0.01) {
-        this.$message({
-          message: "价格必须大于0.01",
-          type: "error",
-        });
-        return;
-      }
-      for (let i = 0; i < this.price_list.length; i++) {
-        if (this.action == 1) {
-          if (type_param == this.price_list[i].type_param) {
-            this.$message({
-              message: "类型已存在",
-              type: "error",
-            });
-            return;
-          }
-        } else if (this.action == 3) {
-          if (
-            type_param == this.price_list[i].type_param &&
-            i != this.currentIndex
-          ) {
-            this.$message({
-              message: "类型已存在，请勿重复设置",
-              type: "error",
-            });
-            return;
-          }
-        }
-      }
-      var data = {
-        action: this.action,
-        store_id: store_id,
-        type_param: type_param,
-        price: price,
-      };
 
-      setPrice(data).then((res) => {
-        console.log(res);
-        if (res.state == 1) {
-          this.$message({
-            message: res.msg,
-            type: "success",
-          });
-          that.getPriceData();
-        }
-      });
-      this.dialogFormVisible = false;
-    },
-    // 删除价格
-    deletePrice(row) {
-      var that = this;
-      this.$confirm("确认删除此价格?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
-      })
-        .then(() => {
-          var data = {
-            action: 2,
-            // store_id: row.store_id,
-            type_param: row.type_param,
-          };
 
-          setPrice(data).then((res) => {
-            if (res.state == 1) {
-              this.$message({
-                message: "删除成功",
-                type: "success",
-              });
-              that.getPriceData();
-            }
-          });
-        })
-        .catch(() => {});
-    },
-    //服务端获取价格数据
-    getPriceData() {
-      getPrice().then((response) => {
-        console.log(response.data);
-        if (response.data.price_list) {
-          this.price_list = response.data.price_list;
-        }
-
-        this.listLoading = false;
-        console.log(this.price_list);
-      });
-    },
   },
 };
 </script>

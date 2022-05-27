@@ -132,6 +132,7 @@
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button type="primary" @click="submitForm">确 定</el-button>
+          <el-button @click="cancel">取 消</el-button>
         </div>
       </el-dialog>
     </el-main>
@@ -139,7 +140,13 @@
 </template>
 
   <script>
-import { listPrice, updatePrice, delPrice, addPrice } from "@/api/price";
+import {
+  listPrice,
+  updatePrice,
+  delPrice,
+  addPrice,
+  getPrice,
+} from "@/api/price";
 export default {
   data() {
     return {
@@ -207,12 +214,20 @@ export default {
     handleAdd() {
       this.reset();
       this.open = true;
-      this.title = "添加岗位管理";
+    },
+    // 取消按钮
+    cancel() {
+      this.open = false;
+      this.reset();
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
-      this.open = true;
-      this.form = row;
+      const id = row.id || this.ids;
+      getPrice(id).then((response) => {
+        this.form = response.data;
+        this.open = true;
+        this.title = "修改价格";
+      });
     },
 
     /** 删除按钮操作 */
@@ -232,13 +247,15 @@ export default {
     // 校检是否重复配置
     isRepeat() {
       var self = this;
-      var repeatList = this.priceList.filter(function(item) {
-       if( item.paper_type == self.form.paper_type &&
+      var repeatList = this.priceList.filter(function (item) {
+        if (
+          item.paper_type == self.form.paper_type &&
           item.color == self.form.color &&
           item.size == self.form.size &&
-          item.duplex == self.form.duplex){
-            return item
-          }
+          item.duplex == self.form.duplex
+        ) {
+          return item;
+        }
       });
       if (repeatList.length > 0) {
         this.$modal.msgError("已有相同配置，请勿重复添加");

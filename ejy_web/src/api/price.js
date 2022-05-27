@@ -3,8 +3,15 @@ import request from '@/utils/request'
 
 export function listPrice() {
     return request({
-        url: '/web/price',
+        url: '/web/list-price',
         method: 'get',
+    })
+}
+export function getPrice(id) {
+    return request({
+        url: `/web/price?id=${id}`,
+        method: 'get',
+       
     })
 }
 export function addPrice(data) {

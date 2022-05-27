@@ -18,9 +18,9 @@ export function listDoc() {
     })
 }
 
-export function getDoc() {
+export function getDoc(file_id) {
     return request({
-        url: '/web/doc',
+        url: `/web/doc?file_id=${file_id}`,
         method: 'get',
     })
 }
@@ -42,6 +42,34 @@ export function updateDoc(data) {
 export function delDoc(ids) {
     return request({
         url: `/web/doc?ids=${ids}`,
+        method: 'delete',
+       
+    })
+}
+export function getFolder(folder_id) {
+    return request({
+        url: '/web/doc-folder?folder_id='+folder_id,
+        method: 'get',
+    })
+}
+export function addFolder(data) {
+    return request({
+        url: '/web/doc-folder',
+        method: 'post',
+        data
+    })
+}
+export function updateFolder(data) {
+    return request({
+        url: '/web/doc-folder',
+        method: 'put',
+        data
+    })
+}
+
+export function delFolder(ids) {
+    return request({
+        url: `/web/doc-folder?folder_ids=${ids}`,
         method: 'delete',
        
     })

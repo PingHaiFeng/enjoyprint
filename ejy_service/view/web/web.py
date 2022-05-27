@@ -85,6 +85,14 @@ def handlePrinter():
             list = model_to_dict(Printer.query.filter_by(store_id=store_account.store_id))
             return State.success(data={"list":list,"cur_computer_id":cur_computer_id})
 
+# 获取价格列表
+@web.route('/list-price', methods=["POST", "GET"])
+@login_required
+@except_logger
+def list_price():
+    store_id = verify_token(request.headers["X-Token"]).store_id
+    list = model_to_dict(Price.query.filter_by(store_id=store_id))
+    return State.success(data={"list": list})
 
 
 #价格设置
@@ -112,8 +120,9 @@ def handlePrice():
         return State.success()
     '''查'''  
     if request.method == 'GET':
-        list = model_to_dict(Price.query.filter_by(store_id=store_id))
-        return State.success(data={"list": list})
+        id = request.args.get('id')
+        data = model_to_dict(Price.query.filter_by(store_id=store_id,id = id).first())
+        return State.success(data=data)
 
 
 
@@ -171,7 +180,6 @@ def list_order():
 @except_logger
 def get_file_order():
     order_id = request.args.get("order_id")
-    print(order_id)
     total = FileOrder.query.filter_by(order_id=order_id).count()
     list = model_to_dict(FileOrder.query.filter_by(order_id=order_id).all())
     return State.success(data={"list": list,"total":total})
@@ -274,12 +282,12 @@ def create_printer_ewm():
         img.save(f)
     return send_from_directory(Path, img_name, as_attachment=True)
 
-# 获取文库文件夹列表
+# 获取文件夹列表
 @web.route('/list-doc-folder', methods=["POST", "GET"])
 @login_required
 @except_logger
 def list_folder():
-    list =  model_to_dict(DocFolder.query.all())
+    list =  model_to_dict(DocFolder.query.order_by(DocFolder.on_sale.desc()).all())
     return State.success(data={"list": list})
 
 # 获取文件列表
@@ -288,15 +296,22 @@ def list_folder():
 @login_required
 def list_doc():
     store_id = verify_token(request.headers["X-Token"]).store_id
-    list =  model_to_dict(Doc.query.filter_by(store_id=store_id).order_by(Doc.ishot.desc()).all())
+    list =  model_to_dict(Doc.query.filter_by(store_id=store_id).order_by(Doc.on_sale.desc()).all())
     return State.success(data={"list": list})
 
-#价格设置
+
+#文件设置
 @web.route('/doc', methods=["POST", "GET", "PUT", "DELETE"])
 @login_required
 @except_logger
 def handleDoc():
     store_id = verify_token(request.headers["X-Token"]).store_id
+    '''改'''
+    if request.method == "PUT": 
+        data = request.form.to_dict()
+        Doc.query.filter_by(file_id=data.get("file_id"),store_id=store_id).update(data)
+        db.session.commit()
+        return State.success()
     '''删'''
     if request.method == "DELETE":
         ids = request.args.get('ids')
@@ -304,7 +319,41 @@ def handleDoc():
             Doc.query.filter_by(id=id,store_id=store_id).delete()
             db.session.commit()
         return State.success()
-
+    '''查'''  
+    if request.method == 'GET':
+        file_id = request.args.get("file_id")
+        data = model_to_dict(Doc.query.filter_by(store_id=store_id,file_id=file_id).first())
+        return State.success(data=data)
+#文件夹
+@web.route('/doc-folder', methods=["POST", "GET", "PUT", "DELETE"])
+@login_required
+@except_logger
+def doc_folder():
+    store_id = verify_token(request.headers["X-Token"]).store_id
+    '''增'''
+    if request.method == "POST":
+        print(request.form)
+        db.session.add(DocFolder(store_id=store_id,data=request.form))
+        db.session.commit()
+        return State.success()
+    '''删'''
+    if request.method == "DELETE":
+        folder_ids = request.args.get('folder_ids').split(",")
+        for folder_id in folder_ids:
+            DocFolder.query.filter_by(folder_id=folder_id,store_id=store_id).delete()
+            db.session.commit()
+        return State.success()
+    '''改'''
+    if request.method == "PUT": 
+        data = request.form.to_dict()
+        DocFolder.query.filter_by(folder_id=data.get("folder_id"),store_id=store_id).update(data)
+        db.session.commit()
+        return State.success()
+    '''查'''  
+    if request.method == 'GET':
+        folder_id = request.args.get("folder_id")
+        data = model_to_dict(DocFolder.query.filter_by(store_id=store_id,folder_id=folder_id).first())
+        return State.success(data=data)
 
 # 接收上传的文件
 @web.route('/doc-upload', methods=["POST", "GET"])
@@ -314,6 +363,8 @@ def doc_upload():
     file = request.files.get("file")  # 待接收文件
     file_name = request.form.get("file_name")  # 文件名带扩展名
     folder_id = request.form.get("folder_id")
+    on_sale = request.form.get("on_sale")
+    commission = request.form.get("commission")
     file_type = file_name.split(".")[-1]  # 文件扩展名
     file_id = make_file_id()
     download_url = LIB_UPLOAD_PATH + file_id+".pdf"
@@ -321,16 +372,18 @@ def doc_upload():
         data = file.read()
         f.write(data)
     file_page_num, file_type_id = readFiles(LIB_UPLOAD_PATH,file_id,  file_type)  # 返回文件页数和文件图标路径
-    download_url = "https://cloudprint.pinghaifeng.cn/pdf_view/web/library/"+file_id+".pdf"
+    download_url = "https://cloudprint.pinghaifeng.cn/pdf_view/web/library/" + file_id + ".pdf"
     db.session.add(Doc(
-        file_id=file_id,
-        file_type="pdf",
-        folder_id=folder_id,
+        file_id = file_id,
+        file_type = "pdf",
+        folder_id = folder_id,
         file_type_id = 1,
-        store_id=store_id,
-        file_name=file_name[::-1].split(".", 1)[-1][::-1],  # 取消后缀名,
-        file_page_num=file_page_num,
-        download_url=download_url
+        on_sale = on_sale,
+        store_id = store_id,
+        file_name = file_name[::-1].split(".", 1)[-1][::-1],  # 取消后缀名,
+        file_page_num = file_page_num,
+        download_url = download_url,
+        commission = commission
     ))
     db.session.commit()
     return State.success()
